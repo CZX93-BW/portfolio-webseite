@@ -1,0 +1,31 @@
+.hero {
+  min-height: calc(100vh - 88px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.hero__content {
+  display: grid;
+  justify-items: center;
+  gap: 32px;
+}
+
+.hero__eyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(2rem, 6vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 9rem);
+  line-height: 0.95;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 24px;
+}
