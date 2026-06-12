@@ -1,0 +1,9 @@
+body {
+  background: var(--color-background);
+  overflow-x: hidden;
+}
+
+::selection {
+  color: var(--color-background);
+  background: var(--color-primary);
+}

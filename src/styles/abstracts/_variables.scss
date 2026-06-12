@@ -1,0 +1,21 @@
+:root {
+  --color-background: #080f0f;
+  --color-surface: #10201f;
+  --color-primary: #3ecfb6;
+  --color-primary-dark: #1c8f80;
+  --color-text: #ffffff;
+  --color-muted: #b7c7c4;
+  --color-border: rgba(62, 207, 182, 0.42);
+
+  --font-family-base: Arial, Helvetica, sans-serif;
+
+  --container-width: 1440px;
+  --container-padding: 32px;
+
+  --transition-fast: 160ms ease;
+}
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
