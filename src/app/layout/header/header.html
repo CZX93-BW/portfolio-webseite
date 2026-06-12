@@ -1,1 +1,19 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container header__content">
+    <nav class="header__navigation" aria-label="Main navigation">
+      <a routerLink="/" fragment="about-me">About me</a>
+      <a routerLink="/" fragment="skills">Skills</a>
+      <a routerLink="/" fragment="projects">Projects</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="header__language-button" type="button">EN</button>
+      <span class="header__language-divider">|</span>
+      <button class="header__language-button" type="button">DE</button>
+    </div>
+
+    <a class="header__logo" routerLink="/" aria-label="Go to homepage">
+      LM
+    </a>
+  </div>
+</header>
