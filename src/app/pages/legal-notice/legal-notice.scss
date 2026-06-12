@@ -1,0 +1,22 @@
+.legal-notice {
+  min-height: 100vh;
+}
+
+.legal-notice__content {
+  max-width: 960px;
+}
+
+.legal-notice__back-link {
+  display: inline-flex;
+  margin-bottom: 48px;
+}
+
+.legal-notice__text {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.legal-notice__text h2 {
+  color: var(--color-primary);
+}
