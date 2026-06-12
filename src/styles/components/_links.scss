@@ -7,3 +7,8 @@ a {
 a:hover {
   color: var(--color-primary);
 }
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}

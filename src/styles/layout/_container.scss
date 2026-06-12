@@ -1,4 +1,25 @@
 .container {
-  width: min(100% - calc(var(--container-padding) * 2), var(--container-width));
+  width: min(
+    100% - calc(var(--container-padding-desktop) * 2),
+    var(--content-max-width)
+  );
   margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: min(
+      100% - calc(var(--container-padding-tablet) * 2),
+      var(--content-max-width)
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(
+      100% - calc(var(--container-padding-mobile) * 2),
+      var(--content-max-width)
+    );
+  }
 }

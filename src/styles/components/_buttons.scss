@@ -1,31 +1,53 @@
 .button {
+  position: relative;
   display: inline-flex;
-  min-height: 48px;
+  min-height: var(--button-height);
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-primary);
-  border-radius: 999px;
-  padding: 0 28px;
-  font-weight: 600;
+  gap: var(--button-gap);
+  overflow: hidden;
+  border: var(--button-border-width) solid var(--color-border-light);
+  border-radius: var(--button-radius);
+  padding-inline: var(--button-padding-x);
+  color: var(--color-white);
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+  line-height: var(--line-height-default);
   text-decoration: none;
   transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.button--primary {
-  color: var(--color-background);
-  background: var(--color-primary);
-}
-
-.button--secondary {
-  color: var(--color-primary);
-  background: transparent;
+    border-color var(--transition-default),
+    color var(--transition-default),
+    background-color var(--transition-default);
 }
 
 .button:hover {
-  color: var(--color-background);
-  background: var(--color-text);
-  border-color: var(--color-text);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.button--primary {
+  color: var(--color-white);
+  background: transparent;
+}
+
+.button--primary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button--secondary {
+  color: var(--color-white);
+  background: transparent;
+}
+
+.button--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }

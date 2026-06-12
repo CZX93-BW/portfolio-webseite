@@ -2,3 +2,16 @@
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
 }
+
+@mixin desktop-container {
+  width: min(100%, var(--page-max-width));
+  margin-inline: auto;
+}
+
+@mixin content-container {
+  width: min(
+    100% - calc(var(--container-padding-desktop) * 2),
+    var(--content-max-width)
+  );
+  margin-inline: auto;
+}

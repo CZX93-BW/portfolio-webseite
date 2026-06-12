@@ -1,3 +1,9 @@
 .section {
-  padding: 120px 0;
+  padding: var(--section-padding-desktop) 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-padding-mobile) 0;
+  }
 }

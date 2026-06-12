@@ -1,18 +1,88 @@
 :root {
-  --color-background: #080f0f;
-  --color-surface: #10201f;
-  --color-primary: #3ecfb6;
-  --color-primary-dark: #1c8f80;
+  --color-background: #1c1c1c;
+  --color-background-dark: #0b1b10;
+  --color-background-green: #08463b;
+  --color-surface: rgba(11, 27, 16, 0.5);
+  --color-surface-light: rgba(255, 255, 255, 0.12);
+
+  --color-primary: #3dcfb6;
+  --color-primary-light: #6ad7bf;
+  --color-secondary: #26e6cf;
+
+  --color-white: #ffffff;
   --color-text: #ffffff;
-  --color-muted: #b7c7c4;
-  --color-border: rgba(62, 207, 182, 0.42);
+  --color-text-muted: rgba(255, 255, 255, 0.8);
+  --color-text-primary-muted: rgba(61, 207, 182, 0.5);
 
-  --font-family-base: Arial, Helvetica, sans-serif;
+  --color-border: #3dcfb6;
+  --color-border-light: #ffffff;
 
-  --container-width: 1440px;
-  --container-padding: 32px;
+  --font-primary: 'Karla', Arial, Helvetica, sans-serif;
+  --font-accent: 'Fira Code', 'Courier New', monospace;
+  --font-mono: 'Roboto Mono', 'Courier New', monospace;
 
-  --transition-fast: 160ms ease;
+  --font-size-navigation: 20px;
+  --font-size-language: 16px;
+  --font-size-button: 18px;
+  --font-size-body: 18px;
+  --font-size-marquee: 32px;
+  --font-size-hero-role: 40px;
+  --font-size-hero-name: 128px;
+
+  --line-height-tight: 100%;
+  --line-height-default: 120%;
+  --letter-spacing-navigation: -0.03em;
+  --letter-spacing-hero-name: -0.02em;
+
+  --page-max-width: 1440px;
+  --content-max-width: 1248px;
+  --container-padding-desktop: 96px;
+  --container-padding-tablet: 48px;
+  --container-padding-mobile: 24px;
+
+  --header-height-desktop: 98px;
+  --header-height-mobile: 80px;
+
+  --section-padding-desktop: 144px;
+  --section-padding-mobile: 96px;
+
+  --button-height: 48px;
+  --button-padding-x: 24px;
+  --button-radius: 100px;
+  --button-border-width: 1px;
+  --button-gap: 10px;
+
+  --language-switch-width: 84px;
+  --language-switch-height: 28px;
+  --language-switch-item-width: 44px;
+
+  --radius-pill: 100px;
+  --radius-card: 30px;
+  --radius-small: 8px;
+
+  --hero-gradient: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
+  --header-gradient: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 13.56%,
+    rgba(0, 0, 0, 0.6) 84.01%
+  );
+  --skills-gradient: radial-gradient(
+    22.43% 43.85% at 1.22% 52.45%,
+    rgba(8, 70, 59, 0.3) 0%,
+    #1c1c1c 100%
+  );
+
+  --marquee-height: 62px;
+  --marquee-gap: 56px;
+  --marquee-padding-x: 32px;
+  --marquee-padding-y: 12px;
+  --marquee-background: rgba(255, 255, 255, 0.12);
+  --marquee-blur: 5.3px;
+  --marquee-duration: 10000ms;
+
+  --transition-fast: 100ms ease-out;
+  --transition-default: 300ms ease-out;
+  --transition-slow: 1000ms ease-out;
 }
 
 $breakpoint-mobile: 480px;
