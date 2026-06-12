@@ -1,0 +1,45 @@
+.footer {
+  border-top: 1px solid rgba(62, 207, 182, 0.24);
+  padding: 48px 0;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 32px;
+}
+
+.footer__brand {
+  display: grid;
+  gap: 8px;
+}
+
+.footer__brand p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.footer__logo {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.footer__copyright {
+  margin: 0;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
