@@ -1,19 +1,25 @@
 <header class="header">
-  <div class="container header__content">
-    <nav class="header__navigation" aria-label="Main navigation">
-      <a routerLink="/" fragment="about-me">About me</a>
-      <a routerLink="/" fragment="skills">Skills</a>
-      <a routerLink="/" fragment="projects">Projects</a>
-    </nav>
+  <div class="header__content">
+    <div class="header__left">
+      <div class="header__language-switch" aria-label="Language selection">
+        <button class="header__language-option header__language-option--active" type="button">
+          EN
+        </button>
+        <button class="header__language-option" type="button">
+          DE
+        </button>
+      </div>
 
-    <div class="header__actions">
-      <button class="header__language-button" type="button">EN</button>
-      <span class="header__language-divider">|</span>
-      <button class="header__language-button" type="button">DE</button>
+      <nav class="header__navigation" aria-label="Main navigation">
+        <a class="header__navigation-link" routerLink="/" fragment="about-me">About me</a>
+        <a class="header__navigation-link" routerLink="/" fragment="skills">Skills</a>
+        <a class="header__navigation-link" routerLink="/" fragment="projects">Projects</a>
+      </nav>
     </div>
 
     <a class="header__logo" routerLink="/" aria-label="Go to homepage">
-      BW
+      <span class="header__logo-mark">BW</span>
+      <span class="header__logo-text">Bastian</span>
     </a>
   </div>
 </header>
