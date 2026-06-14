@@ -45,8 +45,11 @@
 
 .hero__left-lateral {
   position: absolute;
-  left: var(--container-padding-desktop);
   bottom: 0;
+  left: max(
+    var(--container-padding-desktop),
+    calc((100vw - var(--content-max-width)) / 2)
+  );
   display: grid;
   justify-items: center;
   gap: 24px;
@@ -72,7 +75,10 @@
 
 .hero__right-lateral {
   position: absolute;
-  right: var(--container-padding-desktop);
+  right: max(
+    var(--container-padding-desktop),
+    calc((100vw - var(--content-max-width)) / 2)
+  );
   bottom: 0;
   display: grid;
   justify-items: center;
@@ -133,9 +139,9 @@
 
 .hero__marquee {
   position: absolute;
-  left: 50%;
   bottom: 42px;
-  width: 1480px;
+  left: 50%;
+  width: 110vw;
   height: var(--marquee-height);
   overflow: hidden;
   background: var(--marquee-background);

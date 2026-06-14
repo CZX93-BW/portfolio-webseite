@@ -6,7 +6,10 @@
   display: grid;
   grid-template-columns: 520px 1fr;
   gap: 96px;
-  width: min(100% - calc(var(--container-padding-desktop) * 2), 1248px);
+  width: min(
+    calc(100% - (var(--container-padding-desktop) * 2)),
+    var(--content-max-width)
+  );
   margin-inline: auto;
   align-items: start;
 }
