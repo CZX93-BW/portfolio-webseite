@@ -1,0 +1,136 @@
+.skills {
+  background: var(--skills-gradient);
+}
+
+.skills__container {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 96px;
+  width: min(100% - calc(var(--container-padding-desktop) * 2), 1248px);
+  margin-inline: auto;
+  align-items: start;
+}
+
+.skills__content {
+  display: grid;
+  gap: 20px;
+}
+
+.skills__label {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+}
+
+.skills__card {
+  display: grid;
+  gap: 40px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  background: rgba(61, 207, 182, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.skills__card h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-navigation);
+}
+
+.skills__text-content {
+  display: grid;
+  gap: 32px;
+}
+
+.skills__intro {
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: var(--line-height-default);
+  text-align: justify;
+}
+
+.skills__contact {
+  display: grid;
+  gap: 16px;
+}
+
+.skills__contact h3 {
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-accent);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: var(--line-height-default);
+}
+
+.skills__contact span {
+  color: var(--color-primary);
+}
+
+.skills__contact p {
+  margin: 0;
+  max-width: 331px;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: var(--line-height-default);
+}
+
+.skills__button {
+  width: fit-content;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 104px);
+  column-gap: 48px;
+  row-gap: 40px;
+  padding-top: 48px;
+}
+
+.skills__item {
+  display: grid;
+  width: 104px;
+  min-height: 116px;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  color: var(--color-white);
+  transition:
+    color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.skills__item:hover {
+  color: var(--color-primary);
+  transform: translateY(-6px);
+}
+
+.skills__icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.skills__item p {
+  margin: 0;
+  color: currentColor;
+  font-family: var(--font-accent);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: var(--line-height-default);
+  letter-spacing: var(--letter-spacing-navigation);
+  text-align: center;
+}
