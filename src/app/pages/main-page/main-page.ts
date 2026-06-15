@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AboutMe } from '../../sections/about-me/about-me';
 import { Contact } from '../../sections/contact/contact';
-import { FeaturedProjects } from '../../sections/featured-projects/featured-projects';
+import { FeaturedProjectsComponent } from '../../sections/featured-projects/featured-projects';
 import { Hero } from '../../sections/hero/hero';
 import { SkillSet } from '../../sections/skill-set/skill-set';
 import { Testimonials } from '../../sections/testimonials/testimonials';
@@ -12,7 +12,7 @@ import { Testimonials } from '../../sections/testimonials/testimonials';
     Hero,
     AboutMe,
     SkillSet,
-    FeaturedProjects,
+    FeaturedProjectsComponent,
     Testimonials,
     Contact,
   ],
