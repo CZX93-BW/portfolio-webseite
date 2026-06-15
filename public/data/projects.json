@@ -1,0 +1,58 @@
+[
+  {
+    "id": "join",
+    "number": "01",
+    "title": "Join",
+    "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+    "technologies": [
+      {
+        "name": "Angular",
+        "iconPath": "icons/skillicons/angular.svg"
+      },
+      {
+        "name": "TypeScript",
+        "iconPath": "icons/skillicons/typescript.svg"
+      },
+      {
+        "name": "HTML",
+        "iconPath": "icons/skillicons/html.svg"
+      },
+      {
+        "name": "CSS",
+        "iconPath": "icons/skillicons/css.svg"
+      },
+      {
+        "name": "Firebase",
+        "iconPath": "icons/skillicons/superbase.svg"
+      }
+    ],
+    "previewImagePath": "",
+    "dialogImagePath": "",
+    "githubUrl": "",
+    "liveUrl": ""
+  },
+  {
+    "id": "sharky",
+    "number": "02",
+    "title": "Sharky",
+    "description": "",
+    "technologies": [
+      {
+        "name": "JavaScript",
+        "iconPath": "icons/skillicons/javascript.svg"
+      },
+      {
+        "name": "HTML",
+        "iconPath": "icons/skillicons/html.svg"
+      },
+      {
+        "name": "CSS",
+        "iconPath": "icons/skillicons/css.svg"
+      }
+    ],
+    "previewImagePath": "",
+    "dialogImagePath": "",
+    "githubUrl": "",
+    "liveUrl": ""
+  }
+]
