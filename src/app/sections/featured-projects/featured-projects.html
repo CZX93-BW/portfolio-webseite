@@ -1,8 +1,119 @@
-<section class="section" aria-labelledby="featured-projects-title">
-  <div class="container">
-    <h2 id="featured-projects-title">Featured Projects</h2>
-    <p>
-      This section will list the portfolio projects and open the project dialog.
-    </p>
+<section class="projects section" id="projects" aria-labelledby="projects-title">
+  <div class="projects__container">
+    <div class="projects__content">
+      <header class="projects__header">
+        <p class="projects__label">Portfolio</p>
+        <h2 id="projects-title">Featured Projects</h2>
+
+        <p class="projects__intro">
+          Explore a selection of my work here - Interact with projects to see
+          my skills in action.
+        </p>
+      </header>
+
+      <div class="projects__list">
+        @for (project of projects(); track project.id) {
+          <button
+            class="projects__item"
+            type="button"
+            (click)="openProjectDialog(project)"
+            (mouseenter)="showProjectPreview(project)"
+            (mouseleave)="hideProjectPreview()"
+            (focus)="showProjectPreview(project)"
+            (blur)="hideProjectPreview()"
+          >
+            <span class="projects__title">{{ project.title }}</span>
+
+            <span class="projects__technologies">
+              @for (
+                technology of project.technologies;
+                track technology.name;
+                let last = $last
+              ) {
+                <span>{{ technology.name }}</span>
+
+                @if (!last) {
+                  <span class="projects__separator">|</span>
+                }
+              }
+            </span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <aside class="projects__preview" aria-hidden="true">
+      @if (activeProject()?.previewImagePath) {
+        <div class="projects__preview-frame">
+          <img
+            [src]="activeProject()?.previewImagePath"
+            [alt]="activeProject()?.title"
+          />
+        </div>
+      }
+    </aside>
   </div>
+
+  @if (selectedProject(); as project) {
+    <div class="projects-dialog" role="dialog" aria-modal="true" (click)="closeProjectDialog()">
+      <article class="projects-dialog__card" (click)="$event.stopPropagation()">
+        <button
+          class="projects-dialog__close"
+          type="button"
+          aria-label="Close project dialog"
+          (click)="closeProjectDialog()"
+        >
+          ×
+        </button>
+
+        <div class="projects-dialog__content">
+          <p class="projects-dialog__number">{{ project.number }}</p>
+          <h3>{{ project.title }}</h3>
+
+          <div class="projects-dialog__description">
+            <h4>What is this project about?</h4>
+            <p>{{ project.description || 'Project description will be added soon.' }}</p>
+          </div>
+
+          <div class="projects-dialog__technologies">
+            @for (technology of project.technologies; track technology.name) {
+              <span>
+                @if (technology.iconPath) {
+                  <img [src]="technology.iconPath" [alt]="technology.name" />
+                }
+
+                {{ technology.name }}
+              </span>
+            }
+          </div>
+
+          <div class="projects-dialog__actions">
+            @if (project.githubUrl) {
+              <a class="button button--secondary" [href]="project.githubUrl" target="_blank" rel="noopener">
+                GitHub ↗
+              </a>
+            } @else {
+              <span class="button button--secondary projects-dialog__button--disabled">GitHub ↗</span>
+            }
+
+            @if (project.liveUrl) {
+              <a class="button button--secondary" [href]="project.liveUrl" target="_blank" rel="noopener">
+                Live Test ↗
+              </a>
+            } @else {
+              <span class="button button--secondary projects-dialog__button--disabled">Live Test ↗</span>
+            }
+          </div>
+        </div>
+
+        @if (project.dialogImagePath) {
+          <img class="projects-dialog__image" [src]="project.dialogImagePath" [alt]="project.title" />
+        }
+
+        <button class="projects-dialog__next" type="button" (click)="showNextProject()">
+          Next project →
+        </button>
+      </article>
+    </div>
+  }
 </section>
