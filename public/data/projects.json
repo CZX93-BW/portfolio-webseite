@@ -26,8 +26,8 @@
         "iconPath": "icons/skillicons/superbase.svg"
       }
     ],
-    "previewImagePath": "",
-    "dialogImagePath": "",
+    "previewImagePath": "img/joinbsp.jpg",
+    "dialogImagePath": "img/joinbsp.jpg",
     "githubUrl": "",
     "liveUrl": ""
   },
