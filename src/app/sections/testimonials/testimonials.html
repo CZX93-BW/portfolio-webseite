@@ -1,8 +1,73 @@
-<section class="section" aria-labelledby="testimonials-title">
-  <div class="container">
-    <h2 id="testimonials-title">What my colleagues say about me</h2>
-    <p>
-      Placeholder for Testimonials
-    </p>
+<section
+  class="testimonials section"
+  aria-labelledby="testimonials-title"
+  id="testimonials"
+>
+  <h2 id="testimonials-title" class="testimonials__title">
+    What my colleagues say about me
+  </h2>
+
+  <div class="testimonials__carousel" aria-label="Testimonials carousel">
+    <div class="testimonials__fade" aria-hidden="true"></div>
+
+    <div class="testimonials__track">
+      @for (testimonial of testimonials; track testimonial.id; let index = $index) {
+        <article
+          class="testimonials__card"
+          [class]="getCardClass(index)"
+        >
+          @if (index === activeIndex) {
+            <img
+              class="testimonials__quotes"
+              src="icons/highlights/quotes.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          }
+
+          <p class="testimonials__quote">
+            {{ testimonial.quote }}
+          </p>
+
+          <footer class="testimonials__footer">
+            <span class="testimonials__line" aria-hidden="true"></span>
+            <p>{{ testimonial.author }} - {{ testimonial.role }}</p>
+          </footer>
+        </article>
+      }
+    </div>
+
+    <div class="testimonials__controls" aria-label="Carousel controls">
+      <button
+        class="testimonials__arrow"
+        type="button"
+        aria-label="Show previous testimonial"
+        (click)="showPreviousTestimonial()"
+      >
+        <img src="icons/highlights/arrows_left.svg" alt="" aria-hidden="true" />
+      </button>
+
+      <div class="testimonials__dots" aria-label="Select testimonial">
+        @for (testimonial of testimonials; track testimonial.id; let index = $index) {
+          <button
+            class="testimonials__dot"
+            type="button"
+            [class.testimonials__dot--active]="index === activeIndex"
+            [attr.aria-label]="'Show testimonial ' + (index + 1)"
+            [attr.aria-current]="index === activeIndex"
+            (click)="selectTestimonial(index)"
+          ></button>
+        }
+      </div>
+
+      <button
+        class="testimonials__arrow"
+        type="button"
+        aria-label="Show next testimonial"
+        (click)="showNextTestimonial()"
+      >
+        <img src="icons/highlights/arrows_right.svg" alt="" aria-hidden="true" />
+      </button>
+    </div>
   </div>
 </section>
