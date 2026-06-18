@@ -1,0 +1,210 @@
+.contact {
+  background: var(--color-background);
+}
+
+.contact__container {
+  display: grid;
+  grid-template-columns: 568px 616px;
+  gap: 64px;
+  width: min(100% - calc(var(--container-padding-desktop) * 2), 1248px);
+  margin-inline: auto;
+  align-items: start;
+}
+
+.contact__content {
+  display: grid;
+  gap: 40px;
+}
+
+.contact__label {
+  margin: 0 0 -20px;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.contact__content h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.contact__text {
+  display: grid;
+  gap: 16px;
+}
+
+.contact__text h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.contact__text p {
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contact__text a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact__form {
+  display: grid;
+  border-top: 1px solid rgba(61, 207, 182, 0.5);
+}
+
+.contact__field {
+  display: grid;
+  min-height: 131px;
+  gap: 10px;
+  padding: 32px;
+  border-bottom: 1px solid rgba(61, 207, 182, 0.5);
+}
+
+.contact__field span {
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.contact__field input,
+.contact__field textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  resize: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contact__field input::placeholder,
+.contact__field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact__error {
+  min-height: 17px;
+  color: #e61c40;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contact__privacy {
+  display: grid;
+  gap: 8px;
+  min-height: 69px;
+  padding: 32px 0 0;
+}
+
+.contact__checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.contact__checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact__custom-checkbox {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-primary);
+  background: transparent;
+}
+
+.contact__checkbox input:checked + .contact__custom-checkbox {
+  background:
+    url('/icons/highlights/check_mark.svg') center / 16px 16px no-repeat,
+    transparent;
+}
+
+.contact__checkbox a {
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.contact__privacy-error {
+  min-height: 17px;
+  color: #e61c40;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contact__button {
+  justify-self: center;
+  width: fit-content;
+  min-width: 139px;
+  min-height: 48px;
+  margin-top: 16px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-default),
+    color var(--transition-default),
+    opacity var(--transition-default);
+}
+
+.contact__button:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.contact__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.contact__feedback {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  text-align: center;
+}

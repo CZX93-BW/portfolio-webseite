@@ -1,9 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {}
+export class ContactComponent {
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly contactService = inject(ContactService);
+
+  protected isSending = false;
+  protected wasSubmitted = false;
+  protected sendSuccess = false;
+  protected sendError = false;
+
+  protected readonly contactForm = this.formBuilder.nonNullable.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', [Validators.required, Validators.minLength(10)]],
+    privacyAccepted: [false, [Validators.requiredTrue]],
+  });
+
+  protected submitContactForm(): void {
+    this.wasSubmitted = true;
+
+    if (this.contactForm.invalid || this.isSending) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+
+    this.sendContactMessage();
+  }
+
+  protected shouldShowError(controlName: string): boolean {
+    const control = this.contactForm.get(controlName);
+    return !!control && control.invalid && (control.touched || this.wasSubmitted);
+  }
+
+  private sendContactMessage(): void {
+    this.isSending = true;
+    this.sendSuccess = false;
+    this.sendError = false;
+
+    const { name, email, message } = this.contactForm.getRawValue();
+
+    this.contactService.sendMessage({ name, email, message }).subscribe({
+      next: () => this.handleSendSuccess(),
+      error: () => this.handleSendError(),
+    });
+  }
+
+  private handleSendSuccess(): void {
+    this.isSending = false;
+    this.sendSuccess = true;
+    this.contactForm.reset();
+    this.wasSubmitted = false;
+  }
+
+  private handleSendError(): void {
+    this.isSending = false;
+    this.sendError = true;
+  }
+}

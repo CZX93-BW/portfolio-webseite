@@ -1,1 +1,123 @@
-Placeholder
+<section class="contact section" aria-labelledby="contact-title">
+  <div class="contact__container">
+    <div class="contact__content">
+      <p class="contact__label">Contact me</p>
+
+      <h2 id="contact-title">Let's work together</h2>
+
+      <div class="contact__text">
+        <h3>Got a problem to solve?</h3>
+
+        <p>
+          Encourage people to contact you and describe what role you are
+          interested in. Show that you will add value to their projects through
+          your work.
+        </p>
+
+        <p>
+          Need a Frontend developer?
+          <a href="#contact">Let's talk!</a>
+        </p>
+      </div>
+    </div>
+
+    <form
+      class="contact__form"
+      [formGroup]="contactForm"
+      (ngSubmit)="submitContactForm()"
+      novalidate
+    >
+      <label class="contact__field">
+        <span>What's your name?</span>
+
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Your name goes here"
+          autocomplete="name"
+        />
+
+        <small class="contact__error">
+          @if (shouldShowError('name')) {
+            Please enter your name.
+          }
+        </small>
+      </label>
+
+      <label class="contact__field">
+        <span>What's your email?</span>
+
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="youremail@email.com"
+          autocomplete="email"
+        />
+
+        <small class="contact__error">
+          @if (shouldShowError('email')) {
+            Please enter a valid email address.
+          }
+        </small>
+      </label>
+
+      <label class="contact__field">
+        <span>How can I help you?</span>
+
+        <textarea
+          formControlName="message"
+          placeholder="Hello Bastian, I am interested in..."
+          rows="3"
+        ></textarea>
+
+        <small class="contact__error">
+          @if (shouldShowError('message')) {
+            Please enter a message with at least 10 characters.
+          }
+        </small>
+      </label>
+
+      <div class="contact__privacy">
+        <label class="contact__checkbox">
+          <input type="checkbox" formControlName="privacyAccepted" />
+
+          <span class="contact__custom-checkbox" aria-hidden="true"></span>
+
+          <span>
+            I've read the
+            <a routerLink="/privacy-policy">privacy policy</a>
+            and agree to the processing of my data as outlined.
+          </span>
+        </label>
+
+        <small class="contact__privacy-error">
+          @if (shouldShowError('privacyAccepted')) {
+            Please accept the privacy policy.
+          }
+        </small>
+      </div>
+
+      <button
+        class="contact__button"
+        type="submit"
+        [disabled]="contactForm.invalid || isSending"
+      >
+        @if (isSending) {
+          Sending...
+        } @else {
+          Say Hello ;)
+        }
+      </button>
+
+      <p class="contact__feedback" aria-live="polite">
+        @if (sendSuccess) {
+          Your message has been sent successfully.
+        }
+
+        @if (sendError) {
+          Something went wrong. Please try again later.
+        }
+      </p>
+    </form>
+  </div>
+</section>
