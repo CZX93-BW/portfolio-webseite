@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 
-import { Testimonial } from '../../models/testimonial.model';
+import { translations } from '../../data/translations';
+import { LanguageService } from '../../services/language';
 
 @Component({
   selector: 'app-testimonials',
@@ -9,26 +10,15 @@ import { Testimonial } from '../../models/testimonial.model';
   styleUrl: './testimonials.scss',
 })
 export class TestimonialsComponent {
-  protected readonly testimonials: Testimonial[] = [
-    new Testimonial(
-      1,
-      'Our project benefited enormously from Bastian’s efficient way of working.',
-      'T. Schulz',
-      'Frontend Developer',
-    ),
-    new Testimonial(
-      2,
-      'Bastian has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.',
-      'H. Janisch',
-      'Team Partner',
-    ),
-    new Testimonial(
-      3,
-      'I had the good fortune of working with Bastian in a group project. He stayed focused, supported the team and contributed reliable technical solutions.',
-      'M. Weber',
-      'Project Partner',
-    ),
-  ];
+  private readonly languageService = inject(LanguageService);
+
+  protected readonly text = computed(() => {
+    return translations[this.languageService.currentLanguage()].testimonials;
+  });
+
+  protected readonly testimonials = computed(() => {
+    return this.text().items;
+  });
 
   protected activeIndex = 1;
 
@@ -62,12 +52,12 @@ export class TestimonialsComponent {
 
   private getPreviousIndex(): number {
     return this.activeIndex === 0
-      ? this.testimonials.length - 1
+      ? this.testimonials().length - 1
       : this.activeIndex - 1;
   }
 
   private getNextIndex(): number {
-    return this.activeIndex === this.testimonials.length - 1
+    return this.activeIndex === this.testimonials().length - 1
       ? 0
       : this.activeIndex + 1;
   }
