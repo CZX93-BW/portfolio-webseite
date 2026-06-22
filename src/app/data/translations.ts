@@ -1,4 +1,16 @@
 import { Language } from '../models/language';
+import { legalNoticeHtml, privacyPolicyHtml } from './legal-texts';
+
+type TranslationStructure = {
+  header: Record<string, string>;
+  hero: Record<string, unknown>;
+  about: Record<string, unknown>;
+  skills: Record<string, unknown>;
+  projects: Record<string, unknown>;
+  contact: Record<string, unknown>;
+  impressum: Record<string, unknown>;
+  privacyPolicy: Record<string, unknown>;
+};
 
 export const translations = {
   en: {
@@ -136,29 +148,11 @@ export const translations = {
     },
     legalNotice: {
       back: 'Back to main page',
-      title: 'Legal Notice',
-      tmgTitle: 'Information according to § 5 TMG',
-      tmgText: 'The final legal notice content will be added before deployment.',
-      contactTitle: 'Contact',
-      contactText: 'The final contact information will be added before deployment.',
-      responsibleTitle: 'Responsible for content',
-      responsibleText:
-        'The final responsible person information will be added before deployment.',
+      html: legalNoticeHtml.en,
     },
     privacyPolicy: {
       back: 'Back to main page',
-      title: 'Privacy Policy',
-      generalTitle: 'General information',
-      generalText: 'The final privacy policy content will be added before deployment.',
-      responsibleTitle: 'Responsible person',
-      responsibleText:
-        'The final responsible person information will be added before deployment.',
-      contactFormTitle: 'Contact form',
-      contactFormText:
-        'The final information about contact form data processing will be added before deployment.',
-      externalLinksTitle: 'External links',
-      externalLinksText:
-        'The final information about external profile and project links will be added before deployment.',
+      html: privacyPolicyHtml.en,
     },
   },
   de: {
@@ -294,32 +288,14 @@ export const translations = {
         privacyPolicy: 'Datenschutz',
       },
     },
+
     legalNotice: {
       back: 'Zurück zur Hauptseite',
-      title: 'Impressum',
-      tmgTitle: 'Angaben gemäß § 5 TMG',
-      tmgText: 'Der finale Impressumsinhalt wird vor dem Deployment ergänzt.',
-      contactTitle: 'Kontakt',
-      contactText: 'Die finalen Kontaktinformationen werden vor dem Deployment ergänzt.',
-      responsibleTitle: 'Verantwortlich für den Inhalt',
-      responsibleText:
-        'Die finalen Angaben zur verantwortlichen Person werden vor dem Deployment ergänzt.',
+      html: legalNoticeHtml.de,
     },
     privacyPolicy: {
       back: 'Zurück zur Hauptseite',
-      title: 'Datenschutzerklärung',
-      generalTitle: 'Allgemeine Informationen',
-      generalText:
-        'Der finale Inhalt der Datenschutzerklärung wird vor dem Deployment ergänzt.',
-      responsibleTitle: 'Verantwortliche Person',
-      responsibleText:
-        'Die finalen Angaben zur verantwortlichen Person werden vor dem Deployment ergänzt.',
-      contactFormTitle: 'Kontaktformular',
-      contactFormText:
-        'Die finalen Informationen zur Verarbeitung der Kontaktformulardaten werden vor dem Deployment ergänzt.',
-      externalLinksTitle: 'Externe Links',
-      externalLinksText:
-        'Die finalen Informationen zu externen Profil- und Projektlinks werden vor dem Deployment ergänzt.',
+      html: privacyPolicyHtml.de,
     },
   },
 } as const satisfies Record<Language, object>;
