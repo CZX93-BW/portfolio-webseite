@@ -2,29 +2,20 @@
   {
     "id": "join",
     "number": "01",
-    "title": "Join",
-    "description": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+    "title": {
+      "en": "Join",
+      "de": "Join"
+    },
+    "description": {
+      "en": "Task manager inspired by the Kanban system. Create and organize tasks using drag and drop, assign users and categories.",
+      "de": "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben per Drag and Drop, weise Nutzer und Kategorien zu."
+    },
     "technologies": [
-      {
-        "name": "Angular",
-        "iconPath": "icons/skillicons/angular.svg"
-      },
-      {
-        "name": "TypeScript",
-        "iconPath": "icons/skillicons/typescript.svg"
-      },
-      {
-        "name": "HTML",
-        "iconPath": "icons/skillicons/html.svg"
-      },
-      {
-        "name": "CSS",
-        "iconPath": "icons/skillicons/css.svg"
-      },
-      {
-        "name": "Firebase",
-        "iconPath": "icons/skillicons/superbase.svg"
-      }
+      { "name": "Angular", "iconPath": "icons/skillicons/angular.svg" },
+      { "name": "TypeScript", "iconPath": "icons/skillicons/typescript.svg" },
+      { "name": "HTML", "iconPath": "icons/skillicons/html.svg" },
+      { "name": "CSS", "iconPath": "icons/skillicons/css.svg" },
+      { "name": "Firebase", "iconPath": "icons/skillicons/superbase.svg" }
     ],
     "previewImagePath": "img/joinbsp.jpg",
     "dialogImagePath": "img/joinbsp.jpg",
@@ -34,21 +25,18 @@
   {
     "id": "sharky",
     "number": "02",
-    "title": "Sharky",
-    "description": "",
+    "title": {
+      "en": "Sharky",
+      "de": "Sharky"
+    },
+    "description": {
+      "en": "A browser-based underwater jump and run game built with JavaScript, HTML and CSS.",
+      "de": "Ein browserbasiertes Unterwasser-Jump-and-Run-Spiel, umgesetzt mit JavaScript, HTML und CSS."
+    },
     "technologies": [
-      {
-        "name": "JavaScript",
-        "iconPath": "icons/skillicons/javascript.svg"
-      },
-      {
-        "name": "HTML",
-        "iconPath": "icons/skillicons/html.svg"
-      },
-      {
-        "name": "CSS",
-        "iconPath": "icons/skillicons/css.svg"
-      }
+      { "name": "JavaScript", "iconPath": "icons/skillicons/javascript.svg" },
+      { "name": "HTML", "iconPath": "icons/skillicons/html.svg" },
+      { "name": "CSS", "iconPath": "icons/skillicons/css.svg" }
     ],
     "previewImagePath": "",
     "dialogImagePath": "",
