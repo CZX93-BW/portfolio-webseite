@@ -30,7 +30,7 @@
         [attr.aria-label]="text().previousLabel"
         (click)="showPreviousTestimonial()"
       >
-        <img src="icons/highlights/arrows_left.svg" alt="" aria-hidden="true" />
+        <span class="testimonials__arrow-icon testimonials__arrow-icon--left" aria-hidden="true"></span>
       </button>
 
       <div class="testimonials__dots" aria-label="Select testimonial">
@@ -52,7 +52,7 @@
         [attr.aria-label]="text().nextLabel"
         (click)="showNextTestimonial()"
       >
-        <img src="icons/highlights/arrows_right.svg" alt="" aria-hidden="true" />
+        <span class="testimonials__arrow-icon testimonials__arrow-icon--right" aria-hidden="true"></span>
       </button>
     </div>
   </div>

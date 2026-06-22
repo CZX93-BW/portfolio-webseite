@@ -138,13 +138,34 @@
   transition: transform var(--transition-default);
 }
 
-.testimonials__arrow:hover {
-  transform: scale(1.1);
+.testimonials__arrow:hover,
+.testimonials__arrow:focus-visible {
+  outline: none;
+  transform: scale(1.12);
 }
 
-.testimonials__arrow img {
+.testimonials__arrow-icon {
+  display: block;
   width: 40px;
   height: 40px;
+  background: var(--color-white);
+  transition:
+    background-color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.testimonials__arrow-icon--left {
+  mask: url('/icons/highlights/arrows_left.svg') center / contain no-repeat;
+}
+
+.testimonials__arrow-icon--right {
+  mask: url('/icons/highlights/arrows_right.svg') center / contain no-repeat;
+}
+
+.testimonials__arrow:hover .testimonials__arrow-icon,
+.testimonials__arrow:focus-visible .testimonials__arrow-icon {
+  background: var(--color-primary);
+  transform: scale(1.12);
 }
 
 .testimonials__dots {

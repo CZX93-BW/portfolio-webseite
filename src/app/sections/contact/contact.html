@@ -67,11 +67,13 @@
       </div>
 
       <button class="contact__button" type="submit" [disabled]="contactForm.invalid || isSending">
-        @if (isSending) {
-          {{ text().sending }}
-        } @else {
-          {{ text().submit }}
-        }
+        <span>
+          @if (isSending) {
+            {{ text().sending }}
+          } @else {
+            {{ text().submit }}
+          }
+        </span>
       </button>
 
       <p class="contact__feedback" aria-live="polite">
