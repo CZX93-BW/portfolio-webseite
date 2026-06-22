@@ -13,33 +13,81 @@
   color: var(--color-primary);
   font-family: var(--font-accent);
   font-size: 18px;
+  text-decoration: none;
 }
 
-.privacy-policy h1 {
-  margin: 0;
+.privacy-policy__back-link:hover,
+.privacy-policy__back-link:focus-visible {
   color: var(--color-white);
-  font-family: var(--font-primary);
-  font-size: clamp(56px, 8vw, 96px);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-hero-name);
+  outline: none;
 }
 
 .privacy-policy__text {
   display: grid;
-  gap: 32px;
-  margin-top: 64px;
+  gap: 18px;
 }
 
-.privacy-policy__group {
-  display: grid;
-  gap: 16px;
+:host ::ng-deep .privacy-policy__text h1 {
+  margin: 0 0 32px;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: clamp(64px, 8vw, 96px);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-hero-name);
+  text-align: center;
 }
 
-.privacy-policy__group h2 {
+:host ::ng-deep .privacy-policy__text h2 {
+  margin: 48px 0 8px;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: clamp(28px, 4vw, 18px);
+  line-height: var(--line-height-tight);
+}
+
+:host ::ng-deep .privacy-policy__text h3 {
+  margin: 32px 0 4px;
+  color: var(--color-white);
+  font-family: var(--font-accent);
+  font-size: 28px;
+  line-height: var(--line-height-tight);
+}
+
+:host ::ng-deep .privacy-policy__text h4 {
+  margin: 20px 0 0;
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: 20px;
+  line-height: var(--line-height-default);
+}
+
+:host ::ng-deep .privacy-policy__text p,
+:host ::ng-deep .privacy-policy__text li {
   margin: 0;
-  font-size: clamp(28px, 4vw, 48px);
+  color: var(--color-text-muted);
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.privacy-policy__group p {
-  color: var(--color-text-muted);
+:host ::ng-deep .privacy-policy__text ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 24px;
+}
+
+:host ::ng-deep .privacy-policy__text a {
+  color: var(--color-primary);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+:host ::ng-deep .privacy-policy__text a:hover,
+:host ::ng-deep .privacy-policy__text a:focus-visible {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 4px;
+  outline: none;
 }

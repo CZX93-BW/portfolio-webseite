@@ -2,17 +2,6 @@
   <div class="container legal-notice__content">
     <a class="legal-notice__back-link" routerLink="/">{{ text().back }}</a>
 
-    <h1>{{ text().title }}</h1>
-
-    <div class="legal-notice__text">
-      <h2>{{ text().tmgTitle }}</h2>
-      <p>{{ text().tmgText }}</p>
-
-      <h2>{{ text().contactTitle }}</h2>
-      <p>{{ text().contactText }}</p>
-
-      <h2>{{ text().responsibleTitle }}</h2>
-      <p>{{ text().responsibleText }}</p>
-    </div>
+    <div class="legal-notice__text" [innerHTML]="text().html"></div>
   </div>
 </section>

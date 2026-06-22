@@ -2,28 +2,6 @@
   <div class="container privacy-policy__content">
     <a class="privacy-policy__back-link" routerLink="/">{{ text().back }}</a>
 
-    <h1>{{ text().title }}</h1>
-
-    <div class="privacy-policy__text">
-      <section class="privacy-policy__group">
-        <h2>{{ text().generalTitle }}</h2>
-        <p>{{ text().generalText }}</p>
-      </section>
-
-      <section class="privacy-policy__group">
-        <h2>{{ text().responsibleTitle }}</h2>
-        <p>{{ text().responsibleText }}</p>
-      </section>
-
-      <section class="privacy-policy__group">
-        <h2>{{ text().contactFormTitle }}</h2>
-        <p>{{ text().contactFormText }}</p>
-      </section>
-
-      <section class="privacy-policy__group">
-        <h2>{{ text().externalLinksTitle }}</h2>
-        <p>{{ text().externalLinksText }}</p>
-      </section>
-    </div>
+    <div class="privacy-policy__text" [innerHTML]="text().html"></div>
   </div>
 </section>
