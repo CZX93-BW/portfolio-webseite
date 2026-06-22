@@ -1,8 +1,10 @@
+@use '../abstracts/mixins' as mixins;
+
 .section {
   padding: var(--section-padding-desktop) 0;
 }
 
-@media (max-width: 768px) {
+@include mixins.below-md {
   .section {
     padding: var(--section-padding-mobile) 0;
   }

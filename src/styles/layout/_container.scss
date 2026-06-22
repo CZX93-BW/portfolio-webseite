@@ -1,25 +1,17 @@
+@use '../abstracts/mixins' as mixins;
+
 .container {
-  width: min(
-    100% - calc(var(--container-padding-desktop) * 2),
-    var(--content-max-width)
-  );
-  margin-inline: auto;
+  @include mixins.content-container;
 }
 
-@media (max-width: 1024px) {
+@include mixins.below-lg {
   .container {
-    width: min(
-      100% - calc(var(--container-padding-tablet) * 2),
-      var(--content-max-width)
-    );
+    @include mixins.tablet-content-container;
   }
 }
 
-@media (max-width: 768px) {
+@include mixins.below-md {
   .container {
-    width: min(
-      100% - calc(var(--container-padding-mobile) * 2),
-      var(--content-max-width)
-    );
+    @include mixins.mobile-content-container;
   }
 }

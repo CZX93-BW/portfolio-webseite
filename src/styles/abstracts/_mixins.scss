@@ -1,3 +1,5 @@
+@use './variables' as variables;
+
 @mixin focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
@@ -14,4 +16,62 @@
     var(--content-max-width)
   );
   margin-inline: auto;
+}
+
+@mixin tablet-content-container {
+  width: min(
+    100% - calc(var(--container-padding-tablet) * 2),
+    var(--content-max-width)
+  );
+  margin-inline: auto;
+}
+
+@mixin mobile-content-container {
+  width: min(
+    100% - calc(var(--container-padding-mobile) * 2),
+    var(--content-max-width)
+  );
+  margin-inline: auto;
+}
+
+@mixin below-xl {
+  @media (max-width: (variables.$breakpoint-xl - 1px)) {
+    @content;
+  }
+}
+
+@mixin below-lg {
+  @media (max-width: (variables.$breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin below-md {
+  @media (max-width: (variables.$breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin below-sm {
+  @media (max-width: (variables.$breakpoint-sm - 1px)) {
+    @content;
+  }
+}
+
+@mixin above-sm {
+  @media (min-width: variables.$breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin above-md {
+  @media (min-width: variables.$breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin above-lg {
+  @media (min-width: variables.$breakpoint-lg) {
+    @content;
+  }
 }
