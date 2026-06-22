@@ -1,45 +1,100 @@
 .footer {
-  border-top: 1px solid rgba(62, 207, 182, 0.24);
-  padding: 48px 0;
+  background: var(--color-black);
+  padding: 48px 0 40px;
 }
 
-.footer__content {
+.footer__container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: end;
-  gap: 32px;
+  align-items: center;
+  width: min(100% - calc(var(--container-padding-desktop) * 2), 1248px);
+  margin-inline: auto;
 }
 
 .footer__brand {
   display: grid;
-  gap: 8px;
-}
-
-.footer__brand p {
-  margin: 0;
-  color: var(--color-muted);
+  gap: 24px;
+  justify-self: start;
 }
 
 .footer__logo {
-  display: inline-flex;
-  width: 48px;
-  height: 48px;
+  display: inline-grid;
+  grid-template-columns: repeat(2, auto);
   align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-primary);
-  border-radius: 50%;
+  width: fit-content;
   color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 32px;
   font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.footer__logo span:last-child {
+  margin-left: -4px;
+  color: var(--color-white);
+}
+
+.footer__info {
+  display: grid;
+  gap: 8px;
+}
+
+.footer__info p,
+.footer__copyright,
+.footer__link {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.footer__info p,
+.footer__link {
+  color: var(--color-white);
 }
 
 .footer__copyright {
-  margin: 0;
-  color: var(--color-muted);
-  text-align: center;
+  justify-self: center;
+  color: var(--color-primary);
+  font-family: var(--font-accent);
+  font-size: 18px;
 }
 
-.footer__links {
-  display: flex;
-  justify-content: flex-end;
-  gap: 24px;
+.footer__navigation {
+  display: grid;
+  gap: 8px;
+  justify-self: end;
+}
+
+.footer__link {
+  position: relative;
+  width: fit-content;
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+.footer__link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity var(--transition-default);
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--color-primary);
+}
+
+.footer__link:hover::before,
+.footer__link:focus-visible::before {
+  opacity: 1;
 }
