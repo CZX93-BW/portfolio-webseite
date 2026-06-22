@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
+import { ContactFormResponse } from '../../models/contact-form.model';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -43,27 +44,49 @@ export class ContactComponent {
   }
 
   private sendContactMessage(): void {
-    this.isSending = true;
-    this.sendSuccess = false;
-    this.sendError = false;
+    this.setSendingState();
 
     const { name, email, message } = this.contactForm.getRawValue();
 
     this.contactService.sendMessage({ name, email, message }).subscribe({
-      next: () => this.handleSendSuccess(),
+      next: (response) => this.handleContactResponse(response),
       error: () => this.handleSendError(),
     });
+  }
+
+  private setSendingState(): void {
+    this.isSending = true;
+    this.sendSuccess = false;
+    this.sendError = false;
+  }
+
+  private handleContactResponse(response: ContactFormResponse): void {
+    if (response.success) {
+      this.handleSendSuccess();
+      return;
+    }
+
+    this.handleSendError();
   }
 
   private handleSendSuccess(): void {
     this.isSending = false;
     this.sendSuccess = true;
-    this.contactForm.reset();
     this.wasSubmitted = false;
+    this.resetContactForm();
   }
 
   private handleSendError(): void {
     this.isSending = false;
     this.sendError = true;
+  }
+
+  private resetContactForm(): void {
+    this.contactForm.reset({
+      name: '',
+      email: '',
+      message: '',
+      privacyAccepted: false,
+    });
   }
 }
