@@ -1,32 +1,25 @@
 <section class="skills section" id="skills" aria-labelledby="skills-title">
   <div class="skills__container">
     <div class="skills__content">
-      <p class="skills__label">Technologies</p>
+      <p class="skills__label">{{ text().label }}</p>
 
       <article class="skills__card">
-        <h2 id="skills-title">Skill Set</h2>
+        <h2 id="skills-title">{{ text().title }}</h2>
 
         <div class="skills__text-content">
-          <p class="skills__intro">
-            I work with modern frontend technologies and continuously expand my
-            technical foundation in backend development, automation and deployment
-            workflows.
-          </p>
+          <p class="skills__intro">{{ text().intro }}</p>
 
           <div class="skills__contact">
-            <h3>You need <span>another skill?</span></h3>
-            <p>
-              Feel free to contact me. I look forward to expanding on my previous
-              knowledge.
-            </p>
+            <h3>{{ text().questionStart }} <span>{{ text().questionHighlight }}</span></h3>
+            <p>{{ text().contact }}</p>
           </div>
 
-          <a class="button skills__button" href="#contact">Let's Talk</a>
+          <a class="button skills__button" href="#contact">{{ text().button }}</a>
         </div>
       </article>
     </div>
 
-    <div class="skills__grid" aria-label="Technology skills">
+    <div class="skills__grid" [attr.aria-label]="text().ariaLabel">
       @for (skill of skills; track skill.name) {
         <article class="skills__item">
           <img class="skills__icon" [src]="skill.iconPath" [alt]="skill.name" />

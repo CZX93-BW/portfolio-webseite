@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+
+import { translations } from '../../data/translations';
+import { LanguageService } from '../../services/language';
 
 interface SkillItem {
   name: string;
@@ -17,6 +20,12 @@ interface SkillGroup {
   styleUrl: './skill-set.scss',
 })
 export class SkillSet {
+  private readonly languageService = inject(LanguageService);
+
+  protected readonly text = computed(() => {
+    return translations[this.languageService.currentLanguage()].skills;
+  });
+
   protected readonly skillGroups: SkillGroup[] = [
     {
       title: 'Frontend',
@@ -35,27 +44,6 @@ export class SkillSet {
         { name: 'Vue.js', iconPath: 'icons/skillset/vuejs.svg' },
       ],
     },
-    /* {
-      title: 'Backend',
-      skills: [
-        { name: 'Python', iconPath: 'icons/skillset/python.svg' },
-        { name: 'Django', iconPath: 'icons/skillset/django.svg' },
-        { name: 'Flask', iconPath: 'icons/skillset/flask.svg' },
-        { name: 'PostgreSQL', iconPath: 'icons/skillset/postgresql.svg' },
-        { name: 'SQL', iconPath: 'icons/skillset/sql.svg' },
-        { name: 'Redis', iconPath: 'icons/skillset/redis.svg' },
-        { name: 'Docker', iconPath: 'icons/skillset/docker.svg' },
-        { name: 'Linux', iconPath: 'icons/skillset/linux.svg' },
-        { name: 'Cloud', iconPath: 'icons/skillset/cloud.svg' },
-      ],
-    },
-    {
-      title: 'DevSecOps',
-      skills: [
-        { name: 'DRF', iconPath: 'icons/skillset/drf.svg' },
-        { name: 'CI/CD', iconPath: 'icons/skillset/cd.svg' },
-      ],
-    }, */
   ];
 
   protected get skills(): SkillItem[] {

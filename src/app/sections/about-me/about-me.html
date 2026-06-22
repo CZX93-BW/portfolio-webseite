@@ -4,58 +4,33 @@
       <img
         class="about__image"
         src="img/beispiel_men_sitting_on_desk.jpg"
-        alt="Men working on a laptop"
+        [alt]="text().imageAlt"
       />
     </div>
 
     <div class="about__content">
-      <p class="about__label">Who I Am</p>
+      <p class="about__label">{{ text().label }}</p>
 
       <article class="about__card">
-        <h2 id="about-title">About me</h2>
+        <h2 id="about-title">{{ text().title }}</h2>
 
         <div class="about__text-content">
-          <p class="about__intro">
-            Hey there, I'm Bastian! I am a fullstack developer in training with a strong
-            interest in clean frontend architecture, automation and practical AI-supported
-            workflows. I enjoy turning structured ideas into usable digital products.
-          </p>
+          <p class="about__intro">{{ text().intro }}</p>
 
           <div class="about__highlights">
             <div class="about__highlight">
-              <img
-                class="about__highlight-icon"
-                src="icons/highlights/location_on.svg"
-                alt=""
-              />
-              <p>
-                I am based in Germany and open to remote work, hybrid setups and
-                professional opportunities where I can keep growing.
-              </p>
+              <img class="about__highlight-icon" src="icons/highlights/location_on.svg" alt="" />
+              <p>{{ text().location }}</p>
             </div>
 
             <div class="about__highlight">
-              <img
-                class="about__highlight-icon"
-                src="icons/highlights/cognition.svg"
-                alt=""
-              />
-              <p>
-                I am curious, open-minded and motivated to learn new technologies,
-                improve my skills and understand how things work under the hood.
-              </p>
+              <img class="about__highlight-icon" src="icons/highlights/cognition.svg" alt="" />
+              <p>{{ text().mindset }}</p>
             </div>
 
             <div class="about__highlight">
-              <img
-                class="about__highlight-icon"
-                src="icons/highlights/quality.svg"
-                alt=""
-              />
-              <p>
-                I approach problems with structure, persistence and creativity, always
-                looking for solutions that are understandable, maintainable and efficient.
-              </p>
+              <img class="about__highlight-icon" src="icons/highlights/quality.svg" alt="" />
+              <p>{{ text().quality }}</p>
             </div>
           </div>
         </div>
