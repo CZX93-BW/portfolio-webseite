@@ -24,19 +24,54 @@
       </div>
 
        <nav class="header__navigation" [attr.aria-label]="text().navigationLabel">
-        <a class="header__navigation-link" routerLink="" fragment="about-me">
+        <a
+          class="header__navigation-link"
+          routerLink="/"
+          fragment="about-me"
+          (click)="closeMobileMenu()"
+        >
           {{ text().aboutMe }}
         </a>
-        <a class="header__navigation-link" routerLink="/" fragment="skills">
+
+        <a
+          class="header__navigation-link"
+          routerLink="/"
+          fragment="skills"
+          (click)="closeMobileMenu()"
+        >
           {{ text().skills }}
         </a>
-        <a class="header__navigation-link" routerLink="/" fragment="projects">
+
+        <a
+          class="header__navigation-link"
+          routerLink="/"
+          fragment="projects"
+          (click)="closeMobileMenu()"
+        >
           {{ text().projects }}
         </a>
       </nav>
     </div>
 
-    <a class="header__logo" routerLink="/" [attr.aria-label]="text().homepageLabel">
+    <button
+      class="header__menu-button"
+      type="button"
+      aria-label="Open navigation menu"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a
+      class="header__logo"
+      routerLink="/"
+      fragment="home"
+      [attr.aria-label]="text().homepageLabel"
+      (click)="closeMobileMenu()"
+    >
       <span class="header__logo-mark">BW</span>
       <span class="header__logo-text">Bastian</span>
     </a>

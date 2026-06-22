@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { translations } from '../../data/translations';
@@ -14,9 +14,19 @@ import { LanguageService } from '../../services/language';
 export class Header {
   private readonly languageService = inject(LanguageService);
 
+  protected readonly isMobileMenuOpen = signal(false);
+
   protected readonly text = computed(() => {
     return translations[this.languageService.currentLanguage()].header;
   });
+
+  protected toggleMobileMenu(): void {
+    this.isMobileMenuOpen.update((isOpen) => !isOpen);
+  }
+
+  protected closeMobileMenu(): void {
+    this.isMobileMenuOpen.set(false);
+  }
 
   protected setLanguage(language: Language): void {
     this.languageService.setLanguage(language);
