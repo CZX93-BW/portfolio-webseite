@@ -91,7 +91,11 @@
 
 .projects__item:hover .projects__title::after,
 .projects__item:focus-visible .projects__title::after {
-  content: '↗';
+  width: 18px;
+  height: 18px;
+  background: var(--color-primary);
+  content: '';
+  mask: url('/icons/highlights/arrow_outward.svg') center / contain no-repeat;
 }
 
 .projects__technologies {
@@ -247,7 +251,50 @@
   gap: 32px;
 }
 
-.projects-dialog__button--disabled {
+.projects-dialog__action {
+  display: inline-flex;
+  min-width: 132px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  padding: 0 24px;
+  color: var(--color-white);
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: var(--line-height-default);
+  text-decoration: none;
+  transition:
+    border-color var(--transition-default),
+    color var(--transition-default);
+}
+
+.projects-dialog__action:hover,
+.projects-dialog__action:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  outline: none;
+}
+
+.projects-dialog__action-icon,
+.projects-dialog__next-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: var(--color-primary);
+  mask: url('/icons/highlights/arrow_outward.svg') center / contain no-repeat;
+  transition: transform var(--transition-default);
+}
+
+.projects-dialog__action:hover .projects-dialog__action-icon,
+.projects-dialog__action:focus-visible .projects-dialog__action-icon {
+  transform: translate(2px, -2px) scale(1.12);
+}
+
+.projects-dialog__action--disabled {
   opacity: 0.45;
   pointer-events: none;
 }
@@ -285,7 +332,7 @@
 .projects-dialog__close:focus-visible {
   color: var(--color-primary);
   outline: none;
-  transform: rotate(90deg);
+  transform: scale(1.18);
 }
 
 .projects-dialog__next {
@@ -296,20 +343,28 @@
   align-items: center;
   gap: 8px;
   border: 0;
-  color: var(--color-primary);
+  color: var(--color-white);
   background: transparent;
   font-family: var(--font-primary);
   font-size: 18px;
   line-height: var(--line-height-default);
   cursor: pointer;
-  transition:
-    color var(--transition-fast),
-    transform var(--transition-fast);
+  transition: color var(--transition-fast);
+}
+
+.projects-dialog__next-icon {
+  width: 20px;
+  height: 20px;
+  mask-image: url('/icons/highlights/arrows_right.svg');
 }
 
 .projects-dialog__next:hover,
 .projects-dialog__next:focus-visible {
-  color: var(--color-white);
+  color: var(--color-primary);
   outline: none;
-  transform: translateX(4px);
+}
+
+.projects-dialog__next:hover .projects-dialog__next-icon,
+.projects-dialog__next:focus-visible .projects-dialog__next-icon {
+  transform: scale(1.18);
 }
