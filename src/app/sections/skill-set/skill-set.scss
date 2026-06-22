@@ -137,3 +137,122 @@
   letter-spacing: var(--letter-spacing-navigation);
   text-align: center;
 }
+
+.skills__button {
+  overflow: hidden;
+}
+
+.skills__button span {
+  display: inline-block;
+}
+
+.skills__button:hover span,
+.skills__button:focus-visible span {
+  animation: skills-button-text-slide 700ms ease both;
+}
+
+.skills__item {
+  position: relative;
+}
+
+.skills__learning-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 18px);
+  z-index: 3;
+  display: grid;
+  width: 188px;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #4ddff2;
+  background: rgba(245, 248, 250, 0.97);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px) scale(0.94);
+  transition:
+    opacity var(--transition-default),
+    transform var(--transition-default);
+}
+
+.skills__learning-bubble::after {
+  position: absolute;
+  left: 32px;
+  bottom: -14px;
+  width: 28px;
+  height: 28px;
+  background: rgba(245, 248, 250, 0.97);
+  content: '';
+  transform: rotate(45deg);
+}
+
+.skills__learning-bubble p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #4ddff2;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.skills__learning-icons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.skills__learning-skill {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  color: #4ddff2;
+  font-family: var(--font-accent);
+  font-size: 12px;
+}
+
+.skills__learning-skill img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.skills__learning-skill--react img {
+  color: #61dafb;
+}
+
+.skills__learning-skill--vue img {
+  color: #41b883;
+}
+
+.skills__item--growth:hover .skills__learning-bubble,
+.skills__item--growth:focus-within .skills__learning-bubble {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@keyframes skills-button-text-slide {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateX(-140%) rotate(-12deg);
+    opacity: 0;
+  }
+
+  46% {
+    transform: translateX(140%) rotate(12deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}

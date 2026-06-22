@@ -14,16 +14,38 @@
             <p>{{ text().contact }}</p>
           </div>
 
-          <a class="button skills__button" href="#contact">{{ text().button }}</a>
+          <a class="button skills__button" href="#contact">
+            <span>{{ text().button }}</span>
+          </a>
         </div>
       </article>
     </div>
 
     <div class="skills__grid" [attr.aria-label]="text().ariaLabel">
       @for (skill of skills; track skill.name) {
-        <article class="skills__item">
+        <article
+          class="skills__item"
+          [class.skills__item--growth]="skill.name === 'Growth mindset'"
+        >
           <img class="skills__icon" [src]="skill.iconPath" [alt]="skill.name" />
           <p>{{ skill.name }}</p>
+
+          @if (skill.name === 'Growth mindset') {
+            <div class="skills__learning-bubble" aria-hidden="true">
+              <p>I have a special interest in learning</p>
+
+              <div class="skills__learning-icons">
+                <span class="skills__learning-skill skills__learning-skill--react">
+                  <img src="icons/skillset/react.svg" alt="" />
+                  React
+                </span>
+                <span class="skills__learning-skill skills__learning-skill--vue">
+                  <img src="icons/skillset/vuejs.svg" alt="" />
+                  Vue Js
+                </span>
+              </div>
+            </div>
+          }
         </article>
       }
     </div>

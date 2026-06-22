@@ -41,7 +41,6 @@ export class SkillSet {
         { name: 'REST-API', iconPath: 'icons/skillset/rest_api.svg' },
         { name: 'Scrum', iconPath: 'icons/skillset/scrum.svg' },
         { name: 'Growth mindset', iconPath: 'icons/skillset/growthmindset.svg' },
-        { name: 'Vue.js', iconPath: 'icons/skillset/vuejs.svg' },
       ],
     },
   ];

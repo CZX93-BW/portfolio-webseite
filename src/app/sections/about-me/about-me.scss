@@ -131,3 +131,24 @@
 .about__highlight:hover p {
   color: var(--color-white);
 }
+
+.about__highlight {
+  transition:
+    transform var(--transition-default),
+    filter var(--transition-default);
+}
+
+.about__highlight-icon {
+  transition:
+    filter var(--transition-default),
+    transform var(--transition-default);
+}
+
+.about__highlight:hover {
+  transform: translateX(8px);
+}
+
+.about__highlight:hover .about__highlight-icon {
+  filter: drop-shadow(0 0 10px rgba(61, 207, 182, 0.8));
+  transform: scale(1.08);
+}
