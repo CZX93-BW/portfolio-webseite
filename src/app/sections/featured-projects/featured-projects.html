@@ -2,13 +2,9 @@
   <div class="projects__container">
     <div class="projects__content">
       <header class="projects__header">
-        <p class="projects__label">Portfolio</p>
-        <h2 id="projects-title">Featured Projects</h2>
-
-        <p class="projects__intro">
-          Explore a selection of my work here - Interact with projects to see
-          my skills in action.
-        </p>
+        <p class="projects__label">{{ text().label }}</p>
+        <h2 id="projects-title">{{ text().title }}</h2>
+        <p class="projects__intro">{{ text().intro }}</p>
       </header>
 
       <div class="projects__list">
@@ -22,14 +18,10 @@
             (focus)="showProjectPreview(project)"
             (blur)="hideProjectPreview()"
           >
-            <span class="projects__title">{{ project.title }}</span>
+            <span class="projects__title">{{ getLocalizedText(project.title) }}</span>
 
             <span class="projects__technologies">
-              @for (
-                technology of project.technologies;
-                track technology.name;
-                let last = $last
-              ) {
+              @for (technology of project.technologies; track technology.name; let last = $last) {
                 <span>{{ technology.name }}</span>
 
                 @if (!last) {
@@ -47,7 +39,7 @@
         <div class="projects__preview-frame">
           <img
             [src]="activeProject()?.previewImagePath"
-            [alt]="activeProject()?.title"
+            [alt]="getLocalizedText(activeProject()!.title)"
           />
         </div>
       }
@@ -60,7 +52,7 @@
         <button
           class="projects-dialog__close"
           type="button"
-          aria-label="Close project dialog"
+          [attr.aria-label]="text().closeDialog"
           (click)="closeProjectDialog()"
         >
           ×
@@ -68,11 +60,11 @@
 
         <div class="projects-dialog__content">
           <p class="projects-dialog__number">{{ project.number }}</p>
-          <h3>{{ project.title }}</h3>
+          <h3>{{ getLocalizedText(project.title) }}</h3>
 
           <div class="projects-dialog__description">
-            <h4>What is this project about?</h4>
-            <p>{{ project.description || 'Project description will be added soon.' }}</p>
+            <h4>{{ text().aboutQuestion }}</h4>
+            <p>{{ getLocalizedText(project.description) || text().fallbackDescription }}</p>
           </div>
 
           <div class="projects-dialog__technologies">
@@ -87,31 +79,39 @@
             }
           </div>
 
-          <div class="projects-dialog__actions">
+                   <div class="projects-dialog__actions">
             @if (project.githubUrl) {
               <a class="button button--secondary" [href]="project.githubUrl" target="_blank" rel="noopener">
-                GitHub ↗
+                {{ text().github }}
               </a>
             } @else {
-              <span class="button button--secondary projects-dialog__button--disabled">GitHub ↗</span>
+              <span class="button button--secondary projects-dialog__button--disabled">
+                {{ text().github }}
+              </span>
             }
 
             @if (project.liveUrl) {
               <a class="button button--secondary" [href]="project.liveUrl" target="_blank" rel="noopener">
-                Live Test ↗
+                {{ text().liveTest }}
               </a>
             } @else {
-              <span class="button button--secondary projects-dialog__button--disabled">Live Test ↗</span>
+              <span class="button button--secondary projects-dialog__button--disabled">
+                {{ text().liveTest }}
+              </span>
             }
           </div>
         </div>
 
         @if (project.dialogImagePath) {
-          <img class="projects-dialog__image" [src]="project.dialogImagePath" [alt]="project.title" />
+          <img
+            class="projects-dialog__image"
+            [src]="project.dialogImagePath"
+            [alt]="getLocalizedText(project.title)"
+          />
         }
 
-        <button class="projects-dialog__next" type="button" (click)="showNextProject()">
-          Next project <img src="portfolio-webseite/public/icons/highlights/close_button.svg">
+        <button class class="projects-dialog__next" type="button" (click)="showNextProject()">
+          {{ text().nextProject }}
         </button>
       </article>
     </div>

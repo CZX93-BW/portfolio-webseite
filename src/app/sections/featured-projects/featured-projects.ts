@@ -1,6 +1,8 @@
-import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, HostListener, inject, OnInit, signal } from '@angular/core';
 
-import { Project } from '../../models/project.model';
+import { translations } from '../../data/translations';
+import { LocalizedText, Project } from '../../models/project.model';
+import { LanguageService } from '../../services/language';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
@@ -11,10 +13,15 @@ import { ProjectService } from '../../services/project.service';
 })
 export class FeaturedProjectsComponent implements OnInit {
   private readonly projectService = inject(ProjectService);
+  private readonly languageService = inject(LanguageService);
 
   protected readonly projects = signal<Project[]>([]);
   protected readonly activeProject = signal<Project | null>(null);
   protected readonly selectedProject = signal<Project | null>(null);
+
+  protected readonly text = computed(() => {
+    return translations[this.languageService.currentLanguage()].projects;
+  });
 
   ngOnInit(): void {
     this.loadProjects();
@@ -23,6 +30,14 @@ export class FeaturedProjectsComponent implements OnInit {
   @HostListener('document:keydown.escape')
   closeProjectDialogWithEscape(): void {
     this.closeProjectDialog();
+  }
+
+  protected getLocalizedText(value: LocalizedText): string {
+    if (typeof value === 'string') {
+      return value;
+    }
+
+    return value[this.languageService.currentLanguage()] ?? value.en;
   }
 
   protected showProjectPreview(project: Project): void {
@@ -57,9 +72,7 @@ export class FeaturedProjectsComponent implements OnInit {
       return null;
     }
 
-    const currentIndex = projects.findIndex(
-      (project) => project.id === selectedProject.id,
-    );
+    const currentIndex = projects.findIndex((project) => project.id === selectedProject.id);
     const nextIndex = (currentIndex + 1) % projects.length;
 
     return projects[nextIndex];
