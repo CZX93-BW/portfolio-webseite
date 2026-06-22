@@ -1,12 +1,12 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__center">
-    <p class="hero__role">Fullstack Developer</p>
+    <p class="hero__role">{{ text().role }}</p>
 
-    <h1 id="hero-title" class="hero__title">Bastian Wollny</h1>
+    <h1 id="hero-title" class="hero__title">{{ text().title }}</h1>
 
     <div class="hero__actions">
-      <a class="button button--primary" href="#projects">Check my work</a>
-      <a class="button button--secondary" href="#contact">Contact me</a>
+      <a class="button button--primary" href="#projects">{{ text().workButton }}</a>
+      <a class="button button--secondary" href="#contact">{{ text().contactButton }}</a>
     </div>
   </div>
 
@@ -17,19 +17,33 @@
     <span class="hero__vertical-line hero__vertical-line--green"></span>
   </div>
 
-  <aside class="hero__right-lateral" aria-label="Contact links">
+  <aside class="hero__right-lateral" [attr.aria-label]="text().contactLinksLabel">
     <a class="hero__email" href="mailto:bastian-wollny@web.de">
       bastian-wollny@web.de
     </a>
 
     <div class="hero__social-links">
-      <a class="hero__social-link" href="https://github.com/CZX93-BW" aria-label="GitHub profile">
+      <a
+        class="hero__social-link"
+        href="https://github.com/CZX93-BW"
+        [attr.aria-label]="text().githubLabel"
+      >
         <img src="icons/social/github.svg" alt="" />
       </a>
-      <a class="hero__social-link" href="https://www.linkedin.com/in/bastian-wollny" aria-label="LinkedIn profile">
+
+      <a
+        class="hero__social-link"
+        href="https://www.linkedin.com/in/bastian-wollny"
+        [attr.aria-label]="text().linkedinLabel"
+      >
         <img src="icons/social/linkedin.svg" alt="" />
       </a>
-      <a class="hero__social-link" href="mailto:bastian-wollny@web.de" aria-label="Write email"></a>
+
+      <a
+        class="hero__social-link"
+        href="mailto:bastian-wollny@web.de"
+        [attr.aria-label]="text().emailLabel"
+      ></a>
     </div>
 
     <span class="hero__vertical-line"></span>
@@ -37,35 +51,10 @@
 
   <div class="hero__marquee" aria-hidden="true">
     <div class="hero__marquee-track">
-      <span>Available for remote work</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Fullstack Developer</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Based in Bottrop</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Open to work</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Available for remote work</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Fullstack Developer</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Based in Bottrop</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Open to work</span>
-      <span>Available for remote work</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Fullstack Developer</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Based in Bottrop</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Open to work</span>
-      <span>Available for remote work</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Fullstack Developer</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Based in Bottrop</span>
-      <span class="hero__marquee-dot"></span>
-      <span>Open to work</span>
+      @for (item of marqueeItems(); track $index) {
+        <span>{{ item }}</span>
+        <span class="hero__marquee-dot"></span>
+      }
     </div>
   </div>
 </section>

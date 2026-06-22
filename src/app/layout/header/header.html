@@ -1,23 +1,42 @@
 <header class="header">
   <div class="header__content">
     <div class="header__left">
-      <div class="header__language-switch" aria-label="Language selection">
-        <button class="header__language-option header__language-option--active" type="button">
+      <div class="header__language-switch" [attr.aria-label]="text().languageLabel">
+        <button
+          class="header__language-option"
+          [class.header__language-option--active]="isCurrentLanguage('en')"
+          [attr.aria-pressed]="isCurrentLanguage('en')"
+          type="button"
+          (click)="setLanguage('en')"
+        >
           EN
         </button>
-        <button class="header__language-option" type="button">
+
+        <button
+          class="header__language-option"
+          [class.header__language-option--active]="isCurrentLanguage('de')"
+          [attr.aria-pressed]="isCurrentLanguage('de')"
+          type="button"
+          (click)="setLanguage('de')"
+        >
           DE
         </button>
       </div>
 
-      <nav class="header__navigation" aria-label="Main navigation">
-        <a class="header__navigation-link" routerLink="/" fragment="about-me">About me</a>
-        <a class="header__navigation-link" routerLink="/" fragment="skills">Skills</a>
-        <a class="header__navigation-link" routerLink="/" fragment="projects">Projects</a>
+      <nav class="header__navigation" [attr.aria-label]="text().navigationLabel">
+        <a class="header__navigation-link" routerLink="/" fragment="about-me">
+          {{ text().aboutMe }}
+        </a>
+        <a class="header__navigation-link" routerLink="/" fragment="skills">
+          {{ text().skills }}
+        </a>
+        <a class="header__navigation-link" routerLink="/" fragment="projects">
+          {{ text().projects }}
+        </a>
       </nav>
     </div>
 
-    <a class="header__logo" routerLink="/" aria-label="Go to homepage">
+    <a class="header__logo" routerLink="/" [attr.aria-label]="text().homepageLabel">
       <span class="header__logo-mark">BW</span>
       <span class="header__logo-text">Bastian</span>
     </a>
