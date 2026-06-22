@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
+import { translations } from '../../data/translations';
 import { ContactFormResponse } from '../../models/contact-form.model';
 import { ContactService } from '../../services/contact.service';
+import { LanguageService } from '../../services/language';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +16,11 @@ import { ContactService } from '../../services/contact.service';
 export class ContactComponent {
   private readonly formBuilder = inject(FormBuilder);
   private readonly contactService = inject(ContactService);
+  private readonly languageService = inject(LanguageService);
+
+  protected readonly text = computed(() => {
+    return translations[this.languageService.currentLanguage()].contact;
+  });
 
   protected isSending = false;
   protected wasSubmitted = false;
