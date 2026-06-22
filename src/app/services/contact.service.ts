@@ -2,12 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ContactFormMessage } from '../models/contact-form.model';
-
-interface ContactResponse {
-  success: boolean;
-  error?: string;
-}
+import {
+  ContactFormMessage,
+  ContactFormResponse,
+} from '../models/contact-form.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +14,10 @@ export class ContactService {
   private readonly httpClient = inject(HttpClient);
   private readonly contactEndpoint = '/contact.php';
 
-  sendMessage(message: ContactFormMessage): Observable<ContactResponse> {
-    return this.httpClient.post<ContactResponse>(this.contactEndpoint, message);
+  sendMessage(message: ContactFormMessage): Observable<ContactFormResponse> {
+    return this.httpClient.post<ContactFormResponse>(
+      this.contactEndpoint,
+      message,
+    );
   }
 }
