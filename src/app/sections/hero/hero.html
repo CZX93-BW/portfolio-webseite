@@ -1,19 +1,32 @@
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero" id="home" aria-labelledby="hero-title">
   <div class="hero__center">
     <p class="hero__role">{{ text().role }}</p>
 
     <h1 id="hero-title" class="hero__title">{{ text().title }}</h1>
 
     <div class="hero__actions">
-      <a class="button button--primary" href="#projects">{{ text().workButton }}</a>
-      <a class="button button--secondary" href="#contact">{{ text().contactButton }}</a>
+      <a class="button hero__button" href="#projects">
+        <span>{{ text().workButton }}</span>
+      </a>
+      <a class="button hero__button" href="#contact">
+        <span>{{ text().contactButton }}</span>
+      </a>
     </div>
   </div>
 
-  <div class="hero__left-lateral" aria-hidden="true">
-    <div class="hero__scroll-indicator">
-      <span class="hero__scroll-line"></span>
-    </div>
+  <div class="hero__left-lateral">
+    <a class="hero__scroll-link" href="#about-me" aria-label="Scroll to about me">
+      <img
+        class="hero__scroll-icon hero__scroll-icon--default"
+        src="icons/highlights/scroll_down.svg"
+        alt=""
+      />
+      <img
+        class="hero__scroll-icon hero__scroll-icon--drive"
+        src="icons/highlights/scroll_down_drive.svg"
+        alt=""
+      />
+    </a>
     <span class="hero__vertical-line hero__vertical-line--green"></span>
   </div>
 
@@ -23,27 +36,13 @@
     </a>
 
     <div class="hero__social-links">
-      <a
-        class="hero__social-link"
-        href="https://github.com/CZX93-BW"
-        [attr.aria-label]="text().githubLabel"
-      >
+      <a class="hero__social-link" href="https://github.com/CZX93-BW" [attr.aria-label]="text().githubLabel">
         <img src="icons/social/github.svg" alt="" />
       </a>
 
-      <a
-        class="hero__social-link"
-        href="https://www.linkedin.com/in/bastian-wollny"
-        [attr.aria-label]="text().linkedinLabel"
-      >
+      <a class="hero__social-link" href="https://www.linkedin.com/in/bastian-wollny" [attr.aria-label]="text().linkedinLabel">
         <img src="icons/social/linkedin.svg" alt="" />
       </a>
-
-      <a
-        class="hero__social-link"
-        href="mailto:bastian-wollny@web.de"
-        [attr.aria-label]="text().emailLabel"
-      ></a>
     </div>
 
     <span class="hero__vertical-line"></span>
