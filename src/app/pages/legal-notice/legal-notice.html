@@ -1,24 +1,18 @@
 <section class="legal-notice section">
   <div class="container legal-notice__content">
-    <a class="legal-notice__back-link" routerLink="/">Back to main page</a>
+    <a class="legal-notice__back-link" routerLink="/">{{ text().back }}</a>
 
-    <h1>Legal Notice</h1>
+    <h1>{{ text().title }}</h1>
 
     <div class="legal-notice__text">
-      <h2>Information according to § 5 TMG</h2>
-      <p>
-        The final legal notice content will be added before deployment.
-      </p>
+      <h2>{{ text().tmgTitle }}</h2>
+      <p>{{ text().tmgText }}</p>
 
-      <h2>Contact</h2>
-      <p>
-        The final contact information will be added before deployment.
-      </p>
+      <h2>{{ text().contactTitle }}</h2>
+      <p>{{ text().contactText }}</p>
 
-      <h2>Responsible for content</h2>
-      <p>
-        The final responsible person information will be added before deployment.
-      </p>
+      <h2>{{ text().responsibleTitle }}</h2>
+      <p>{{ text().responsibleText }}</p>
     </div>
   </div>
 </section>
