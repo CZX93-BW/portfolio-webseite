@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .skills {
   background: var(--skills-gradient);
 }
@@ -93,6 +95,16 @@
 
 .skills__button {
   width: fit-content;
+  overflow: hidden;
+}
+
+.skills__button span {
+  display: inline-block;
+}
+
+.skills__button:hover span,
+.skills__button:focus-visible span {
+  animation: skills-button-text-slide 700ms ease both;
 }
 
 .skills__grid {
@@ -104,6 +116,7 @@
 }
 
 .skills__item {
+  position: relative;
   display: grid;
   width: 104px;
   min-height: 116px;
@@ -136,23 +149,6 @@
   line-height: var(--line-height-default);
   letter-spacing: var(--letter-spacing-navigation);
   text-align: center;
-}
-
-.skills__button {
-  overflow: hidden;
-}
-
-.skills__button span {
-  display: inline-block;
-}
-
-.skills__button:hover span,
-.skills__button:focus-visible span {
-  animation: skills-button-text-slide 700ms ease both;
-}
-
-.skills__item {
-  position: relative;
 }
 
 .skills__learning-bubble {
@@ -221,38 +217,179 @@
   object-fit: contain;
 }
 
-.skills__learning-skill--react img {
-  color: #61dafb;
-}
-
-.skills__learning-skill--vue img {
-  color: #41b883;
-}
-
 .skills__item--growth:hover .skills__learning-bubble,
 .skills__item--growth:focus-within .skills__learning-bubble {
   opacity: 1;
   transform: translate(-50%, 0) scale(1);
 }
 
+@include mixins.below-xl {
+  .skills__container {
+    grid-template-columns: 460px 1fr;
+    gap: 56px;
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(3, 104px);
+    column-gap: 40px;
+  }
+}
+
+@include mixins.below-lg {
+  .skills__container {
+    grid-template-columns: minmax(0, 568px);
+    justify-content: center;
+    gap: 48px;
+    width: min(
+      calc(100% - (var(--container-padding-tablet) * 2)),
+      var(--content-max-width)
+    );
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(4, 104px);
+    justify-content: center;
+    padding-top: 0;
+  }
+}
+
+@include mixins.below-md {
+  .skills__container {
+    grid-template-columns: minmax(0, 358px);
+    width: min(calc(100% - 32px), 358px);
+    gap: 40px;
+  }
+
+  .skills__content {
+    gap: 15px;
+  }
+
+  .skills__label {
+    font-size: 18px;
+  }
+
+  .skills__card {
+    gap: 32px;
+    padding: 24px 32px;
+  }
+
+  .skills__card h2 {
+    font-size: clamp(44px, 14.35vw, 56px);
+    line-height: 80%;
+  }
+
+  .skills__text-content {
+    gap: 24px;
+  }
+
+  .skills__intro {
+    font-size: 16px;
+  }
+
+  .skills__contact {
+    gap: 12px;
+  }
+
+  .skills__contact h3 {
+    font-size: 20px;
+  }
+
+  .skills__contact p {
+    max-width: 276px;
+    font-size: 16px;
+  }
+
+  .skills__button {
+    min-width: 122px;
+    min-height: 48px;
+    padding-inline: 24px;
+    font-size: 14px;
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(3, 104px);
+    justify-content: space-between;
+    column-gap: 16px;
+    row-gap: 28px;
+    width: 100%;
+  }
+
+  .skills__item {
+    min-height: 110px;
+  }
+
+  .skills__item p {
+    font-size: 14px;
+  }
+
+  .skills__learning-bubble {
+    width: 178px;
+  }
+}
+
+@include mixins.below-sm {
+  .skills__container {
+    width: min(calc(100% - 28px), 358px);
+  }
+
+  .skills__card {
+    padding: 24px;
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+    column-gap: 10px;
+  }
+
+  .skills__item {
+    width: 100%;
+  }
+
+  .skills__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .skills__item p {
+    font-size: 12px;
+  }
+
+  .skills__learning-bubble {
+    left: auto;
+    right: -12px;
+    width: 168px;
+    transform: translateY(12px) scale(0.94);
+  }
+
+  .skills__learning-bubble::after {
+    left: auto;
+    right: 36px;
+  }
+
+  .skills__item--growth:hover .skills__learning-bubble,
+  .skills__item--growth:focus-within .skills__learning-bubble {
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes skills-button-text-slide {
   0% {
-    transform: translateX(0) rotate(0);
     opacity: 1;
+    transform: translateX(0) rotate(0);
   }
 
   45% {
-    transform: translateX(-140%) rotate(-12deg);
     opacity: 0;
+    transform: translateX(-140%) rotate(-12deg);
   }
 
   46% {
-    transform: translateX(140%) rotate(12deg);
     opacity: 0;
+    transform: translateX(140%) rotate(12deg);
   }
 
   100% {
-    transform: translateX(0) rotate(0);
     opacity: 1;
+    transform: translateX(0) rotate(0);
   }
 }
