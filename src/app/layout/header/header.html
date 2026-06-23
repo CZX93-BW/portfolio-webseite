@@ -23,31 +23,16 @@
         </button>
       </div>
 
-       <nav class="header__navigation" [attr.aria-label]="text().navigationLabel">
-        <a
-          class="header__navigation-link"
-          routerLink="/"
-          fragment="about-me"
-          (click)="closeMobileMenu()"
-        >
+      <nav class="header__navigation" [attr.aria-label]="text().navigationLabel">
+        <a class="header__navigation-link" routerLink="/" fragment="about-me" (click)="closeMobileMenu()">
           {{ text().aboutMe }}
         </a>
 
-        <a
-          class="header__navigation-link"
-          routerLink="/"
-          fragment="skills"
-          (click)="closeMobileMenu()"
-        >
+        <a class="header__navigation-link" routerLink="/" fragment="skills" (click)="closeMobileMenu()">
           {{ text().skills }}
         </a>
 
-        <a
-          class="header__navigation-link"
-          routerLink="/"
-          fragment="projects"
-          (click)="closeMobileMenu()"
-        >
+        <a class="header__navigation-link" routerLink="/" fragment="projects" (click)="closeMobileMenu()">
           {{ text().projects }}
         </a>
       </nav>
@@ -57,6 +42,7 @@
       class="header__menu-button"
       type="button"
       aria-label="Open navigation menu"
+      [class.header__menu-button--open]="isMobileMenuOpen()"
       [attr.aria-expanded]="isMobileMenuOpen()"
       (click)="toggleMobileMenu()"
     >
@@ -75,5 +61,45 @@
       <span class="header__logo-mark">BW</span>
       <span class="header__logo-text">Bastian</span>
     </a>
+
+    <nav
+      class="header__mobile-menu"
+      [class.header__mobile-menu--open]="isMobileMenuOpen()"
+      [attr.aria-label]="text().navigationLabel"
+    >
+      <a class="header__mobile-link" routerLink="/" fragment="about-me" (click)="closeMobileMenu()">
+        {{ text().aboutMe }}
+      </a>
+
+      <a class="header__mobile-link" routerLink="/" fragment="skills" (click)="closeMobileMenu()">
+        {{ text().skills }}
+      </a>
+
+      <a class="header__mobile-link" routerLink="/" fragment="projects" (click)="closeMobileMenu()">
+        {{ text().projects }}
+      </a>
+
+      <div class="header__mobile-language-switch" [attr.aria-label]="text().languageLabel">
+        <button
+          class="header__mobile-language-option"
+          [class.header__mobile-language-option--active]="isCurrentLanguage('en')"
+          [attr.aria-pressed]="isCurrentLanguage('en')"
+          type="button"
+          (click)="setLanguage('en')"
+        >
+          EN
+        </button>
+
+        <button
+          class="header__mobile-language-option"
+          [class.header__mobile-language-option--active]="isCurrentLanguage('de')"
+          [attr.aria-pressed]="isCurrentLanguage('de')"
+          type="button"
+          (click)="setLanguage('de')"
+        >
+          DE
+        </button>
+      </div>
+    </nav>
   </div>
 </header>

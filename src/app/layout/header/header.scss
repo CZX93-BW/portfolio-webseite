@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .header {
   position: absolute;
   top: 0;
@@ -9,6 +11,7 @@
 }
 
 .header__content {
+  position: relative;
   display: flex;
   height: 100%;
   max-width: var(--page-max-width);
@@ -24,7 +27,8 @@
   gap: 24px;
 }
 
-.header__language-switch {
+.header__language-switch,
+.header__mobile-language-switch {
   display: flex;
   width: var(--language-switch-width);
   height: var(--language-switch-height);
@@ -35,11 +39,13 @@
   transition: border-color var(--transition-default);
 }
 
-.header__language-switch:hover {
+.header__language-switch:hover,
+.header__mobile-language-switch:hover {
   border-color: var(--color-white);
 }
 
-.header__language-option {
+.header__language-option,
+.header__mobile-language-option {
   display: inline-flex;
   width: 40px;
   height: 100%;
@@ -55,7 +61,8 @@
   cursor: pointer;
 }
 
-.header__language-option--active {
+.header__language-option--active,
+.header__mobile-language-option--active {
   width: var(--language-switch-item-width);
   border-radius: var(--radius-pill);
   color: var(--color-white);
@@ -99,13 +106,15 @@
   outline: none;
 }
 
-.header__navigation-link:hover::after {
+.header__navigation-link:hover::after,
+.header__navigation-link:focus-visible::after {
   opacity: 1;
 }
 
 .header__menu-button {
   display: none;
 }
+
 .header__logo {
   display: inline-flex;
   height: 48px;
@@ -149,4 +158,152 @@
   font-family: var(--font-primary);
   font-size: 22px;
   font-weight: 700;
+}
+
+.header__mobile-menu {
+  display: none;
+}
+
+@include mixins.below-lg {
+  .header__content {
+    padding-inline: var(--container-padding-tablet);
+  }
+}
+
+@include mixins.below-md {
+  .header {
+    height: var(--header-height-mobile);
+    background: transparent;
+  }
+
+  .header__content {
+    height: 50px;
+    align-items: center;
+    padding: 32px 16px 0;
+  }
+
+  .header__left {
+    display: none;
+  }
+
+  .header__logo {
+    order: 1;
+    height: 48px;
+  }
+
+  .header__logo-mark {
+    width: 35px;
+    height: 48px;
+    border: 0;
+    border-radius: 0;
+    color: var(--color-primary);
+    font-size: 22px;
+  }
+
+  .header__logo-text {
+    display: none;
+  }
+
+  .header__menu-button {
+    position: relative;
+    z-index: 3;
+    order: 2;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+  }
+
+  .header__menu-button span {
+    display: block;
+    width: 32px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-white);
+    transition:
+      background-color var(--transition-default),
+      transform var(--transition-default),
+      opacity var(--transition-default);
+  }
+
+  .header__menu-button:hover span,
+  .header__menu-button:focus-visible span {
+    background: var(--color-primary);
+  }
+
+  .header__menu-button--open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header__menu-button--open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__menu-button--open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .header__mobile-menu {
+    position: absolute;
+    top: 21px;
+    right: 20px;
+    z-index: 2;
+    display: grid;
+    width: 140px;
+    min-height: 150px;
+    justify-items: center;
+    gap: 22px;
+    padding: 28px 18px;
+    border-radius: 20px;
+    background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.96);
+    transition:
+      opacity var(--transition-default),
+      transform var(--transition-default);
+  }
+
+  .header__mobile-menu--open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .header__mobile-link {
+    color: var(--color-white);
+    font-family: var(--font-accent);
+    font-size: 14px;
+    line-height: var(--line-height-tight);
+  }
+
+  .header__mobile-link:hover,
+  .header__mobile-link:focus-visible {
+    color: var(--color-primary);
+    outline: none;
+  }
+
+  .header__mobile-language-switch {
+    width: 60px;
+    height: 22px;
+  }
+
+  .header__mobile-language-option {
+    width: 30px;
+    font-size: 12px;
+  }
+
+  .header__mobile-language-option--active {
+    width: 32px;
+  }
+}
+
+@include mixins.below-sm {
+  .header__content {
+    padding-inline: 14px;
+  }
+
+  .header__mobile-menu {
+    right: 14px;
+  }
 }
