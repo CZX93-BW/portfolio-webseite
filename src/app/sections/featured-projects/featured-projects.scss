@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .projects {
   background: var(--color-background);
 }
@@ -367,4 +369,322 @@
 .projects-dialog__next:hover .projects-dialog__next-icon,
 .projects-dialog__next:focus-visible .projects-dialog__next-icon {
   transform: scale(1.18);
+}
+
+@include mixins.below-xl {
+  .projects__container {
+    grid-template-columns: minmax(0, 1fr) 296px;
+    gap: 48px;
+  }
+
+  .projects__content {
+    min-width: 0;
+  }
+
+  .projects__item {
+    padding-inline: 24px;
+  }
+
+  .projects-dialog__content {
+    left: 56px;
+  }
+
+  .projects-dialog__image {
+    left: auto;
+    right: 56px;
+    width: 440px;
+  }
+}
+
+@include mixins.below-lg {
+  .projects__container {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(
+      calc(100% - (var(--container-padding-tablet) * 2)),
+      var(--content-max-width)
+    );
+  }
+
+  .projects__preview {
+    display: none;
+  }
+
+  .projects__header {
+    width: min(100%, 622px);
+  }
+
+  .projects__intro {
+    width: min(100%, 456px);
+  }
+
+  .projects-dialog {
+    padding: 24px;
+  }
+
+  .projects-dialog__card {
+    display: grid;
+    width: min(100%, 720px);
+    max-height: calc(100svh - 48px);
+    overflow-y: auto;
+    padding: 56px 32px 32px;
+  }
+
+  .projects-dialog__content {
+    position: static;
+    width: 100%;
+    gap: 28px;
+    order: 2;
+  }
+
+  .projects-dialog__image {
+    position: static;
+    order: 1;
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .projects-dialog__close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .projects-dialog__number {
+    font-size: 96px;
+    line-height: 80px;
+  }
+
+  .projects-dialog__content h3 {
+    margin-top: -18px;
+  }
+
+  .projects-dialog__next {
+    position: static;
+    justify-self: end;
+    order: 3;
+    margin-top: 24px;
+  }
+}
+
+@include mixins.below-md {
+  .projects__container {
+    width: min(calc(100% - 32px), 358px);
+  }
+
+  .projects__content {
+    gap: 40px;
+  }
+
+  .projects__header {
+    gap: 20px;
+  }
+
+  .projects__label {
+    font-size: 18px;
+  }
+
+  .projects__header h2 {
+    font-size: clamp(44px, 14.35vw, 56px);
+    line-height: 100%;
+  }
+
+  .projects__intro {
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  .projects__item {
+    display: grid;
+    min-height: 74px;
+    justify-content: stretch;
+    gap: 8px;
+    padding: 20px 0;
+    text-align: left;
+  }
+
+  .projects__item:hover,
+  .projects__item:focus-visible {
+    background: transparent;
+  }
+
+  .projects__title {
+    font-size: 24px;
+  }
+
+  .projects__item:hover .projects__title::after,
+  .projects__item:focus-visible .projects__title::after {
+    display: none;
+  }
+
+  .projects__technologies {
+    justify-content: flex-start;
+    font-size: 16px;
+  }
+
+  .projects-dialog {
+    align-items: start;
+    padding: 37px 17px;
+  }
+
+  .projects-dialog__card {
+    width: min(100%, 358px);
+    max-height: calc(100svh - 74px);
+    min-height: 0;
+    padding: 55px 8px 28px;
+    border-radius: 12px;
+  }
+
+  .projects-dialog__image {
+    width: 100%;
+    border-radius: 8px;
+    max-height: 160px;
+  }
+
+  .projects-dialog__content {
+    gap: 18px;
+    padding-inline: 0;
+  }
+
+  .projects-dialog__number {
+    font-size: 72px;
+    line-height: 58px;
+  }
+
+  .projects-dialog__content h3 {
+    margin-top: -12px;
+    font-size: 44px;
+  }
+
+  .projects-dialog__description {
+    gap: 10px;
+  }
+
+  .projects-dialog__description h4 {
+    font-size: 20px;
+  }
+
+  .projects-dialog__description p {
+    font-size: 16px;
+  }
+
+  .projects-dialog__technologies {
+    gap: 8px 14px;
+  }
+
+  .projects-dialog__technologies span {
+    font-size: 14px;
+  }
+
+  .projects-dialog__technologies img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .projects-dialog__actions {
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .projects-dialog__action {
+    min-width: 0;
+    min-height: 48px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+
+  .projects-dialog__close {
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .projects-dialog__next {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+}
+
+@include mixins.below-sm {
+  .projects__container {
+    width: min(calc(100% - 28px), 358px);
+  }
+
+  .projects__header h2 {
+    font-size: clamp(40px, 14vw, 50px);
+  }
+
+  .projects__intro,
+  .projects__technologies,
+  .projects-dialog__description p {
+    font-size: 14px;
+  }
+
+  .projects-dialog {
+    padding: 24px 10px;
+  }
+
+  .projects-dialog__card {
+    max-height: calc(100svh - 48px);
+    padding-inline: 8px;
+  }
+
+  .projects-dialog__actions {
+    gap: 10px;
+  }
+
+  .projects-dialog__action {
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .projects-dialog {
+    padding: 16px;
+  }
+
+  .projects-dialog__card {
+    width: min(100%, 860px);
+    max-height: calc(100svh - 32px);
+    grid-template-columns: 42% 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 48px 24px 24px;
+  }
+
+  .projects-dialog__image {
+    order: 1;
+    max-height: none;
+    height: auto;
+  }
+
+  .projects-dialog__content {
+    order: 2;
+    gap: 16px;
+  }
+
+  .projects-dialog__number {
+    font-size: 56px;
+    line-height: 46px;
+  }
+
+  .projects-dialog__content h3 {
+    margin-top: -8px;
+    font-size: 36px;
+  }
+
+  .projects-dialog__description h4 {
+    font-size: 18px;
+  }
+
+  .projects-dialog__description p {
+    font-size: 14px;
+  }
+
+  .projects-dialog__next {
+    grid-column: 2;
+    margin-top: 0;
+  }
 }
