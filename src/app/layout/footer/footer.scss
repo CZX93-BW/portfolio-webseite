@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .footer {
   background: var(--color-black);
   padding: 48px 0 40px;
@@ -111,4 +113,79 @@
 .footer__link:hover::before,
 .footer__link:focus-visible::before {
   opacity: 1;
+}
+
+@include mixins.below-lg {
+  .footer__container {
+    width: min(
+      100% - calc(var(--container-padding-tablet) * 2),
+      var(--content-max-width)
+    );
+  }
+}
+
+@include mixins.below-md {
+  .footer {
+    padding: 48px 0 28px;
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'brand navigation'
+      'copyright copyright';
+    width: min(calc(100% - 32px), 358px);
+    row-gap: 32px;
+    align-items: start;
+  }
+
+  .footer__brand {
+    grid-area: brand;
+    gap: 20px;
+  }
+
+  .footer__logo {
+    font-size: 28px;
+  }
+
+  .footer__info {
+    gap: 8px;
+  }
+
+  .footer__info p,
+  .footer__link {
+    font-size: 14px;
+  }
+
+  .footer__navigation {
+    grid-area: navigation;
+    justify-self: end;
+  }
+
+  .footer__copyright {
+    grid-area: copyright;
+    justify-self: center;
+    font-size: 16px;
+  }
+
+  .footer__link::before {
+    left: -18px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@include mixins.below-sm {
+  .footer__container {
+    width: min(calc(100% - 28px), 358px);
+  }
+
+  .footer__info p,
+  .footer__link {
+    font-size: 12px;
+  }
+
+  .footer__copyright {
+    font-size: 14px;
+  }
 }

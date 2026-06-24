@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .privacy-policy {
   min-height: 100vh;
   background: var(--color-background);
@@ -41,7 +43,7 @@
   margin: 48px 0 8px;
   color: var(--color-primary);
   font-family: var(--font-accent);
-  font-size: clamp(28px, 4vw, 18px);
+  font-size: clamp(28px, 4vw, 48px);
   line-height: var(--line-height-tight);
 }
 
@@ -90,4 +92,99 @@
   text-decoration-color: var(--color-primary);
   text-underline-offset: 4px;
   outline: none;
+}
+
+@include mixins.below-lg {
+  .privacy-policy__content {
+    width: min(
+      100% - calc(var(--container-padding-tablet) * 2),
+      var(--content-max-width)
+    );
+  }
+}
+
+@include mixins.below-md {
+  .privacy-policy {
+    padding-top: 96px;
+  }
+
+  .privacy-policy__content {
+    width: min(calc(100% - 32px), 358px);
+  }
+
+  .privacy-policy__back-link {
+    margin-bottom: 28px;
+    font-size: 16px;
+  }
+
+  .privacy-policy__text {
+    gap: 16px;
+  }
+
+  :host ::ng-deep .privacy-policy__text h1 {
+    margin-bottom: 20px;
+    font-family: var(--font-accent);
+    font-size: clamp(32px, 8.2vw, 40px);
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  :host ::ng-deep .privacy-policy__text h2 {
+    margin: 32px 0 4px;
+    font-size: 22px;
+  }
+
+  :host ::ng-deep .privacy-policy__text h3 {
+    margin: 24px 0 4px;
+    font-size: 18px;
+  }
+
+  :host ::ng-deep .privacy-policy__text h4 {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+
+  :host ::ng-deep .privacy-policy__text p,
+  :host ::ng-deep .privacy-policy__text li {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  :host ::ng-deep .privacy-policy__text ul {
+    gap: 8px;
+    padding-left: 18px;
+  }
+}
+
+@include mixins.below-sm {
+  .privacy-policy__content {
+    width: min(calc(100% - 28px), 358px);
+  }
+
+  :host ::ng-deep .privacy-policy__text h1 {
+    font-size: 30px;
+  }
+
+  :host ::ng-deep .privacy-policy__text h2 {
+    font-size: 20px;
+  }
+
+  :host ::ng-deep .privacy-policy__text h3 {
+    font-size: 17px;
+  }
+
+  :host ::ng-deep .privacy-policy__text p,
+  :host ::ng-deep .privacy-policy__text li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .privacy-policy__content {
+    width: min(calc(100% - 64px), 760px);
+  }
+
+  :host ::ng-deep .privacy-policy__text h1 {
+    text-align: left;
+  }
 }

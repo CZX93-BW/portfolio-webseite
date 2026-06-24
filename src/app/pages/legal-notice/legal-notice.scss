@@ -1,3 +1,5 @@
+@use '../../../styles/abstracts/mixins' as mixins;
+
 .legal-notice {
   min-height: 100vh;
   background: var(--color-background);
@@ -41,7 +43,7 @@
   margin: 24px 0 0;
   color: var(--color-white);
   font-family: var(--font-accent);
-  font-size: clamp(28px, 4vw, 18px);
+  font-size: clamp(24px, 3vw, 32px);
   line-height: var(--line-height-tight);
 }
 
@@ -66,4 +68,85 @@
   text-decoration-color: var(--color-primary);
   text-underline-offset: 4px;
   outline: none;
+}
+
+@include mixins.below-lg {
+  .legal-notice__content {
+    width: min(
+      100% - calc(var(--container-padding-tablet) * 2),
+      var(--content-max-width)
+    );
+  }
+}
+
+@include mixins.below-md {
+  .legal-notice {
+    padding-top: 96px;
+  }
+
+  .legal-notice__content {
+    width: min(calc(100% - 32px), 358px);
+  }
+
+  .legal-notice__back-link {
+    margin-bottom: 28px;
+    font-size: 16px;
+  }
+
+  .legal-notice__text {
+    gap: 16px;
+  }
+
+  :host ::ng-deep .legal-notice__text h1 {
+    margin-bottom: 20px;
+    font-family: var(--font-accent);
+    font-size: clamp(32px, 8.2vw, 40px);
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  :host ::ng-deep .legal-notice__text h2 {
+    margin-top: 18px;
+    font-size: 20px;
+  }
+
+  :host ::ng-deep .legal-notice__text p,
+  :host ::ng-deep .legal-notice__text li {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  :host ::ng-deep .legal-notice__text ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+}
+
+@include mixins.below-sm {
+  .legal-notice__content {
+    width: min(calc(100% - 28px), 358px);
+  }
+
+  :host ::ng-deep .legal-notice__text h1 {
+    font-size: 30px;
+  }
+
+  :host ::ng-deep .legal-notice__text h2 {
+    font-size: 18px;
+  }
+
+  :host ::ng-deep .legal-notice__text p,
+  :host ::ng-deep .legal-notice__text li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .legal-notice__content {
+    width: min(calc(100% - 64px), 760px);
+  }
+
+  :host ::ng-deep .legal-notice__text h1 {
+    text-align: left;
+  }
 }
