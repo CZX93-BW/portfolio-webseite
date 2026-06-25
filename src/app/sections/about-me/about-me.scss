@@ -6,8 +6,8 @@
 
 .about__container {
   display: grid;
-  grid-template-columns: 568px 568px;
-  gap: 96px;
+  grid-template-columns: minmax(0, 568fr) minmax(0, 568fr);
+  gap: clamp(56px, 6.7vw, 96px);
   width: min(
     calc(100% - (var(--container-padding-desktop) * 2)),
     var(--content-max-width)
@@ -18,17 +18,18 @@
 
 .about__image-wrapper {
   position: relative;
-  width: 568px;
-  height: 568px;
+  width: 100%;
+  max-width: 568px;
+  aspect-ratio: 1;
 }
 
 .about__image-wrapper::before {
   position: absolute;
-  top: 30px;
-  left: -46px;
+  top: clamp(20px, 2.1vw, 30px);
+  left: clamp(-46px, -3.2vw, -24px);
   z-index: 0;
-  width: 568px;
-  height: 568px;
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-card);
   background: repeating-linear-gradient(
     45deg,
@@ -54,8 +55,9 @@
 
 .about__content {
   display: grid;
+  min-width: 0;
   gap: 20px;
-  margin-top: 98px;
+  margin-top: clamp(64px, 6.8vw, 98px);
 }
 
 .about__label {
