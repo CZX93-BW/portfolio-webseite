@@ -1,6 +1,9 @@
 <section class="legal-notice section">
   <div class="container legal-notice__content">
-    <a class="legal-notice__back-link" routerLink="/">{{ text().back }}</a>
+    <a class="legal-notice__back-link" routerLink="/" [attr.aria-label]="text().back">
+      <span class="legal-notice__back-icon" aria-hidden="true"></span>
+      <span class="legal-notice__back-text">{{ text().back }}</span>
+    </a>
 
     <div class="legal-notice__text" [innerHTML]="text().html"></div>
   </div>

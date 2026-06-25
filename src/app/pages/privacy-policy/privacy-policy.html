@@ -1,6 +1,9 @@
 <section class="privacy-policy section">
   <div class="container privacy-policy__content">
-    <a class="privacy-policy__back-link" routerLink="/">{{ text().back }}</a>
+    <a class="privacy-policy__back-link" routerLink="/" [attr.aria-label]="text().back">
+      <span class="privacy-policy__back-icon" aria-hidden="true"></span>
+      <span class="privacy-policy__back-text">{{ text().back }}</span>
+    </a>
 
     <div class="privacy-policy__text" [innerHTML]="text().html"></div>
   </div>
