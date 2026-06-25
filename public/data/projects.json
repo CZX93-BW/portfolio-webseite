@@ -38,9 +38,9 @@
       { "name": "HTML", "iconPath": "icons/skillicons/html.svg" },
       { "name": "CSS", "iconPath": "icons/skillicons/css.svg" }
     ],
-    "previewImagePath": "",
-    "dialogImagePath": "",
-    "githubUrl": "",
-    "liveUrl": ""
+    "previewImagePath": "img/sharky_preview.png",
+    "dialogImagePath": "img/sharky_preview.png",
+    "githubUrl": "https://github.com/CZX93-BW/SharkyProject",
+    "liveUrl": "https://sharky.bastian-wollny.de"
   }
 ]
