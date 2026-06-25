@@ -239,7 +239,7 @@
   .skills__container {
     grid-template-columns: minmax(0, 568px);
     justify-content: center;
-    gap: 48px;
+    gap: 72px;
     width: min(
       calc(100% - (var(--container-padding-tablet) * 2)),
       var(--content-max-width)

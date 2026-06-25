@@ -282,29 +282,30 @@
   }
 
   .hero__left-lateral {
-    top: clamp(500px, 65svh, 548px);
-    bottom: auto;
-    left: clamp(14px, 4.1vw, 16px);
-    gap: 24px;
+    top: auto;
+    bottom: 0;
+    left: clamp(14px, 4.1vw, 20px);
+    gap: 12px;
   }
 
   .hero__vertical-line--green {
-    height: clamp(180px, 26.5svh, 224px);
+    height: clamp(305px, 43svh, 390px);
   }
 
   .hero__right-lateral {
-    top: clamp(535px, 69svh, 588px);
-    right: clamp(14px, 4.1vw, 16px);
-    bottom: auto;
-    gap: 24px;
+    top: auto;
+    right: clamp(14px, 4.1vw, 20px);
+    bottom: 0;
+    gap: 12px;
   }
+
 
   .hero__email {
     display: none;
   }
 
   .hero__social-links {
-    gap: 12px;
+    gap: 8px;
   }
 
   .hero__social-link {
@@ -312,8 +313,9 @@
     height: 32px;
   }
 
+  
   .hero__vertical-line {
-    height: clamp(88px, 13.2svh, 112px);
+    height: clamp(180px, 28svh, 250px);
   }
 
   .hero__marquee {
@@ -373,20 +375,17 @@
     font-size: 12px;
   }
 
-  .hero__left-lateral {
-    top: clamp(430px, 67svh, 475px);
-  }
-
+  .hero__left-lateral,
   .hero__right-lateral {
-    top: clamp(455px, 70svh, 505px);
+    gap: 10px;
   }
 
   .hero__vertical-line--green {
-    height: clamp(145px, 22svh, 176px);
+    height: clamp(250px, 36svh, 300px);
   }
 
   .hero__vertical-line {
-    height: clamp(70px, 11svh, 92px);
+    height: clamp(130px, 22svh, 180px);
   }
 
   .hero__marquee {
