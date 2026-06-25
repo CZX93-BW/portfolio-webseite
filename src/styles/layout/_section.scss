@@ -1,11 +1,17 @@
 @use '../abstracts/mixins' as mixins;
 
 .section {
-  padding: var(--section-padding-desktop) 0;
+  padding: clamp(72px, 7vw, 96px) 0;
 }
 
 @include mixins.below-md {
   .section {
-    padding: var(--section-padding-mobile) 0;
+    padding: 72px 0;
+  }
+}
+
+@include mixins.below-sm {
+  .section {
+    padding: 64px 0;
   }
 }
