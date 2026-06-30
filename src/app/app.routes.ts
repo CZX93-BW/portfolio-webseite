@@ -3,6 +3,12 @@ import { LegalNoticeComponent } from './pages/legal-notice/legal-notice';
 import { MainPageComponent } from './pages/main-page/main-page';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy';
 
+/**
+ * Application route configuration.
+ *
+ * The portfolio itself lives on the root route, while legal pages are routed
+ * separately so they can be opened, refreshed and linked directly.
+ */
 export const routes: Routes = [
   {
     path: '',

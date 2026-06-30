@@ -1,6 +1,12 @@
 import { Language } from '../models/language';
 import { legalNoticeHtml, privacyPolicyHtml } from './legal-texts';
 
+/**
+ * Expected top-level shape for each language entry.
+ *
+ * Some nested values are intentionally typed as `unknown` because individual
+ * components only consume their own translation subtree.
+ */
 type TranslationStructure = {
   header: Record<string, string>;
   hero: Record<string, unknown>;
@@ -12,6 +18,12 @@ type TranslationStructure = {
   privacyPolicy: Record<string, unknown>;
 };
 
+/**
+ * Central translation dictionary for the portfolio.
+ *
+ * Components read labels, copy text and legal-page HTML from this object based
+ * on the currently selected language.
+ */
 export const translations = {
   en: {
     header: {

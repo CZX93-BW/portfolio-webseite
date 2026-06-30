@@ -1,3 +1,9 @@
+/**
+ * Localized legal notice HTML.
+ *
+ * The strings are rendered by the legal notice page and are kept outside the
+ * component so translations and legal copy can be maintained centrally.
+ */
 export const legalNoticeHtml = {
   de: `
     <h1>Rechtlicher Hinweis</h1>
@@ -122,6 +128,12 @@ export const legalNoticeHtml = {
   `,
 };
 
+/**
+ * Localized privacy policy HTML.
+ *
+ * The content contains structured HTML from the privacy policy generator and is
+ * rendered by the privacy policy page.
+ */
 export const privacyPolicyHtml = {
   de: `
     <h1>Datenschutzerklärung</h1>
