@@ -119,9 +119,9 @@
 .contact__error,
 .contact__privacy-error {
   min-height: 17px;
-  color: #e61c40;
+  color: #ff5a00;
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
@@ -138,7 +138,7 @@
   align-items: flex-start;
   color: var(--color-white);
   font-family: var(--font-primary);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.2;
   cursor: pointer;
 }
@@ -291,7 +291,7 @@
   }
 
   .contact__text p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .contact__field {
@@ -306,12 +306,12 @@
 
   .contact__field input,
   .contact__field textarea {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .contact__error,
   .contact__privacy-error {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .contact__privacy {
@@ -320,7 +320,7 @@
   }
 
   .contact__checkbox {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .contact__custom-checkbox {
@@ -330,7 +330,7 @@
 
   .contact__button {
     margin-top: 24px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
