@@ -623,7 +623,7 @@
   }
 
   .projects-dialog__technologies span {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .projects-dialog__technologies img {
@@ -640,7 +640,7 @@
     min-width: 0;
     min-height: 48px;
     padding-inline: 18px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .projects-dialog__close {
@@ -653,7 +653,7 @@
   .projects-dialog__next {
     justify-self: end;
     margin-top: 16px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -669,7 +669,7 @@
   .projects__intro,
   .projects__technologies,
   .projects-dialog__description p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .projects-dialog {
@@ -754,11 +754,190 @@
   }
 
   .projects-dialog__description p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .projects-dialog__next {
     grid-column: 2;
     margin-top: 0;
+  }
+}
+
+.projects-dialog {
+  overflow: hidden;
+}
+
+.projects-dialog__card {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(320px, 520px);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 32px 48px;
+  max-height: calc(100svh - 80px);
+  overflow: hidden;
+  padding: 72px 80px 55px;
+}
+
+.projects-dialog__scroll-area {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 8px;
+}
+
+.projects-dialog__content {
+  position: static;
+  width: 100%;
+}
+
+.projects-dialog__image {
+  position: static;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  width: min(100%, 520px);
+  height: 370px;
+  max-height: 370px;
+  aspect-ratio: 520 / 370;
+  object-fit: cover;
+}
+
+.projects-dialog__close {
+  top: 24px;
+  right: 32px;
+  z-index: 3;
+}
+
+.projects-dialog__footer {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+}
+
+.projects-dialog__actions {
+  flex-wrap: wrap;
+}
+
+.projects-dialog__next {
+  position: static;
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.projects-dialog__next-icon {
+  background: currentColor;
+}
+
+@media (max-width: 1150px) {
+  .projects-dialog__card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    width: min(100%, 720px);
+    gap: 25px;
+    padding: 70px 32px 32px;
+  }
+
+  .projects-dialog__image {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: stretch;
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .projects-dialog__scroll-area {
+    grid-column: 1;
+    grid-row: 2;
+    padding-right: 4px;
+  }
+
+  .projects-dialog__footer {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@include mixins.below-md {
+  .projects-dialog__card {
+    width: min(100%, 358px);
+    max-height: calc(100svh - 64px);
+    gap: 25px;
+    padding: 70px 12px 28px;
+  }
+
+  .projects-dialog__image {
+    max-height: 174px;
+  }
+
+  .projects-dialog__close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .projects-dialog__footer {
+    display: grid;
+    width: 100%;
+    justify-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .projects-dialog__actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .projects-dialog__action {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding-inline: 16px;
+  }
+
+  .projects-dialog__next {
+    justify-self: end;
+    margin-right: 2px;
+  }
+
+  .projects-dialog__technologies span,
+  .projects-dialog__action,
+  .projects-dialog__next {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .projects-dialog__card {
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    width: min(100%, 860px);
+    gap: 20px 24px;
+    padding: 48px 24px 24px;
+  }
+
+  .projects-dialog__image {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    max-height: none;
+  }
+
+  .projects-dialog__scroll-area {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .projects-dialog__footer {
+    grid-column: 2;
+    grid-row: 2;
   }
 }

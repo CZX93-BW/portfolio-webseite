@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, HostListener, inject, OnDestroy, OnInit, signal } from '@angular/core';
 
 import { translations } from '../../data/translations';
 import { LocalizedText, Project } from '../../models/project.model';
@@ -11,9 +11,11 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: './featured-projects.html',
   styleUrl: './featured-projects.scss',
 })
-export class FeaturedProjectsComponent implements OnInit {
+export class FeaturedProjectsComponent implements OnInit, OnDestroy {
   private readonly projectService = inject(ProjectService);
   private readonly languageService = inject(LanguageService);
+  private previousBodyOverflow = '';
+  private previousDocumentOverflow = '';
 
   protected readonly projects = signal<Project[]>([]);
   protected readonly activeProject = signal<Project | null>(null);
@@ -25,6 +27,10 @@ export class FeaturedProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProjects();
+  }
+
+  ngOnDestroy(): void {
+    this.unlockPageScroll();
   }
 
   @HostListener('document:keydown.escape')
@@ -49,11 +55,13 @@ export class FeaturedProjectsComponent implements OnInit {
   }
 
   protected openProjectDialog(project: Project): void {
+    this.lockPageScroll();
     this.selectedProject.set(project);
   }
 
   protected closeProjectDialog(): void {
     this.selectedProject.set(null);
+    this.unlockPageScroll();
   }
 
   protected showNextProject(): void {
@@ -87,5 +95,21 @@ export class FeaturedProjectsComponent implements OnInit {
         console.error('Projects could not be loaded:', error);
       },
     });
+  }
+
+  private lockPageScroll(): void {
+    if (this.selectedProject()) {
+      return;
+    }
+
+    this.previousBodyOverflow = document.body.style.overflow;
+    this.previousDocumentOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  private unlockPageScroll(): void {
+    document.body.style.overflow = this.previousBodyOverflow;
+    document.documentElement.style.overflow = this.previousDocumentOverflow;
   }
 }

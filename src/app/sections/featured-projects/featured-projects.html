@@ -58,30 +58,47 @@
         ×
       </button>
 
-      <div class="projects-dialog__content">
-        <p class="projects-dialog__number">{{ project.number }}</p>
-        <h3>{{ getLocalizedText(project.title) }}</h3>
+      @if (project.dialogImagePath) {
+        <img
+          class="projects-dialog__image"
+          [src]="project.dialogImagePath"
+          [alt]="getLocalizedText(project.title)"
+        />
+      }
 
-        <div class="projects-dialog__description">
-          <h4>{{ text().aboutQuestion }}</h4>
-          <p>{{ getLocalizedText(project.description) || text().fallbackDescription }}</p>
+      <div class="projects-dialog__scroll-area">
+        <div class="projects-dialog__content">
+          <p class="projects-dialog__number">{{ project.number }}</p>
+          <h3>{{ getLocalizedText(project.title) }}</h3>
+
+          <div class="projects-dialog__description">
+            <h4>{{ text().aboutQuestion }}</h4>
+            <p>{{ getLocalizedText(project.description) || text().fallbackDescription }}</p>
+          </div>
+
+          <div class="projects-dialog__technologies">
+            @for (technology of project.technologies; track technology.name) {
+              <span>
+                @if (technology.iconPath) {
+                  <img [src]="technology.iconPath" [alt]="technology.name" />
+                }
+
+                {{ technology.name }}
+              </span>
+            }
+          </div>
         </div>
+      </div>
 
-        <div class="projects-dialog__technologies">
-          @for (technology of project.technologies; track technology.name) {
-            <span>
-              @if (technology.iconPath) {
-                <img [src]="technology.iconPath" [alt]="technology.name" />
-              }
-
-              {{ technology.name }}
-            </span>
-          }
-        </div>
-
+      <footer class="projects-dialog__footer">
         <div class="projects-dialog__actions">
           @if (project.githubUrl) {
-            <a class="projects-dialog__action" [href]="project.githubUrl" target="_blank" rel="noopener">
+            <a
+              class="projects-dialog__action"
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>GitHub</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </a>
@@ -93,7 +110,12 @@
           }
 
           @if (project.liveUrl) {
-            <a class="projects-dialog__action" [href]="project.liveUrl" target="_blank" rel="noopener">
+            <a
+              class="projects-dialog__action"
+              [href]="project.liveUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>Live Test</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </a>
@@ -104,20 +126,12 @@
             </span>
           }
         </div>
-      </div>
 
-      @if (project.dialogImagePath) {
-        <img
-          class="projects-dialog__image"
-          [src]="project.dialogImagePath"
-          [alt]="getLocalizedText(project.title)"
-        />
-      }
-
-      <button class="projects-dialog__next" type="button" (click)="showNextProject()">
-        <span>{{ text().nextProject }}</span>
-        <span class="projects-dialog__next-icon" aria-hidden="true"></span>
-      </button>
+        <button class="projects-dialog__next" type="button" (click)="showNextProject()">
+          <span>{{ text().nextProject }}</span>
+          <span class="projects-dialog__next-icon" aria-hidden="true"></span>
+        </button>
+      </footer>
     </article>
   </div>
 }

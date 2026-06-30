@@ -15,7 +15,7 @@
       { "name": "TypeScript", "iconPath": "icons/skillicons/typescript.svg" },
       { "name": "HTML", "iconPath": "icons/skillicons/html.svg" },
       { "name": "CSS", "iconPath": "icons/skillicons/css.svg" },
-      { "name": "Firebase", "iconPath": "icons/skillicons/superbase.svg" }
+      { "name": "Supabase", "iconPath": "icons/skillicons/superbase.svg" }
     ],
     "previewImagePath": "img/joinbsp.jpg",
     "dialogImagePath": "img/joinbsp.jpg",
