@@ -2,7 +2,9 @@
   <div class="footer__container">
     <div class="footer__brand">
       <a class="footer__logo" routerLink="/" fragment="home" [attr.aria-label]="text().homepageLabel">
-        <img class="footer__logo-image" src="img/bw_logo.png" alt="" aria-hidden="true" />
+        <span>B</span>
+        <span>W</span>
+        <img class="footer__logo-image" src="" alt="" aria-hidden="true" />
       </a>
 
       <div class="footer__info">
@@ -20,7 +22,7 @@
             {{ link.label }}
           </a>
         } @else {
-          <a class="footer__link" [href]="link.href">
+          <a class="footer__link" [href]="link.href" target="_blank" rel="noopener noreferrer">
             {{ link.label }}
           </a>
         }

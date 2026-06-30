@@ -1,7 +1,7 @@
 @use '../../../styles/abstracts/mixins' as mixins;
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 50;
@@ -119,28 +119,45 @@
   display: inline-flex;
   height: 48px;
   align-items: center;
+  gap: 8px;
+  color: var(--color-white);
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .header__logo:hover,
 .header__logo:focus-visible {
+  color: var(--color-primary);
   outline: none;
 }
 
-.header__logo-image {
-  display: block;
-  width: auto;
+.header__logo-mark {
+  display: inline-flex;
+  width: 48px;
   height: 48px;
-  object-fit: contain;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--font-accent);
+  font-size: 20px;
+  font-weight: 700;
   transition:
-    filter var(--transition-fast),
-    transform var(--transition-fast);
+    border-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
-.header__logo:hover .header__logo-image,
-.header__logo:focus-visible .header__logo-image {
-  filter: drop-shadow(0 0 10px rgba(61, 207, 182, 0.75));
-  transform: scale(1.03);
+.header__logo:hover .header__logo-mark,
+.header__logo:focus-visible .header__logo-mark {
+  color: transparent;
+  border-color: var(--color-primary);
+  -webkit-text-stroke: 1px var(--color-primary);
+}
+
+.header__logo-text {
+  font-family: var(--font-primary);
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .header__mobile-menu {
@@ -155,6 +172,7 @@
 
 @include mixins.below-md {
   .header {
+    position: absolute;
     height: var(--header-height-mobile);
     background: transparent;
   }
@@ -256,7 +274,7 @@
   .header__mobile-link {
     color: var(--color-white);
     font-family: var(--font-accent);
-    font-size: 14px;
+    font-size: 16px;
     line-height: var(--line-height-tight);
   }
 
@@ -273,7 +291,7 @@
 
   .header__mobile-language-option {
     width: 30px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .header__mobile-language-option--active {
