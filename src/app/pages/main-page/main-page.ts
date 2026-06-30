@@ -6,6 +6,12 @@ import { Hero } from '../../sections/hero/hero';
 import { SkillSet } from '../../sections/skill-set/skill-set';
 import { TestimonialsComponent } from '../../sections/testimonials/testimonials';
 
+/**
+ * Main portfolio page component.
+ *
+ * Composes all landing-page sections in their display order and keeps the
+ * section layout separate from routed legal pages.
+ */
 @Component({
   selector: 'app-main-page',
   imports: [

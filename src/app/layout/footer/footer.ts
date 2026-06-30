@@ -4,12 +4,24 @@ import { RouterLink } from '@angular/router';
 import { translations } from '../../data/translations';
 import { LanguageService } from '../../services/language';
 
+/**
+ * Link definition used to render footer navigation entries.
+ *
+ * A footer link can either point to an external URL via `href` or to an
+ * internal Angular route via `routerLink`.
+ */
 interface FooterLink {
   label: string;
   href?: string;
   routerLink?: string;
 }
 
+/**
+ * Global footer component.
+ *
+ * Displays portfolio metadata, legal navigation and external profile links.
+ * All visible labels are read from the active translation set.
+ */
 @Component({
   selector: 'app-footer',
   imports: [RouterLink],
@@ -19,10 +31,16 @@ interface FooterLink {
 export class Footer {
   private readonly languageService = inject(LanguageService);
 
+  /**
+   * Footer translation block for the currently selected language.
+   */
   protected readonly text = computed(() => {
     return translations[this.languageService.currentLanguage()].footer;
   });
 
+  /**
+   * Localized footer links rendered by the template.
+   */
   protected readonly footerLinks = computed<FooterLink[]>(() => {
     const links = this.text().links;
 
