@@ -70,8 +70,7 @@ export const translations = {
         'I work with modern frontend technologies and continuously expand my technical foundation in backend development, automation and deployment workflows.',
       questionStart: 'You need',
       questionHighlight: 'another skill?',
-      contact:
-        'Feel free to contact me. I look forward to expanding on my previous knowledge.',
+      contact: 'Feel free to contact me. I look forward to expanding on my previous knowledge.',
       button: "Let's Talk",
       ariaLabel: 'Technology skills',
     },
@@ -98,23 +97,35 @@ export const translations = {
         {
           id: 1,
           quote:
-            'Our project benefited enormously from Bastian’s efficient way of working.',
-          author: 'T. Schulz',
-          role: 'Frontend Developer',
+            'Basti approached the project highly professionally. He brings massive knowledge in JavaScript and frontend architecture. I particularly appreciated his calm personality. He always stays cool and gets precisely to the point. Working with him was incredibly fun and fostered a great, conflict-free team dynamic. Everyone’s ideas and feedback were valued, resulting in genuine, productive teamwork on equal footing.',
+          author: 'Timo Böning',
+          role: 'Project Partner',
         },
         {
           id: 2,
-          quote:
-            'Bastian has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.',
-          author: 'H. Janisch',
-          role: 'Team Partner',
+          quote: [
+            'The collaboration with Bastian was very pleasant from the very beginning. He brought a clear and well-structured approach to the project and explained complex topics in a very understandable and comprehensive way.',
+            'Bastian has an impressive amount of knowledge and thinks ahead, identifying potential issues early on. He finds solutions extremely quickly and fixes problems efficiently. Even in stressful situations, he remains calm and composed, creating a very reassuring and positive working atmosphere. Also his JavaScript skills are very high.',
+            'All of these skills make Bastian an excellent team member. Thank you very much for the great collaboration!',
+          ].join('\n\n'),
+          author: 'Magdalena Laurisch',
+          role: 'Project Partner',
         },
         {
           id: 3,
+          quote: [
+            'Working with Bastian during the JOIN project was fantastic. He significantly shaped the structural foundation of the project and always maintained a sharp focus on both quality and long-term vision.',
+            'Due to his meticulous approach and strong grasp of logic, I could always rely on him to think tasks through thoroughly and implement them cleanly. I especially appreciate his thirst for knowledge, his focus, and the clear, efficient way we found solutions together. What stands out most in my memory are our long coding nights together, during which he demonstrated remarkable perseverance.',
+          ].join('\n\n'),
+          author: 'Nico Leiteritz',
+          role: 'JOIN Project Partner',
+        },
+        {
+          id: 4,
           quote:
-            'I had the good fortune of working with Bastian in a group project. He stayed focused, supported the team and contributed reliable technical solutions.',
-          author: 'M. Weber',
-          role: 'Project Partner',
+            'Working with Bastian was a true asset, both technically and personally. With his deep backend expertise—especially around Supabase—and his excellent understanding of clean, scalable data structures, he served as the technical backbone of our development. Even when challenges grew complex, his tireless commitment (often working late into the night) ensured our foundation was rock solid. Without his foresight and reliability, the project would never have reached this level of quality. I would gladly work with Bastian again anytime!',
+          author: 'Kevin Reinhold Triebe',
+          role: 'JOIN Project Partner',
         },
       ],
     },
@@ -240,23 +251,35 @@ export const translations = {
         {
           id: 1,
           quote:
-            'Unser Projekt hat stark von Bastians effizienter Arbeitsweise profitiert.',
-          author: 'T. Schulz',
-          role: 'Frontend Developer',
+            'Basti ging das Projekt äußerst professionell an. Er bringt enormes Wissen in JavaScript und Frontend-Architektur mit. Besonders geschätzt habe ich seine ruhige Art. Er bleibt immer gelassen und kommt präzise auf den Punkt. Die Zusammenarbeit mit ihm hat unglaublich viel Spaß gemacht und zu einer großartigen, konfliktfreien Teamdynamik beigetragen. Die Ideen und das Feedback aller wurden wertgeschätzt, sodass eine echte, produktive Zusammenarbeit auf Augenhöhe entstand.',
+          author: 'Timo Böning',
+          role: 'Projektpartner',
         },
         {
           id: 2,
-          quote:
-            'Bastian hat sich als zuverlässiger Gruppenpartner bewiesen. Seine technischen Fähigkeiten und seine proaktive Art waren wichtig für den Projekterfolg.',
-          author: 'H. Janisch',
-          role: 'Teampartner',
+          quote: [
+            'Die Zusammenarbeit mit Bastian war von Anfang an sehr angenehm. Er brachte eine klare und gut strukturierte Vorgehensweise in das Projekt ein und erklärte komplexe Themen auf sehr verständliche und umfassende Weise.',
+            'Bastian verfügt über beeindruckend viel Wissen und denkt voraus, sodass er potenzielle Probleme frühzeitig erkennt. Er findet äußerst schnell Lösungen und behebt Probleme effizient. Selbst in stressigen Situationen bleibt er ruhig und besonnen und sorgt damit für eine sehr beruhigende und positive Arbeitsatmosphäre. Auch seine JavaScript-Kenntnisse sind sehr ausgeprägt.',
+            'All diese Fähigkeiten machen Bastian zu einem hervorragenden Teammitglied. Vielen Dank für die tolle Zusammenarbeit!',
+          ].join('\n\n'),
+          author: 'Magdalena Laurisch',
+          role: 'Projektpartnerin',
         },
         {
           id: 3,
+          quote: [
+            'Die Zusammenarbeit mit Bastian während des JOIN-Projekts war fantastisch. Er hat die strukturelle Grundlage des Projekts maßgeblich mitgestaltet und dabei stets sowohl die Qualität als auch die langfristige Perspektive fest im Blick behalten.',
+            'Dank seiner sorgfältigen Arbeitsweise und seines ausgeprägten logischen Verständnisses konnte ich mich immer darauf verlassen, dass er Aufgaben gründlich durchdenkt und sauber umsetzt. Besonders schätze ich seinen Wissensdurst, seine Konzentration und die klare, effiziente Art, wie wir gemeinsam Lösungen gefunden haben. Am stärksten in Erinnerung geblieben sind mir unsere langen gemeinsamen Coding-Nächte, in denen er bemerkenswerte Ausdauer bewiesen hat.',
+          ].join('\n\n'),
+          author: 'Nico Leiteritz',
+          role: 'JOIN-Projektpartner',
+        },
+        {
+          id: 4,
           quote:
-            'Ich hatte das Glück, mit Bastian in einem Gruppenprojekt zu arbeiten. Er blieb fokussiert, unterstützte das Team und brachte zuverlässige technische Lösungen ein.',
-          author: 'M. Weber',
-          role: 'Projektpartner',
+            'Die Zusammenarbeit mit Bastian war sowohl fachlich als auch menschlich eine echte Bereicherung. Mit seinem fundierten Backend-Wissen – insbesondere rund um Supabase – und seinem hervorragenden Verständnis für saubere, skalierbare Datenstrukturen bildete er das technische Rückgrat unserer Entwicklung. Selbst als die Herausforderungen komplexer wurden, sorgte sein unermüdlicher Einsatz (oft bis spät in die Nacht) dafür, dass unser Fundament absolut solide war. Ohne seinen Weitblick und seine Zuverlässigkeit hätte das Projekt niemals dieses Qualitätsniveau erreicht. Ich würde jederzeit sehr gerne wieder mit Bastian zusammenarbeiten!',
+          author: 'Kevin Reinhold Triebe',
+          role: 'JOIN-Projektpartner',
         },
       ],
     },

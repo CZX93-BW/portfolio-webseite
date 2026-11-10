@@ -18,7 +18,7 @@
 .testimonials__carousel {
   position: relative;
   display: grid;
-  min-height: 362px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -38,23 +38,22 @@
 
 .testimonials__track {
   position: relative;
-  height: 274px;
+  display: grid;
+  justify-items: center;
 }
 
 .testimonials__card {
-  position: absolute;
-  top: 0;
-  left: 50%;
+  position: relative;
+  grid-area: 1 / 1;
   display: grid;
-  width: 632px;
-  min-height: 248px;
-  gap: 44px;
-  padding: 48px 40px;
+  width: min(760px, calc(100vw - 96px));
+  gap: 32px;
+  padding: 48px;
   border: 1px solid var(--color-primary);
   border-radius: 32px;
   background: rgba(61, 207, 182, 0.1);
   opacity: 0;
-  transform: translateX(-50%) scale(0.9);
+  transform: scale(0.9);
   transition:
     opacity var(--transition-default),
     transform var(--transition-default);
@@ -63,19 +62,19 @@
 .testimonials__card--active {
   z-index: 2;
   opacity: 1;
-  transform: translateX(-50%) scale(1);
+  transform: none;
 }
 
 .testimonials__card--previous {
   z-index: 1;
   opacity: 0.65;
-  transform: translateX(calc(-50% - 696px)) scale(0.9);
+  transform: translateX(-820px) scale(0.9);
 }
 
 .testimonials__card--next {
   z-index: 1;
   opacity: 0.65;
-  transform: translateX(calc(-50% + 696px)) scale(0.9);
+  transform: translateX(820px) scale(0.9);
 }
 
 .testimonials__card--hidden {
@@ -97,27 +96,31 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
+  white-space: pre-line;
 }
 
 .testimonials__footer {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   gap: 14px;
   align-items: center;
 }
 
 .testimonials__line {
+  flex: 1 1 32px;
   height: 1px;
   background: rgba(255, 255, 255, 0.8);
 }
 
 .testimonials__footer p {
+  max-width: 75%;
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
   font-family: var(--font-primary);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
+  text-align: right;
+  overflow-wrap: break-word;
 }
 
 .testimonials__controls {
@@ -195,33 +198,23 @@
     padding-inline: clamp(24px, 6vw, 64px);
   }
 
-  .testimonials__carousel {
-    min-height: 330px;
-  }
-
   .testimonials__fade {
     display: none;
   }
 
-  .testimonials__track {
-    height: 252px;
-    overflow: visible;
-  }
-
   .testimonials__card {
-    width: min(632px, calc(100vw - 128px));
-    min-height: 218px;
+    width: min(700px, calc(100vw - 128px));
     background: #1f5b4f;
   }
 
   .testimonials__card--previous {
     opacity: 0.24;
-    transform: translateX(calc(-50% - min(720px, 92vw))) scale(0.94);
+    transform: translateX(calc(-1 * min(720px, 92vw))) scale(0.94);
   }
 
   .testimonials__card--next {
     opacity: 0.24;
-    transform: translateX(calc(-50% + min(720px, 92vw))) scale(0.94);
+    transform: translateX(min(720px, 92vw)) scale(0.94);
   }
 }
 
@@ -237,17 +230,8 @@
     line-height: 1.2;
   }
 
-  .testimonials__carousel {
-    min-height: 340px;
-  }
-
-  .testimonials__track {
-    height: 260px;
-  }
-
   .testimonials__card {
     width: min(100%, 358px);
-    min-height: 226px;
     gap: 28px;
     padding: 56px 32px 28px;
     border-radius: 20px;
@@ -256,12 +240,12 @@
 
   .testimonials__card--previous {
     opacity: 0.16;
-    transform: translateX(calc(-50% - 430px)) scale(0.94);
+    transform: translateX(-430px) scale(0.94);
   }
 
   .testimonials__card--next {
     opacity: 0.16;
-    transform: translateX(calc(-50% + 430px)) scale(0.94);
+    transform: translateX(430px) scale(0.94);
   }
 
   .testimonials__quotes {
@@ -276,7 +260,6 @@
   }
 
   .testimonials__footer {
-    grid-template-columns: minmax(48px, 1fr) auto;
     gap: 12px;
   }
 
@@ -301,29 +284,20 @@
   }
 
   .testimonials__title {
-    font-size: 18px;
-  }
-
-  .testimonials__carousel {
-    min-height: 348px;
-  }
-
-  .testimonials__track {
-    height: 268px;
+    font-size: 24px;
   }
 
   .testimonials__card {
     width: min(100%, 320px);
-    min-height: 238px;
     padding: 52px 24px 24px;
   }
 
   .testimonials__card--previous {
-    transform: translateX(calc(-50% - 380px)) scale(0.94);
+    transform: translateX(-380px) scale(0.94);
   }
 
   .testimonials__card--next {
-    transform: translateX(calc(-50% + 380px)) scale(0.94);
+    transform: translateX(380px) scale(0.94);
   }
 
   .testimonials__quote {
@@ -336,21 +310,12 @@
 }
 
 @media (max-width: 1023px) and (orientation: landscape) {
-  .testimonials__carousel {
-    min-height: 260px;
-  }
-
   .testimonials__fade {
     display: none;
   }
 
-  .testimonials__track {
-    height: 195px;
-  }
-
   .testimonials__card {
     width: min(560px, calc(100vw - 160px));
-    min-height: 178px;
     gap: 24px;
     padding: 40px 32px 24px;
     background: rgba(8, 70, 59, 0.72);

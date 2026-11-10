@@ -35,7 +35,7 @@ export class TestimonialsComponent {
   /**
    * Index of the currently active testimonial card.
    */
-  protected activeIndex = 1;
+  protected activeIndex = 0;
 
   /**
    * Moves the carousel to the previous testimonial.
@@ -86,17 +86,13 @@ export class TestimonialsComponent {
    * Calculates the previous testimonial index with wraparound.
    */
   private getPreviousIndex(): number {
-    return this.activeIndex === 0
-      ? this.testimonials().length - 1
-      : this.activeIndex - 1;
+    return this.activeIndex === 0 ? this.testimonials().length - 1 : this.activeIndex - 1;
   }
 
   /**
    * Calculates the next testimonial index with wraparound.
    */
   private getNextIndex(): number {
-    return this.activeIndex === this.testimonials().length - 1
-      ? 0
-      : this.activeIndex + 1;
+    return this.activeIndex === this.testimonials().length - 1 ? 0 : this.activeIndex + 1;
   }
 }

@@ -6,11 +6,20 @@
   <div class="testimonials__carousel" [attr.aria-label]="text().carouselLabel">
     <div class="testimonials__fade" aria-hidden="true"></div>
 
-    <div class="testimonials__track">
+    <div class="testimonials__track" aria-live="polite">
       @for (testimonial of testimonials(); track testimonial.id; let index = $index) {
-        <article class="testimonials__card" [class]="getCardClass(index)">
+        <article
+          class="testimonials__card"
+          [class]="getCardClass(index)"
+          [attr.aria-hidden]="index !== activeIndex"
+        >
           @if (index === activeIndex) {
-            <img class="testimonials__quotes" src="icons/highlights/quotes.svg" alt="" aria-hidden="true" />
+            <img
+              class="testimonials__quotes"
+              src="icons/highlights/quotes.svg"
+              alt=""
+              aria-hidden="true"
+            />
           }
 
           <p class="testimonials__quote">{{ testimonial.quote }}</p>
@@ -30,7 +39,10 @@
         [attr.aria-label]="text().previousLabel"
         (click)="showPreviousTestimonial()"
       >
-        <span class="testimonials__arrow-icon testimonials__arrow-icon--left" aria-hidden="true"></span>
+        <span
+          class="testimonials__arrow-icon testimonials__arrow-icon--left"
+          aria-hidden="true"
+        ></span>
       </button>
 
       <div class="testimonials__dots" aria-label="Select testimonial">
@@ -52,7 +64,10 @@
         [attr.aria-label]="text().nextLabel"
         (click)="showNextTestimonial()"
       >
-        <span class="testimonials__arrow-icon testimonials__arrow-icon--right" aria-hidden="true"></span>
+        <span
+          class="testimonials__arrow-icon testimonials__arrow-icon--right"
+          aria-hidden="true"
+        ></span>
       </button>
     </div>
   </div>
