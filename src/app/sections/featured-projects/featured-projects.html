@@ -58,34 +58,36 @@
         ×
       </button>
 
-      @if (project.dialogImagePath) {
-        <img
-          class="projects-dialog__image"
-          [src]="project.dialogImagePath"
-          [alt]="getLocalizedText(project.title)"
-        />
-      }
+      <div class="projects-dialog__body">
+        @if (project.dialogImagePath) {
+          <img
+            class="projects-dialog__image"
+            [src]="project.dialogImagePath"
+            [alt]="getLocalizedText(project.title)"
+          />
+        }
 
-      <div class="projects-dialog__scroll-area">
-        <div class="projects-dialog__content">
-          <p class="projects-dialog__number">{{ project.number }}</p>
-          <h3>{{ getLocalizedText(project.title) }}</h3>
+        <div class="projects-dialog__scroll-area">
+          <div class="projects-dialog__content">
+            <p class="projects-dialog__number">{{ project.number }}</p>
+            <h3>{{ getLocalizedText(project.title) }}</h3>
 
-          <div class="projects-dialog__description">
-            <h4>{{ text().aboutQuestion }}</h4>
-            <p>{{ getLocalizedText(project.description) || text().fallbackDescription }}</p>
-          </div>
+            <div class="projects-dialog__description">
+              <h4>{{ text().aboutQuestion }}</h4>
+              <p>{{ getLocalizedText(project.description) || text().fallbackDescription }}</p>
+            </div>
 
-          <div class="projects-dialog__technologies">
-            @for (technology of project.technologies; track technology.name) {
-              <span>
-                @if (technology.iconPath) {
-                  <img [src]="technology.iconPath" [alt]="technology.name" />
-                }
+            <div class="projects-dialog__technologies">
+              @for (technology of project.technologies; track technology.name) {
+                <span>
+                  @if (technology.iconPath) {
+                    <img [src]="technology.iconPath" [alt]="technology.name" />
+                  }
 
-                {{ technology.name }}
-              </span>
-            }
+                  {{ technology.name }}
+                </span>
+              }
+            </div>
           </div>
         </div>
       </div>
