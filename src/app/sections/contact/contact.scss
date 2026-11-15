@@ -166,19 +166,19 @@
 
 .contact__custom-checkbox::after {
   position: absolute;
-  inset: 0;
-  background: var(--color-primary);
+  top: 50%;
+  left: 50%;
+  width: 28%;
+  height: 50%;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
   content: '';
   opacity: 0;
-  mask: url('/icons/highlights/checked_icon.svg') center / contain no-repeat;
+  transform: translate(-50%, -65%) rotate(45deg);
 }
 
 .contact__checkbox:hover .contact__custom-checkbox {
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.08);
-}
-
-.contact__checkbox input:checked + .contact__custom-checkbox {
-  border-color: transparent;
 }
 
 .contact__checkbox input:checked + .contact__custom-checkbox::after {

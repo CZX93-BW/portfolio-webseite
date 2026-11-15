@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, HostListener, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { translations } from '../../data/translations';
@@ -17,13 +17,33 @@ import { LanguageService } from '../../services/language';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
+export class Header implements OnInit {
   private readonly languageService = inject(LanguageService);
 
   /**
    * Tracks whether the mobile navigation panel is currently visible.
    */
   protected readonly isMobileMenuOpen = signal(false);
+
+  /**
+   * Indicates whether the page is scrolled beyond the top.
+   */
+  protected readonly hasScrolled = signal(false);
+
+  /**
+   * Initializes the header state when the page loads.
+   */
+  ngOnInit(): void {
+    this.updateScrollState();
+  }
+
+  /**
+   * Updates the header contrast when the viewport scrolls.
+   */
+  @HostListener('window:scroll')
+  protected updateScrollState(): void {
+    this.hasScrolled.set(window.scrollY > 24);
+  }
 
   /**
    * Header translation block for the currently selected language.

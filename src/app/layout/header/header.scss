@@ -10,6 +10,20 @@
   background: var(--header-gradient);
 }
 
+.header::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 28, 28, 0.97);
+  content: '';
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-default);
+}
+
+.header--scrolled::before {
+  opacity: 1;
+}
+
 .header__content {
   position: relative;
   display: flex;
@@ -150,7 +164,6 @@
 
 @include mixins.below-md {
   .header {
-    position: absolute;
     height: var(--header-height-mobile);
     background: transparent;
   }
