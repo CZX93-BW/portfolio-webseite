@@ -29,6 +29,8 @@ export const translations = {
     header: {
       languageLabel: 'Language selection',
       navigationLabel: 'Main navigation',
+      menuOpen: 'Open navigation menu',
+      menuClose: 'Close navigation menu',
       aboutMe: 'About me',
       skills: 'Skills',
       projects: 'Projects',
@@ -51,7 +53,7 @@ export const translations = {
       ],
     },
     about: {
-      imageAlt: 'Man working on a laptop',
+      imageAlt: 'Portrait of Bastian Wollny',
       label: 'Who I Am',
       title: 'About me',
       intro:
@@ -72,6 +74,7 @@ export const translations = {
       questionHighlight: 'another skill?',
       contact: 'Technologies are constantly evolving. That is exactly what makes software development exciting to me. I enjoy exploring new topics and look forward to developing solutions together and contributing my skills.',
       button: "Let's Talk",
+      learningInterest: 'I enjoy learning new things',
       ariaLabel: 'Technology skills',
     },
     projects: {
@@ -134,8 +137,8 @@ export const translations = {
       title: "Let's work together",
       problemTitle: 'Got a problem to solve?',
       intro:
-        'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
-      needDeveloper: 'Need a Frontend developer?',
+        'Feel free to contact me if you need support with a project. I bring a structured approach, technical understanding and a practical, solution-oriented mindset.',
+      needDeveloper: 'Looking for a Fullstack Developer?',
       talkLink: "Let's talk!",
       nameLabel: "What's your name?",
       namePlaceholder: 'Your name goes here',
@@ -182,6 +185,8 @@ export const translations = {
     header: {
       languageLabel: 'Sprachauswahl',
       navigationLabel: 'Hauptnavigation',
+      menuOpen: 'Navigationsmenü öffnen',
+      menuClose: 'Navigationsmenü schließen',
       aboutMe: 'Über mich',
       skills: 'Skills',
       projects: 'Projekte',
@@ -204,7 +209,7 @@ export const translations = {
       ],
     },
     about: {
-      imageAlt: 'Mann arbeitet an einem Laptop',
+      imageAlt: 'Porträt von Bastian Wollny',
       label: 'Wer ich bin',
       title: 'Über mich',
       intro:
@@ -226,6 +231,7 @@ export const translations = {
       contact:
         'Technologien entwickeln sich ständig weiter. Genau das macht Softwareentwicklung für mich spannend. Ich arbeite mich gerne in neue Themen ein und freue mich darauf, gemeinsam Lösungen zu entwickeln und meine Fähigkeiten einzubringen.',
       button: 'Kontakt aufnehmen',
+      learningInterest: 'Ich lerne gerne Neues',
       ariaLabel: 'Technologie-Skills',
     },
     projects: {
@@ -289,7 +295,7 @@ export const translations = {
       problemTitle: 'Gibt es ein Problem zu lösen?',
       intro:
         'Kontaktiere mich gerne, wenn du Unterstützung bei einem Projekt brauchst. Ich bringe Struktur, technisches Verständnis und eine lösungsorientierte Arbeitsweise mit.',
-      needDeveloper: 'Du brauchst einen Frontend Developer?',
+      needDeveloper: 'Du suchst einen Fullstack-Entwickler?',
       talkLink: 'Lass uns sprechen!',
       nameLabel: 'Wie ist dein Name?',
       namePlaceholder: 'Dein Name',
