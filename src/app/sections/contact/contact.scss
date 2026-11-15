@@ -73,6 +73,15 @@
   border-top: 1px solid rgba(61, 207, 182, 0.5);
 }
 
+.contact__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .contact__field {
   display: grid;
   min-height: 131px;

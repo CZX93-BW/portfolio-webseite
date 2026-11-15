@@ -47,6 +47,18 @@
         </small>
       </label>
 
+      <div class="contact__honeypot" aria-hidden="true">
+        <label for="contact-website">Leave this field empty</label>
+        <input
+          id="contact-website"
+          name="website"
+          type="text"
+          formControlName="website"
+          autocomplete="off"
+          tabindex="-1"
+        />
+      </div>
+
       <div class="contact__privacy">
         <label class="contact__checkbox">
           <input type="checkbox" formControlName="privacyAccepted" />

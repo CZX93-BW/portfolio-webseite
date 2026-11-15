@@ -16,6 +16,11 @@ export interface ContactFormMessage {
    * Message body submitted by the user.
    */
   message: string;
+
+  /**
+   * Honeypot field that must remain empty.
+   */
+  website: string;
 }
 
 /**

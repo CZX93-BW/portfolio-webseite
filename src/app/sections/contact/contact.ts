@@ -58,6 +58,7 @@ export class ContactComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(10)]],
+    website: [''],
     privacyAccepted: [false, [Validators.requiredTrue]],
   });
 
@@ -92,9 +93,9 @@ export class ContactComponent {
   private sendContactMessage(): void {
     this.setSendingState();
 
-    const { name, email, message } = this.contactForm.getRawValue();
+    const { name, email, message, website } = this.contactForm.getRawValue();
 
-    this.contactService.sendMessage({ name, email, message }).subscribe({
+    this.contactService.sendMessage({ name, email, message, website }).subscribe({
       next: (response) => this.handleContactResponse(response),
       error: () => this.handleSendError(),
     });
@@ -149,6 +150,7 @@ export class ContactComponent {
       name: '',
       email: '',
       message: '',
+      website: '',
       privacyAccepted: false,
     });
   }
