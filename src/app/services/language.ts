@@ -26,6 +26,7 @@ export class LanguageService {
    */
   setLanguage(language: Language): void {
     this.activeLanguage.set(language);
+    document.documentElement.lang = language;
   }
 
   /**

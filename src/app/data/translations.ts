@@ -55,22 +55,22 @@ export const translations = {
       label: 'Who I Am',
       title: 'About me',
       intro:
-        "Hey there, I'm Bastian! I am a fullstack developer in training with a strong interest in clean frontend architecture, automation and practical AI-supported workflows. I enjoy turning structured ideas into usable digital products.",
+        "I'm Bastian, a qualified IT specialist in application development with a passion for modern web development. I'm particularly fascinated by how frontend, backend and databases work together, as well as the possibilities offered by AI and automation. I enjoy developing well-thought-out solutions and understanding the technology behind them.",
       location:
-        'I am based in Germany and open to remote work, hybrid setups and professional opportunities where I can keep growing.',
+        'I am based in Bottrop and looking for an opportunity to work as a fullstack developer. I am open to working on-site, in hybrid teams or remotely.',
       mindset:
-        'I am curious, open-minded and motivated to learn new technologies, improve my skills and understand how things work under the hood.',
+        'I am curious and analytical, and I like to question existing approaches. Challenges motivate me to explore new perspectives and continuously deepen my technical understanding.',
       quality:
-        'I approach problems with structure, persistence and creativity, always looking for solutions that are understandable, maintainable and efficient.',
+        'My goal is to develop sustainable, high-quality software solutions. I place particular importance on a structured approach, clean code architecture and long-term maintainability. Analytical thinking, a strong commitment to quality and solution-oriented collaboration form the foundation of my work.',
     },
     skills: {
       label: 'Technologies',
       title: 'Skill Set',
       intro:
-        'I work with modern frontend technologies and continuously expand my technical foundation in backend development, automation and deployment workflows.',
+        'My technical focus is on JavaScript, TypeScript, Angular, Python and Django. Through hands-on projects, I have gained experience with REST APIs, databases and developing complete web applications. I am particularly interested in scalable architectures, automation and AI integration.',
       questionStart: 'You need',
       questionHighlight: 'another skill?',
-      contact: 'Feel free to contact me. I look forward to expanding on my previous knowledge.',
+      contact: 'Technologies are constantly evolving. That is exactly what makes software development exciting to me. I enjoy exploring new topics and look forward to developing solutions together and contributing my skills.',
       button: "Let's Talk",
       ariaLabel: 'Technology skills',
     },
@@ -208,23 +208,23 @@ export const translations = {
       label: 'Wer ich bin',
       title: 'Über mich',
       intro:
-        'Hi, ich bin Bastian! Ich bin Fullstack Developer in Weiterbildung mit starkem Interesse an sauberer Frontend-Architektur, Automation und praxisnahen KI-unterstützten Workflows. Ich setze strukturierte Ideen gerne in nutzbare digitale Produkte um.',
+        'Ich bin Bastian. Als ausgebildeter Fachinformatiker für Anwendungsentwicklung entwickle ich gern Webanwendungen, die im Alltag nützlich sind. Dabei möchte ich verstehen, wie Frontend, Backend und Datenbanken zusammenspielen. Auch KI und Automatisierung interessieren mich, wenn sie einen echten Nutzen bieten.',
       location:
-        'Ich lebe in Deutschland und bin offen für Remote Work, hybride Modelle und berufliche Möglichkeiten, bei denen ich weiter wachsen kann.',
+        'Ich komme aus Bottrop und suche eine berufliche Perspektive als Fullstack-Entwickler. Dabei bin ich offen für die Zusammenarbeit vor Ort, in hybriden Teams oder remote.',
       mindset:
-        'Ich bin neugierig, offen und motiviert, neue Technologien zu lernen, meine Fähigkeiten zu verbessern und Dinge wirklich zu verstehen.',
+        'Ich bin neugierig, analytisch und hinterfrage gerne bestehende Ansätze. Herausforderungen motivieren mich, neue Perspektiven einzunehmen und mein technisches Verständnis kontinuierlich zu vertiefen.',
       quality:
-        'Ich gehe Probleme strukturiert, ausdauernd und kreativ an und suche Lösungen, die verständlich, wartbar und effizient sind.',
+        'Mein Anspruch ist es, nachhaltige und qualitativ hochwertige Softwarelösungen zu entwickeln. Dabei lege ich besonderen Wert auf eine strukturierte Herangehensweise, saubere Codearchitektur und langfristige Wartbarkeit. Analytisches Denken, ein ausgeprägtes Qualitätsbewusstsein und eine lösungsorientierte Zusammenarbeit bilden die Grundlage meiner Arbeit.',
     },
     skills: {
       label: 'Technologien',
       title: 'Skill Set',
       intro:
-        'Ich arbeite mit modernen Frontend-Technologien und erweitere meine technische Grundlage stetig in Backend-Entwicklung, Automation und Deployment-Workflows.',
+        'Ich arbeite mit JavaScript, TypeScript und Angular sowie mit Python und Django. In praktischen Projekten habe ich Webanwendungen mit REST-APIs und Datenbanken umgesetzt. Mich interessieren gut geplante Softwarearchitektur, Automatisierung und ein sinnvoller Einsatz von KI.',
       questionStart: 'Du brauchst',
       questionHighlight: 'einen anderen Skill?',
       contact:
-        'Kontaktiere mich gerne. Ich freue mich darauf, mein bisheriges Wissen weiter auszubauen.',
+        'Technologien entwickeln sich ständig weiter. Genau das macht Softwareentwicklung für mich spannend. Ich arbeite mich gerne in neue Themen ein und freue mich darauf, gemeinsam Lösungen zu entwickeln und meine Fähigkeiten einzubringen.',
       button: 'Kontakt aufnehmen',
       ariaLabel: 'Technologie-Skills',
     },
