@@ -7,8 +7,8 @@
       "de": "Join"
     },
     "description": {
-      "en": "Task manager inspired by the Kanban system. Create and organize tasks using drag and drop, assign users and categories.",
-      "de": "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben per Drag and Drop, weise Nutzer und Kategorien zu."
+      "en": "A task manager based on Kanban. Create tasks, assign people and categories, and drag tasks between columns.",
+      "de": "Eine Aufgabenverwaltung nach dem Kanban-Prinzip. Erstelle Aufgaben, weise ihnen Personen und Kategorien zu und verschiebe sie zwischen den Spalten."
     },
     "technologies": [
       { "name": "Angular", "iconPath": "icons/skillicons/angular.svg" },
@@ -30,7 +30,7 @@
       "de": "Sharky"
     },
     "description": {
-      "en": "A browser-based underwater jump and run game built with JavaScript, HTML and CSS.",
+      "en": "A browser-based underwater platform game built with JavaScript, HTML and CSS.",
       "de": "Ein browserbasiertes Unterwasser-Jump-and-Run-Spiel, umgesetzt mit JavaScript, HTML und CSS."
     },
     "technologies": [

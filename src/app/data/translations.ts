@@ -2,23 +2,6 @@ import { Language } from '../models/language';
 import { legalNoticeHtml, privacyPolicyHtml } from './legal-texts';
 
 /**
- * Expected top-level shape for each language entry.
- *
- * Some nested values are intentionally typed as `unknown` because individual
- * components only consume their own translation subtree.
- */
-type TranslationStructure = {
-  header: Record<string, string>;
-  hero: Record<string, unknown>;
-  about: Record<string, unknown>;
-  skills: Record<string, unknown>;
-  projects: Record<string, unknown>;
-  contact: Record<string, unknown>;
-  impressum: Record<string, unknown>;
-  privacyPolicy: Record<string, unknown>;
-};
-
-/**
  * Central translation dictionary for the portfolio.
  *
  * Components read labels, copy text and legal-page HTML from this object based
@@ -34,20 +17,21 @@ export const translations = {
       aboutMe: 'About me',
       skills: 'Skills',
       projects: 'Projects',
-      homepageLabel: 'Go to homepage',
+      homepageLabel: 'Go to the homepage',
     },
     hero: {
-      role: 'Fullstack Developer',
+      role: 'Full-stack Developer',
       title: 'Bastian Wollny',
       workButton: 'Check my work',
       contactButton: 'Contact me',
       contactLinksLabel: 'Contact links',
       githubLabel: 'GitHub profile',
       linkedinLabel: 'LinkedIn profile',
-      emailLabel: 'Write email',
+      emailLabel: 'Send an email',
+      scrollLabel: 'Scroll to about me',
       marqueeItems: [
         'Available for remote work',
-        'Fullstack Developer',
+        'Full-stack Developer',
         'Based in Bottrop',
         'Open to work',
       ],
@@ -59,7 +43,7 @@ export const translations = {
       intro:
         "I'm Bastian, a qualified IT specialist in application development with a passion for modern web development. I'm particularly fascinated by how frontend, backend and databases work together, as well as the possibilities offered by AI and automation. I enjoy developing well-thought-out solutions and understanding the technology behind them.",
       location:
-        'I am based in Bottrop and looking for an opportunity to work as a fullstack developer. I am open to working on-site, in hybrid teams or remotely.',
+        'I am based in Bottrop and looking for an opportunity to work as a full-stack developer. I am open to working on-site, in hybrid teams or remotely.',
       mindset:
         'I am curious and analytical, and I like to question existing approaches. Challenges motivate me to explore new perspectives and continuously deepen my technical understanding.',
       quality:
@@ -70,10 +54,11 @@ export const translations = {
       title: 'Skill Set',
       intro:
         'My technical focus is on JavaScript, TypeScript, Angular, Python and Django. Through hands-on projects, I have gained experience with REST APIs, databases and developing complete web applications. I am particularly interested in scalable architectures, automation and AI integration.',
-      questionStart: 'You need',
+      questionStart: 'Do you need',
       questionHighlight: 'another skill?',
       contact: 'Technologies are constantly evolving. That is exactly what makes software development exciting to me. I enjoy exploring new topics and look forward to developing solutions together and contributing my skills.',
       button: "Let's Talk",
+      growthMindset: 'Growth mindset',
       learningInterest: 'I enjoy learning new things',
       ariaLabel: 'Technology skills',
     },
@@ -81,12 +66,12 @@ export const translations = {
       label: 'Portfolio',
       title: 'Featured Projects',
       intro:
-        'Explore a selection of my work here - Interact with projects to see my skills in action.',
+        'Explore a selection of my work. Open a project to learn more or try the live demo.',
       closeDialog: 'Close project dialog',
       aboutQuestion: 'What is this project about?',
       fallbackDescription: 'Project description will be added soon.',
-      github: 'GitHub ↗',
-      liveTest: 'Live Test ↗',
+      github: 'GitHub',
+      liveTest: 'Live demo',
       nextProject: 'Next project',
     },
     testimonials: {
@@ -100,7 +85,7 @@ export const translations = {
         {
           id: 1,
           quote:
-            'Basti approached the project highly professionally. He brings massive knowledge in JavaScript and frontend architecture. I particularly appreciated his calm personality. He always stays cool and gets precisely to the point. Working with him was incredibly fun and fostered a great, conflict-free team dynamic. Everyone’s ideas and feedback were valued, resulting in genuine, productive teamwork on equal footing.',
+            'Basti approached the project highly professionally. He brings extensive knowledge of JavaScript and frontend architecture. I particularly appreciated his calm personality. He always stays cool and gets precisely to the point. Working with him was incredibly fun and fostered a great, conflict-free team dynamic. Everyone’s ideas and feedback were valued, resulting in genuine, productive teamwork on equal footing.',
           author: 'Timo Böning',
           role: 'Project Partner',
         },
@@ -108,7 +93,7 @@ export const translations = {
           id: 2,
           quote: [
             'The collaboration with Bastian was very pleasant from the very beginning. He brought a clear and well-structured approach to the project and explained complex topics in a very understandable and comprehensive way.',
-            'Bastian has an impressive amount of knowledge and thinks ahead, identifying potential issues early on. He finds solutions extremely quickly and fixes problems efficiently. Even in stressful situations, he remains calm and composed, creating a very reassuring and positive working atmosphere. Also his JavaScript skills are very high.',
+            'Bastian has an impressive amount of knowledge and thinks ahead, identifying potential issues early on. He finds solutions extremely quickly and fixes problems efficiently. Even in stressful situations, he remains calm and composed, creating a very reassuring and positive working atmosphere. His JavaScript skills are also excellent.',
             'All of these skills make Bastian an excellent team member. Thank you very much for the great collaboration!',
           ].join('\n\n'),
           author: 'Magdalena Laurisch',
@@ -138,8 +123,9 @@ export const translations = {
       problemTitle: 'Got a problem to solve?',
       intro:
         'Feel free to contact me if you need support with a project. I bring a structured approach, technical understanding and a practical, solution-oriented mindset.',
-      needDeveloper: 'Looking for a Fullstack Developer?',
+      needDeveloper: 'Looking for a Full-stack Developer?',
       talkLink: "Let's talk!",
+      websiteLabel: 'Leave this field empty',
       nameLabel: "What's your name?",
       namePlaceholder: 'Your name goes here',
       nameError: 'Please enter your name.',
@@ -159,13 +145,13 @@ export const translations = {
       error: 'Something went wrong. Please try again later.',
     },
     footer: {
-      homepageLabel: 'Back to homepage',
-      role: 'Fullstack Developer',
-      location: 'Bottrop Germany',
+      homepageLabel: 'Back to the homepage',
+      role: 'Full-stack Developer',
+      location: 'Bottrop, Germany',
       copyright: '© Bastian Wollny 2026',
       navigationLabel: 'Footer navigation',
       links: {
-        github: 'Github',
+        github: 'GitHub',
         linkedin: 'LinkedIn',
         email: 'Email',
         legalNotice: 'Legal Notice',
@@ -188,22 +174,23 @@ export const translations = {
       menuOpen: 'Navigationsmenü öffnen',
       menuClose: 'Navigationsmenü schließen',
       aboutMe: 'Über mich',
-      skills: 'Skills',
+      skills: 'Kenntnisse',
       projects: 'Projekte',
       homepageLabel: 'Zur Startseite',
     },
     hero: {
-      role: 'Fullstack Entwickler',
+      role: 'Fullstack-Entwickler',
       title: 'Bastian Wollny',
       workButton: 'Meine Projekte',
       contactButton: 'Kontakt',
       contactLinksLabel: 'Kontaktlinks',
-      githubLabel: 'GitHub Profil',
-      linkedinLabel: 'LinkedIn Profil',
+      githubLabel: 'GitHub-Profil',
+      linkedinLabel: 'LinkedIn-Profil',
       emailLabel: 'E-Mail schreiben',
+      scrollLabel: 'Zum Über-mich-Bereich scrollen',
       marqueeItems: [
-        'Verfügbar für Remote Work',
-        'Fullstack Entwickler',
+        'Ortsunabhängig verfügbar',
+        'Fullstack-Entwickler',
         'Aus Bottrop',
         'Offen für neue Möglichkeiten',
       ],
@@ -231,28 +218,29 @@ export const translations = {
       contact:
         'Technologien entwickeln sich ständig weiter. Genau das macht Softwareentwicklung für mich spannend. Ich arbeite mich gerne in neue Themen ein und freue mich darauf, gemeinsam Lösungen zu entwickeln und meine Fähigkeiten einzubringen.',
       button: 'Kontakt aufnehmen',
+      growthMindset: 'Freude am Lernen',
       learningInterest: 'Ich lerne gerne Neues',
-      ariaLabel: 'Technologie-Skills',
+      ariaLabel: 'Technische Kenntnisse',
     },
     projects: {
       label: 'Portfolio',
       title: 'Featured Projects',
       intro:
-        'Entdecke hier eine Auswahl meiner Arbeiten und interagiere mit den Projekten, um meine Skills in Aktion zu sehen.',
+        'Hier findest du eine Auswahl meiner Arbeiten. Öffne ein Projekt, um mehr darüber zu erfahren oder die Demo auszuprobieren.',
       closeDialog: 'Projekt-Dialog schließen',
       aboutQuestion: 'Worum geht es in diesem Projekt?',
       fallbackDescription: 'Die Projektbeschreibung wird bald ergänzt.',
-      github: 'GitHub ↗',
-      liveTest: 'Live Test ↗',
+      github: 'GitHub',
+      liveTest: 'Demo öffnen',
       nextProject: 'Nächstes Projekt',
     },
     testimonials: {
       title: 'Was Kolleginnen und Kollegen über mich sagen',
-      carouselLabel: 'Testimonial-Karussell',
+      carouselLabel: 'Rückmeldungen zum Durchblättern',
       controlsLabel: 'Karussell-Steuerung',
-      previousLabel: 'Vorheriges Testimonial anzeigen',
-      nextLabel: 'Nächstes Testimonial anzeigen',
-      selectLabel: 'Testimonial anzeigen',
+      previousLabel: 'Vorherige Rückmeldung anzeigen',
+      nextLabel: 'Nächste Rückmeldung anzeigen',
+      selectLabel: 'Rückmeldung anzeigen',
       items: [
         {
           id: 1,
@@ -297,6 +285,7 @@ export const translations = {
         'Kontaktiere mich gerne, wenn du Unterstützung bei einem Projekt brauchst. Ich bringe Struktur, technisches Verständnis und eine lösungsorientierte Arbeitsweise mit.',
       needDeveloper: 'Du suchst einen Fullstack-Entwickler?',
       talkLink: 'Lass uns sprechen!',
+      websiteLabel: 'Dieses Feld bitte leer lassen',
       nameLabel: 'Wie ist dein Name?',
       namePlaceholder: 'Dein Name',
       nameError: 'Bitte gib deinen Namen ein.',
@@ -304,25 +293,25 @@ export const translations = {
       emailPlaceholder: 'deinemail@email.com',
       emailError: 'Bitte gib eine gültige E-Mail-Adresse ein.',
       messageLabel: 'Wie kann ich dir helfen?',
-      messagePlaceholder: 'Hallo Bastian, ich interessiere mich für...',
+      messagePlaceholder: 'Hallo Bastian, ich interessiere mich für …',
       messageError: 'Bitte gib eine Nachricht mit mindestens 10 Zeichen ein.',
       privacyStart: 'Ich habe die',
       privacyLink: 'Datenschutzerklärung',
       privacyEnd: 'gelesen und stimme der Verarbeitung meiner Daten zu.',
       privacyError: 'Bitte akzeptiere die Datenschutzerklärung.',
-      sending: 'Wird gesendet...',
+      sending: 'Wird gesendet …',
       submit: 'Nachricht senden',
       success: 'Deine Nachricht wurde erfolgreich gesendet.',
       error: 'Etwas ist schiefgelaufen. Bitte versuche es später erneut.',
     },
     footer: {
       homepageLabel: 'Zur Startseite',
-      role: 'Fullstack Developer',
-      location: 'Bottrop Deutschland',
+      role: 'Fullstack-Entwickler',
+      location: 'Bottrop, Deutschland',
       copyright: '© Bastian Wollny 2026',
-      navigationLabel: 'Footer Navigation',
+      navigationLabel: 'Navigation im Fußbereich',
       links: {
-        github: 'Github',
+        github: 'GitHub',
         linkedin: 'LinkedIn',
         email: 'E-Mail',
         legalNotice: 'Impressum',

@@ -27,8 +27,8 @@
           class="skills__item"
           [class.skills__item--growth]="skill.name === 'Growth mindset'"
         >
-          <img class="skills__icon" [src]="skill.iconPath" [alt]="skill.name" />
-          <p>{{ skill.name }}</p>
+          <img class="skills__icon" [src]="skill.iconPath" alt="" />
+          <p>{{ skill.name === 'Growth mindset' ? text().growthMindset : skill.name }}</p>
 
           @if (skill.name === 'Growth mindset') {
             <div class="skills__learning-bubble" aria-hidden="true">
@@ -41,7 +41,7 @@
                 </span>
                 <span class="skills__learning-skill skills__learning-skill--vue">
                   <img src="icons/skillset/vuejs.svg" alt="" />
-                  Vue Js
+                  Vue.js
                 </span>
               </div>
             </div>
