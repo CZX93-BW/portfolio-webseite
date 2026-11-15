@@ -1,4 +1,4 @@
-<section class="contact section" aria-labelledby="contact-title">
+<section id="contact" class="contact section" aria-labelledby="contact-title">
   <div class="contact__container">
     <div class="contact__content">
       <p class="contact__label">{{ text().label }}</p>
@@ -16,39 +16,33 @@
       </div>
     </div>
 
-    <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="submitContactForm()" novalidate>
+    <form class="contact__form" [formGroup]="contactForm" (input)="handleTextInput($event)" (focusout)="hasPendingEdit = false" (ngSubmit)="submitContactForm()" novalidate>
       <label class="contact__field">
         <span>{{ text().nameLabel }}</span>
-        <input type="text" formControlName="name" [placeholder]="text().namePlaceholder" autocomplete="name" />
-        <small class="contact__error">
-          @if (shouldShowError('name')) {
-            {{ text().nameError }}
-          }
+        <input type="text" name="name" formControlName="name" aria-required="true" [attr.aria-invalid]="shouldShowError('name')" [attr.aria-describedby]="shouldShowError('name') ? 'contact-name-error' : null" [placeholder]="text().namePlaceholder" autocomplete="name" />
+        <small id="contact-name-error" class="contact__error" [class.contact__error--hidden]="!shouldShowError('name')">
+          {{ text().nameError }}
         </small>
       </label>
 
       <label class="contact__field">
         <span>{{ text().emailLabel }}</span>
-        <input type="email" formControlName="email" [placeholder]="text().emailPlaceholder" autocomplete="email" />
-        <small class="contact__error">
-          @if (shouldShowError('email')) {
-            {{ text().emailError }}
-          }
+        <input type="email" name="email" formControlName="email" aria-required="true" [attr.aria-invalid]="shouldShowError('email')" [attr.aria-describedby]="shouldShowError('email') ? 'contact-email-error' : null" [placeholder]="text().emailPlaceholder" autocomplete="email" />
+        <small id="contact-email-error" class="contact__error" [class.contact__error--hidden]="!shouldShowError('email')">
+          {{ text().emailError }}
         </small>
       </label>
 
       <label class="contact__field">
         <span>{{ text().messageLabel }}</span>
-        <textarea formControlName="message" [placeholder]="text().messagePlaceholder" rows="3"></textarea>
-        <small class="contact__error">
-          @if (shouldShowError('message')) {
-            {{ text().messageError }}
-          }
+        <textarea name="message" formControlName="message" aria-required="true" [attr.aria-invalid]="shouldShowError('message')" [attr.aria-describedby]="shouldShowError('message') ? 'contact-message-error' : null" [placeholder]="text().messagePlaceholder" rows="3"></textarea>
+        <small id="contact-message-error" class="contact__error" [class.contact__error--hidden]="!shouldShowError('message')">
+          {{ text().messageError }}
         </small>
       </label>
 
       <div class="contact__honeypot" aria-hidden="true">
-        <label for="contact-website">Leave this field empty</label>
+        <label for="contact-website">{{ text().websiteLabel }}</label>
         <input
           id="contact-website"
           name="website"
@@ -61,7 +55,7 @@
 
       <div class="contact__privacy">
         <label class="contact__checkbox">
-          <input type="checkbox" formControlName="privacyAccepted" />
+          <input type="checkbox" formControlName="privacyAccepted" aria-required="true" [attr.aria-invalid]="shouldShowError('privacyAccepted')" [attr.aria-describedby]="shouldShowError('privacyAccepted') ? 'contact-privacy-error' : null" />
           <span class="contact__custom-checkbox" aria-hidden="true"></span>
 
           <span>
@@ -71,14 +65,12 @@
           </span>
         </label>
 
-        <small class="contact__privacy-error">
-          @if (shouldShowError('privacyAccepted')) {
-            {{ text().privacyError }}
-          }
+        <small id="contact-privacy-error" class="contact__privacy-error" [class.contact__error--hidden]="!shouldShowError('privacyAccepted')">
+          {{ text().privacyError }}
         </small>
       </div>
 
-      <button class="contact__button" type="submit" [disabled]="contactForm.invalid || isSending">
+      <button class="contact__button" type="submit" [disabled]="submitDisabled">
         <span>
           @if (isSending) {
             {{ text().sending }}

@@ -51,6 +51,9 @@ export class ContactComponent {
    */
   protected sendError = false;
 
+  /** A text field has a new value waiting for blur validation. */
+  protected hasPendingEdit = false;
+
   /**
    * Reactive form model for the contact section.
    */
@@ -58,9 +61,28 @@ export class ContactComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(10)]],
-    website: [''],
-    privacyAccepted: [false, [Validators.requiredTrue]],
-  });
+    website: ['', { updateOn: 'change' }],
+    privacyAccepted: [false, { validators: Validators.requiredTrue, updateOn: 'change' }],
+  }, { updateOn: 'blur' });
+
+  /** Keeps keyboard submission from using a previously validated value. */
+  protected get submitDisabled(): boolean {
+    return this.hasPendingEdit || this.contactForm.invalid || this.isSending;
+  }
+
+  /** Autofill can populate an unfocused field without ever firing a blur on it. */
+  protected handleTextInput(event: Event): void {
+    const field = event.target;
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return;
+    const name = field.name;
+    if (name !== 'name' && name !== 'email' && name !== 'message') return;
+
+    if (field === field.ownerDocument.activeElement) {
+      this.hasPendingEdit = true;
+    } else {
+      this.contactForm.controls[name].setValue(field.value);
+    }
+  }
 
   /**
    * Validates the form and starts the submit request when all fields are valid.
@@ -68,7 +90,7 @@ export class ContactComponent {
   protected submitContactForm(): void {
     this.wasSubmitted = true;
 
-    if (this.contactForm.invalid || this.isSending) {
+    if (this.submitDisabled) {
       this.contactForm.markAllAsTouched();
       return;
     }
