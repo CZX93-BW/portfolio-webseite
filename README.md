@@ -178,7 +178,7 @@ The main page is composed from the section components:
 <app-about-me id="about-me" />
 <app-skill-set id="skills" />
 <app-featured-projects id="projects" />
-<app-testimonials />
+<app-testimonials id="testimonials" />
 <app-contact id="contact" />
 ```
 
@@ -197,7 +197,7 @@ The SCSS setup uses global design foundations and local component styling:
 
 ## Responsive Design
 
-The layout was built mobile-first in the final responsive phase and then refined across relevant viewport ranges.
+The layout follows a desktop-first approach, with responsive refinements for tablet, mobile and landscape viewports.
 
 Important responsive goals:
 
@@ -277,6 +277,8 @@ The endpoint accepts JSON POST requests and validates:
 - Message length
 - Header injection attempts
 - Honeypot field for basic bot protection
+
+The Angular form sends a visually hidden `website` field that should remain empty. The PHP endpoint rejects non-empty honeypot values. This provides basic bot filtering, not protection against targeted requests or repeated submissions; server-side rate limiting remains a possible improvement.
 
 The server sends mail through a domain-based sender address:
 
@@ -358,18 +360,16 @@ Before deployment, verify:
 
 Planned or possible future improvements:
 
-- Replace placeholder testimonials with real content
-- Add final personal logo asset
-- Add final project preview images
 - Add more completed portfolio projects
 - Improve accessibility details after final content freeze
 - Add automated tests for services and form validation
 - Add CI build check
+- Consider server-side rate limiting for the contact endpoint
 
 ## Author
 
 **Bastian Wollny**  
-Fullstack Developer in training
+IHK-certified IT specialist for application development, focused on fullstack web development
 
 Portfolio: `bastian-wollny.de`
 
