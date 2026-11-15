@@ -2,7 +2,8 @@
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--hero-gradient);
 }
@@ -248,10 +249,6 @@
 }
 
 @include mixins.below-md {
-  .hero {
-    min-height: max(760px, 100svh);
-  }
-
   .hero__center {
     top: clamp(285px, 39.5svh, 333px);
     width: calc(100% - 22px);
@@ -278,7 +275,7 @@
     min-width: 0;
     min-height: clamp(42px, 12.3vw, 48px);
     padding-inline: clamp(14px, 5.1vw, 20px);
-    font-size: clamp(12px, 3.6vw, 14px);
+    font-size: 16px;
   }
 
   .hero__left-lateral {
@@ -349,12 +346,8 @@
 }
 
 @media (max-width: 767px) and (max-height: 740px) and (orientation: portrait) {
-  .hero {
-    min-height: max(700px, 100svh);
-  }
-
   .hero__center {
-    top: clamp(238px, 37svh, 275px);
+    top: clamp(110px, 27dvh, 205px);
   }
 
   .hero__role {
@@ -372,7 +365,7 @@
   .hero__button {
     min-height: 40px;
     padding-inline: 12px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .hero__left-lateral,
@@ -399,10 +392,6 @@
 }
 
 @media (max-width: 1023px) and (orientation: landscape) {
-  .hero {
-    min-height: max(520px, 100svh);
-  }
-
   .hero__center {
     top: 50%;
     width: min(680px, calc(100% - 160px));
@@ -426,7 +415,7 @@
   .hero__button {
     min-height: 42px;
     padding-inline: 18px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .hero__left-lateral,
@@ -447,10 +436,6 @@
 }
 
 @media (max-width: 767px) and (orientation: landscape) {
-  .hero {
-    min-height: max(480px, 100svh);
-  }
-
   .hero__center {
     width: min(560px, calc(100% - 80px));
   }
@@ -470,7 +455,7 @@
   .hero__button {
     min-height: 38px;
     padding-inline: 14px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .hero__marquee {
@@ -490,6 +475,18 @@
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 360px) and (orientation: portrait) {
+  .hero__center {
+    top: clamp(106px, 26dvh, 218px);
+  }
+}
+
+@media (max-width: 767px) and (max-height: 600px) and (orientation: portrait) {
+  .hero__center {
+    top: 20dvh;
   }
 }
 

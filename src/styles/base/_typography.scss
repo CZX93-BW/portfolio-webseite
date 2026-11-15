@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Karla';
+  src: url('/fonts/karla/karla-latin.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/fira-code/fira-code-latin.woff2') format('woff2');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   color: var(--color-text);
   font-family: var(--font-primary);
