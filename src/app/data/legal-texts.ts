@@ -16,7 +16,7 @@ export const legalNoticeHtml = {
       46244 Bottrop
     </p>
 
-    <h2>Exploring the Board</h2>
+    <h2>Kontakt</h2>
     <p>
       E-Mail:
       <a href="mailto:bastian-wollny@web.de">bastian-wollny@web.de</a>
@@ -77,7 +77,7 @@ export const legalNoticeHtml = {
       Germany
     </p>
 
-    <h2>Exploring the Board</h2>
+    <h2>Contact</h2>
     <p>
       Email:
       <a href="mailto:bastian-wollny@web.de">bastian-wollny@web.de</a>

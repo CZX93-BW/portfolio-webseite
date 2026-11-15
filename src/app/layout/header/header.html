@@ -41,7 +41,7 @@
     <button
       class="header__menu-button"
       type="button"
-      aria-label="Open navigation menu"
+      [attr.aria-label]="isMobileMenuOpen() ? text().menuClose : text().menuOpen"
       [class.header__menu-button--open]="isMobileMenuOpen()"
       [attr.aria-expanded]="isMobileMenuOpen()"
       (click)="toggleMobileMenu()"

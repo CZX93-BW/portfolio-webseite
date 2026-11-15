@@ -47,7 +47,7 @@
   </div>
 
   @if (selectedProject(); as project) {
-  <div class="projects-dialog" role="dialog" aria-modal="true" (click)="closeProjectDialog()">
+  <div class="projects-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" (click)="closeProjectDialog()">
     <article class="projects-dialog__card" (click)="$event.stopPropagation()">
       <button
         class="projects-dialog__close"
@@ -70,7 +70,7 @@
         <div class="projects-dialog__scroll-area">
           <div class="projects-dialog__content">
             <p class="projects-dialog__number">{{ project.number }}</p>
-            <h3>{{ getLocalizedText(project.title) }}</h3>
+            <h3 id="project-dialog-title">{{ getLocalizedText(project.title) }}</h3>
 
             <div class="projects-dialog__description">
               <h4>{{ text().aboutQuestion }}</h4>

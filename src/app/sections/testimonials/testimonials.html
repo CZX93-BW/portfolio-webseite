@@ -45,7 +45,7 @@
         ></span>
       </button>
 
-      <div class="testimonials__dots" aria-label="Select testimonial">
+      <div class="testimonials__dots" role="group" [attr.aria-label]="text().selectLabel">
         @for (testimonial of testimonials(); track testimonial.id; let index = $index) {
           <button
             class="testimonials__dot"
