@@ -39,8 +39,10 @@
     </div>
 
     <button
+      #menuButton
       class="header__menu-button"
       type="button"
+      aria-controls="mobile-navigation"
       [attr.aria-label]="isMobileMenuOpen() ? text().menuClose : text().menuOpen"
       [class.header__menu-button--open]="isMobileMenuOpen()"
       [attr.aria-expanded]="isMobileMenuOpen()"
@@ -69,7 +71,9 @@
     </a>
 
     <nav
+      id="mobile-navigation"
       class="header__mobile-menu"
+      [attr.inert]="isMobileMenuOpen() ? null : ''"
       [class.header__mobile-menu--open]="isMobileMenuOpen()"
       [attr.aria-label]="text().navigationLabel"
     >

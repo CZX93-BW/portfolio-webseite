@@ -2,11 +2,13 @@
 
 .section {
   padding: clamp(72px, 7vw, 96px) 0;
+  scroll-margin-top: var(--header-height-desktop);
 }
 
 @include mixins.below-md {
   .section {
     padding: 72px 0;
+    scroll-margin-top: var(--header-height-mobile);
   }
 }
 

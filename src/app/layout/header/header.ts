@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, ElementRef, HostListener, inject, OnInit, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { translations } from '../../data/translations';
@@ -19,6 +19,7 @@ import { LanguageService } from '../../services/language';
 })
 export class Header implements OnInit {
   private readonly languageService = inject(LanguageService);
+  private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
   /**
    * Tracks whether the mobile navigation panel is currently visible.
@@ -60,10 +61,18 @@ export class Header implements OnInit {
   }
 
   /**
-   * Closes the mobile menu after navigation or language interaction.
+   * Closes the mobile navigation panel.
    */
   protected closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
+  }
+
+  /** Closes the mobile navigation with Escape and restores its trigger focus. */
+  @HostListener('document:keydown.escape')
+  protected closeMobileMenuWithEscape(): void {
+    if (!this.isMobileMenuOpen()) return;
+    this.closeMobileMenu();
+    this.menuButton()?.nativeElement.focus();
   }
 
   /**
