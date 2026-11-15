@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { afterNextRender, Component, computed, ElementRef, HostListener, inject, Injector, OnDestroy, OnInit, signal, viewChild } from '@angular/core';
 
 import { translations } from '../../data/translations';
 import { LocalizedText, Project } from '../../models/project.model';
@@ -21,6 +21,9 @@ import { ProjectService } from '../../services/project.service';
 export class FeaturedProjectsComponent implements OnInit, OnDestroy {
   private readonly projectService = inject(ProjectService);
   private readonly languageService = inject(LanguageService);
+  private readonly injector = inject(Injector);
+  private readonly dialogElement = viewChild<ElementRef<HTMLElement>>('projectDialog');
+  private previousFocus: HTMLElement | null = null;
   private previousBodyOverflow = '';
   private previousDocumentOverflow = '';
 
@@ -104,16 +107,38 @@ export class FeaturedProjectsComponent implements OnInit, OnDestroy {
    * @param project - Project to display in the dialog.
    */
   protected openProjectDialog(project: Project): void {
+    this.previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     this.lockPageScroll();
     this.selectedProject.set(project);
+    afterNextRender(() => {
+      this.dialogElement()?.nativeElement.querySelector<HTMLButtonElement>('button')?.focus();
+    }, { injector: this.injector });
   }
 
   /**
    * Closes the project dialog and restores page scrolling.
    */
   protected closeProjectDialog(): void {
+    if (!this.selectedProject()) return;
     this.selectedProject.set(null);
     this.unlockPageScroll();
+    this.previousFocus?.focus({ preventScroll: true });
+    this.previousFocus = null;
+  }
+
+  /** Keeps keyboard navigation inside the open project dialog. */
+  @HostListener('document:keydown', ['$event'])
+  protected trapDialogFocus(event: Event): void {
+    const dialog = this.dialogElement()?.nativeElement;
+    if (!dialog || !(event instanceof KeyboardEvent) || event.key !== 'Tab') return;
+    const controls = Array.from(dialog.querySelectorAll<HTMLElement>('button, a[href], [tabindex="0"]'));
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    const active = document.activeElement;
+    if (!dialog.contains(active) || (event.shiftKey ? active === first : active === last)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first)?.focus();
+    }
   }
 
   /**

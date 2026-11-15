@@ -47,7 +47,7 @@
   </div>
 
   @if (selectedProject(); as project) {
-  <div class="projects-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" (click)="closeProjectDialog()">
+  <div #projectDialog class="projects-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" (click)="closeProjectDialog()">
     <article class="projects-dialog__card" (click)="$event.stopPropagation()">
       <button
         class="projects-dialog__close"
@@ -67,7 +67,7 @@
           />
         }
 
-        <div class="projects-dialog__scroll-area">
+        <div class="projects-dialog__scroll-area" tabindex="0" role="region" [attr.aria-label]="text().aboutQuestion">
           <div class="projects-dialog__content">
             <p class="projects-dialog__number">{{ project.number }}</p>
             <h3 id="project-dialog-title">{{ getLocalizedText(project.title) }}</h3>
@@ -101,12 +101,12 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>GitHub</span>
+              <span>{{ text().github }}</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </a>
           } @else {
             <span class="projects-dialog__action projects-dialog__action--disabled">
-              <span>GitHub</span>
+              <span>{{ text().github }}</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </span>
           }
@@ -118,12 +118,12 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Live Test</span>
+              <span>{{ text().liveTest }}</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </a>
           } @else {
             <span class="projects-dialog__action projects-dialog__action--disabled">
-              <span>Live Test</span>
+              <span>{{ text().liveTest }}</span>
               <span class="projects-dialog__action-icon" aria-hidden="true"></span>
             </span>
           }
