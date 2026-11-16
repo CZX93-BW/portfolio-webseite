@@ -104,15 +104,11 @@ portfolio-webseite/
 │   │   │   └── contact/
 │   │   └── services/
 │   ├── styles/
-│   │   ├── _variables.scss
-│   │   ├── _mixins.scss
-│   │   ├── _base.scss
-│   │   ├── _typography.scss
-│   │   ├── _buttons.scss
-│   │   ├── _links.scss
-│   │   ├── _container.scss
-│   │   ├── _section.scss
-│   │   └── _helpers.scss
+│   │   ├── abstracts/
+│   │   ├── base/
+│   │   ├── components/
+│   │   ├── layout/
+│   │   └── utilities/
 │   └── styles.scss
 ├── angular.json
 ├── package.json
@@ -132,7 +128,7 @@ Make sure the following tools are installed:
 ### Installation
 
 ```bash
-npm install
+npm ci
 ```
 
 ### Start Development Server
@@ -175,11 +171,11 @@ The main page is composed from the section components:
 
 ```html
 <app-hero />
-<app-about-me id="about-me" />
-<app-skill-set id="skills" />
-<app-featured-projects id="projects" />
-<app-testimonials id="testimonials" />
-<app-contact id="contact" />
+<app-about-me />
+<app-skill-set />
+<app-featured-projects />
+<app-testimonials />
+<app-contact />
 ```
 
 This keeps the structure readable and makes it easier to update individual website sections without touching unrelated areas.
@@ -205,8 +201,8 @@ Important responsive goals:
 - Stable section widths
 - Readable typography on all devices
 - Mobile menu only on small screens
-- Fixed header behavior on tablet and desktop
-- Non-fixed header behavior on mobile
+- Fixed header across desktop, tablet and mobile
+- Anchor offsets keep section headings below the header
 - Project dialogs usable on small screens
 - Internal dialog scrolling without background scroll
 - Legal pages readable on mobile
@@ -236,19 +232,19 @@ public/data/projects.json
 
 The projects section is designed to be extendable. New projects can be added by extending the JSON data instead of duplicating template markup.
 
-Example data structure:
+Example data structure (text fields may be shared strings or localized objects):
 
 ```json
 {
   "id": "join",
-  "title": "Join",
-  "description": "Task manager inspired by the Kanban system.",
-  "technologies": [
-    { "name": "Angular", "iconPath": "icons/..." }
-  ],
-  "previewImagePath": "img/projects/...",
-  "githubUrl": "https://...",
-  "liveUrl": "https://..."
+  "number": "01",
+  "title": { "en": "Join", "de": "Join" },
+  "description": { "en": "Kanban task manager.", "de": "Kanban-Task-Manager." },
+  "technologies": [{ "name": "Angular", "iconPath": "icons/skillicons/angular.svg" }],
+  "previewImagePath": "img/joinbsp.jpg",
+  "dialogImagePath": "img/joinbsp.jpg",
+  "githubUrl": "https://github.com/CZX93-BW/Join",
+  "liveUrl": "https://join.bastian-wollny.de"
 }
 ```
 
@@ -302,7 +298,11 @@ The generated files are located in:
 dist/portfolio-webseite/browser/
 ```
 
-Upload the contents of this folder to the webspace target directory.
+Upload the contents of this folder to the verified domain document root. Back up the existing deployment first, including `.htaccess` and `contact.php`. The path below is an example, not a verified hosting configuration.
+
+The build includes `contact.php` and `.htaccess`. When Apache provides `mod_headers`, the latter asks browsers to revalidate `index.html` and `projects.json`; generated JavaScript and CSS use content hashes. Confirm these headers on IONOS after upload.
+
+The separate delivery package contains verification results and the approval-dependent deployment checklist; review tools are not included in the application.
 
 ### Angular Refresh Routing
 
@@ -362,7 +362,6 @@ Planned or possible future improvements:
 
 - Add more completed portfolio projects
 - Improve accessibility details after final content freeze
-- Add automated tests for services and form validation
 - Add CI build check
 - Consider server-side rate limiting for the contact endpoint
 

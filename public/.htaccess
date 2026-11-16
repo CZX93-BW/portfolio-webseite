@@ -10,3 +10,9 @@ DirectoryIndex index.html
 
   RewriteRule ^ index.html [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(index\.html|projects\.json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
