@@ -1,378 +1,113 @@
-# Portfolio Website
+<h1 align="center">Bastian Wollny · Developer Portfolio</h1>
 
-Personal portfolio website for presenting my developer profile, selected projects, technical skills, testimonials and contact options.  
-The project was built as a modern Angular single page application with a strong focus on responsive design, maintainable component structure and clean frontend architecture.
+<p align="center">My work as a full-stack developer, with playable and interactive demos, feedback from project partners, and a direct way to get in touch.</p>
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![SCSS](https://img.shields.io/badge/SCSS-C6538C?style=for-the-badge&logo=sass&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+<p align="center">
+  <img alt="Angular 21" src="https://img.shields.io/badge/Angular_21-DD0031?style=for-the-badge&amp;logo=angular&amp;logoColor=white">
+  <img alt="TypeScript 5.9" src="https://img.shields.io/badge/TypeScript_5.9-3178C6?style=for-the-badge&amp;logo=typescript&amp;logoColor=white">
+  <img alt="SCSS" src="https://img.shields.io/badge/SCSS-C6538C?style=for-the-badge&amp;logo=sass&amp;logoColor=white">
+  <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&amp;logo=php&amp;logoColor=white">
+</p>
 
-## Table of Contents
+<p align="center">
+  <strong><a href="https://bastian-wollny.de">Visit my portfolio</a></strong> ·
+  <a href="#quickstart">Run locally</a> ·
+  <a href="#technical-documentation">Technical documentation</a>
+</p>
 
-- [Portfolio Website](#portfolio-website)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Tech Stack](#tech-stack)
-  - [Project Structure](#project-structure)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Start Development Server](#start-development-server)
-  - [Available Scripts](#available-scripts)
-  - [Architecture](#architecture)
-    - [Styling Approach](#styling-approach)
-  - [Responsive Design](#responsive-design)
-  - [Internationalization](#internationalization)
-  - [Project Data](#project-data)
-  - [Contact Form](#contact-form)
-  - [Deployment](#deployment)
-    - [Production Build](#production-build)
-    - [Angular Refresh Routing](#angular-refresh-routing)
-  - [Quality Checklist](#quality-checklist)
-  - [Roadmap](#roadmap)
-  - [Author](#author)
-  - [Notes](#notes)
+## Table of contents
 
-## Overview
+1. [About the project](#about-the-project)
+2. [Featured projects](#featured-projects)
+3. [Quickstart](#quickstart)
+4. [Project structure](#project-structure)
+5. [Technical documentation](#technical-documentation)
+6. [Build and deployment](#build-and-deployment)
+7. [Quality checklist](#quality-checklist)
 
-This portfolio is designed to work as a professional developer presentation page. It introduces the profile, shows relevant technologies, lists selected projects and provides a contact form connected to a PHP backend endpoint.
+## About the project
 
-The website is built as a single page application with separate routed legal pages for imprint and privacy policy. The design is based on a Figma layout and was implemented with custom SCSS, reusable variables, mixins and responsive breakpoints.
+I built this portfolio as an individual frontend project during my full-stack development training at Developer Akademie. The desktop and mobile layouts were provided in Figma. I implemented them in Angular and adapted the sections, menus and project dialogs for the screen sizes in between.
 
-## Features
+The site can be explored in German or English. Visitors can read about my background, browse the technologies I work with, try a project, read feedback from the people I worked with and send me a message. Angular is used for the interface. Contact messages are processed by a small PHP endpoint on my IONOS webspace.
 
-- Responsive Angular single page application
-- Global header and footer
-- Mobile burger menu
-- Smooth section navigation
-- Hero section with animated marquee
-- About section with responsive image layout and hover details
-- Skill set section based on maintainable skill data
-- Featured projects section based on external project data
-- Project dialog with internal scroll behavior
-- Testimonials carousel
-- Contact form with frontend validation
-- PHP contact endpoint with server-side validation
-- German and English language structure
-- Legal notice and privacy policy pages
-- Angular refresh routing support via `.htaccess`
-- Desktop, tablet and mobile optimization
+## Featured projects
 
-## Tech Stack
+| Project | My work and the demo | Links |
+| --- | --- | --- |
+| **Join** | A Kanban application built by a team of four. I worked on the Supabase integration and services for contacts, tasks and authentication. The board can be explored with guest access. | [Live demo](https://join.bastian-wollny.de) · [Source](https://github.com/CZX93-BW/Join) |
+| **Sharky – Jump and Swim** | I built this JavaScript Canvas game as an individual project. Two reefs can be explored using the keyboard or touch controls, with collectibles and a boss fight in each level. | [Play Sharky](https://sharky.bastian-wollny.de) · [Source](https://github.com/CZX93-BW/SharkyProject) |
 
-| Area | Technology |
-| --- | --- |
-| Framework | Angular |
-| Language | TypeScript |
-| Styling | SCSS |
-| Data | JSON / TypeScript data files |
-| Contact Backend | PHP |
-| Routing | Angular Router |
-| Deployment | Static hosting with PHP support |
-| Hosting Target | IONOS-compatible webspace |
+## Quickstart
 
-## Project Structure
+Use Node.js 24 and npm. The project specifies npm 11.9.0 and includes the Angular CLI as a development dependency. These commands work in Windows CMD, PowerShell and a Unix shell.
 
-```txt
-portfolio-webseite/
-├── public/
-│   ├── data/
-│   │   └── projects.json
-│   ├── icons/
-│   ├── img/
-│   ├── contact.php
-│   └── .htaccess
-├── src/
-│   ├── app/
-│   │   ├── data/
-│   │   │   └── translations.ts
-│   │   ├── layout/
-│   │   │   ├── header/
-│   │   │   └── footer/
-│   │   ├── models/
-│   │   ├── pages/
-│   │   │   ├── legal-notice/
-│   │   │   └── privacy-policy/
-│   │   ├── sections/
-│   │   │   ├── hero/
-│   │   │   ├── about-me/
-│   │   │   ├── skill-set/
-│   │   │   ├── featured-projects/
-│   │   │   ├── testimonials/
-│   │   │   └── contact/
-│   │   └── services/
-│   ├── styles/
-│   │   ├── abstracts/
-│   │   ├── base/
-│   │   ├── components/
-│   │   ├── layout/
-│   │   └── utilities/
-│   └── styles.scss
-├── angular.json
-├── package.json
-└── README.md
-```
-
-## Getting Started
-
-### Prerequisites
-
-Make sure the following tools are installed:
-
-- Node.js LTS
-- npm
-- Angular CLI
-
-### Installation
-
-```bash
+```sh
+git clone https://github.com/CZX93-BW/portfolio-webseite.git
+cd portfolio-webseite
 npm ci
-```
-
-### Start Development Server
-
-```bash
 npm start
 ```
 
-The application will usually be available at:
+The development server opens [localhost:4200](http://localhost:4200). For an existing checkout, run the last two commands from its root. The language switch, project dialogs and client-side form validation can all be used locally. Actual mail delivery requires the built site to be served with PHP and a configured mail transport.
 
-```txt
-http://localhost:4200
+## Project structure
+
+```text
+public/
+  data/projects.json    Project descriptions, image paths and demo links
+  fonts/                Karla and Fira Code with their licences
+  icons/                Interface, technology and social icons
+  img/                  Portrait, logos and project previews
+  .htaccess             Apache routing and cache headers
+  contact.php           Contact endpoint and mail delivery
+src/
+  main.ts               Angular bootstrap
+  app/
+    app.config.ts       Router and HTTP providers
+    app.routes.ts       Homepage, legal notice and privacy routes
+    app.html            Shared header, router outlet and footer
+    layout/             Header, mobile navigation and footer
+    pages/              Main page and the two legal pages
+    sections/           Hero, About Me, Skill Set, projects, testimonials and contact
+    data/               Interface translations and legal copy
+    models/             Project, language and contact contracts
+    services/           Language state, project loading and contact requests
+  styles/               Shared SCSS partials
+  styles.scss           Global stylesheet entry point
+docs/                   Technical documentation
 ```
 
-## Available Scripts
+## Technical documentation
 
-```bash
-npm start
-```
+| Guide | What I cover |
+| --- | --- |
+| [Architecture and navigation](docs/architecture.md) | How the application starts, how sections and routes fit together, and where state is kept. |
+| [Content and languages](docs/content-and-languages.md) | Hero, profile, skills, testimonials, footer, legal pages and the DE/EN content workflow. |
+| [Featured projects](docs/featured-projects.md) | JSON contract, previews, dialog lifecycle and how I add a project. |
+| [Contact form and PHP](docs/contact.md) | Field validation, request and response formats, failure handling and mail delivery. |
+| [Styling and accessibility](docs/styling-and-accessibility.md) | Shared SCSS, responsive layouts, local fonts, keyboard controls and focus. |
+| [Design decisions](docs/design-decisions.md) | Why I separated routes from fragments, project data from templates and mail delivery from the frontend. |
+| [Deployment and troubleshooting](docs/deployment.md) | Build output, SFTP upload, Apache routing, caching, verification and rollback. |
 
-Starts the local Angular development server.
+## Build and deployment
 
-```bash
+```sh
 npm run build
 ```
 
-Creates a production-ready build.
-
-```bash
-ng build --configuration production
-```
-
-Creates the production build explicitly with Angular CLI.
-
-## Architecture
-
-The application follows a component-based structure. Each visible website area is implemented as an independent section component. Shared layout elements such as header and footer are global components.
-
-The main page is composed from the section components:
-
-```html
-<app-hero />
-<app-about-me />
-<app-skill-set />
-<app-featured-projects />
-<app-testimonials />
-<app-contact />
-```
-
-This keeps the structure readable and makes it easier to update individual website sections without touching unrelated areas.
-
-### Styling Approach
-
-The SCSS setup uses global design foundations and local component styling:
-
-- Variables for colors, typography, spacing and layout values
-- Mixins for media queries and reusable responsive patterns
-- Component SCSS for section-specific layout behavior
-- Minimum readable font size of `16px`
-- Fluid scaling with `clamp()` where useful
-- Dedicated responsive breakpoints for mobile, tablet and desktop states
-
-## Responsive Design
-
-The layout follows a desktop-first approach, with responsive refinements for tablet, mobile and landscape viewports.
-
-Important responsive goals:
-
-- No horizontal overflow
-- Stable section widths
-- Readable typography on all devices
-- Mobile menu only on small screens
-- Fixed header across desktop, tablet and mobile
-- Anchor offsets keep section headings below the header
-- Project dialogs usable on small screens
-- Internal dialog scrolling without background scroll
-- Legal pages readable on mobile
-- Contact form stable between tablet and desktop widths
-
-## Internationalization
-
-The project contains a language structure for German and English content.
-
-Translations are separated from component markup and stored in a central data file:
-
-```txt
-src/app/data/translations.ts
-```
-
-The language state is handled through a language service. Components read their visible text from the translation data instead of hardcoding all text directly in templates.
-
-This keeps the project easier to maintain and allows future text updates without rewriting component logic.
-
-## Project Data
-
-Featured projects are stored as external data:
-
-```txt
-public/data/projects.json
-```
-
-The projects section is designed to be extendable. New projects can be added by extending the JSON data instead of duplicating template markup.
-
-Example data structure (text fields may be shared strings or localized objects):
-
-```json
-{
-  "id": "join",
-  "number": "01",
-  "title": { "en": "Join", "de": "Join" },
-  "description": { "en": "Kanban task manager.", "de": "Kanban-Task-Manager." },
-  "technologies": [{ "name": "Angular", "iconPath": "icons/skillicons/angular.svg" }],
-  "previewImagePath": "img/joinbsp.jpg",
-  "dialogImagePath": "img/joinbsp.jpg",
-  "githubUrl": "https://github.com/CZX93-BW/Join",
-  "liveUrl": "https://join.bastian-wollny.de"
-}
-```
-
-## Contact Form
-
-The contact form consists of two validation layers:
-
-1. Angular frontend validation
-2. PHP server-side validation
-
-The PHP endpoint is located in:
-
-```txt
-public/contact.php
-```
-
-The endpoint accepts JSON POST requests and validates:
-
-- Request method
-- JSON body
-- Payload size
-- Name length and content
-- E-mail format
-- E-mail host/domain
-- DNS records for mail delivery
-- Message length
-- Header injection attempts
-- Honeypot field for basic bot protection
-
-The Angular form sends a visually hidden `website` field that should remain empty. The PHP endpoint rejects non-empty honeypot values. This provides basic bot filtering, not protection against targeted requests or repeated submissions; server-side rate limiting remains a possible improvement.
-
-The server sends mail through a domain-based sender address:
-
-```txt
-kontakt@bastian-wollny.de
-```
-
-This is important because many hosting providers reject mail attempts where the technical sender does not belong to the hosted domain.
-
-## Deployment
-
-### Production Build
-
-```bash
-ng build --configuration production
-```
-
-The generated files are located in:
-
-```txt
-dist/portfolio-webseite/browser/
-```
-
-Upload the contents of this folder to the verified domain document root. Back up the existing deployment first, including `.htaccess` and `contact.php`. The path below is an example, not a verified hosting configuration.
-
-The build includes `contact.php` and `.htaccess`. When Apache provides `mod_headers`, the latter asks browsers to revalidate `index.html` and `projects.json`; generated JavaScript and CSS use content hashes. Confirm these headers on IONOS after upload.
-
-The separate delivery package contains verification results and the approval-dependent deployment checklist; review tools are not included in the application.
-
-### Angular Refresh Routing
-
-For direct route refreshes such as `/legal-notice` or `/privacy-policy`, the project uses an `.htaccess` file.
-
-Example:
-
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-
-  RewriteRule ^ index.html [L]
-</IfModule>
-```
-
-The `.htaccess` file must be placed next to the deployed `index.html`.
-
-Example server structure:
-
-```txt
-/public/portfolio/
-├── .htaccess
-├── index.html
-├── contact.php
-├── icons/
-├── img/
-└── media/
-```
-
-## Quality Checklist
-
-Before deployment, verify:
-
-- The app builds successfully
-- No relevant console errors
-- Header navigation scrolls to the correct sections
-- Mobile burger menu opens below the menu icon
-- Project dialog opens and closes correctly
-- Project dialog does not scroll the background page
-- Dialog buttons remain visible and usable
-- External links open in a new tab
-- Contact form sends mail successfully
-- Error messages are visible but not visually overpowering
-- Legal notice and privacy policy are readable on mobile
-- No text falls below `16px`
-- No horizontal scrollbar appears
-- Refreshing routed pages works on the live server
-
-## Roadmap
-
-Planned or possible future improvements:
-
-- Add more completed portfolio projects
-- Improve accessibility details after final content freeze
-- Add CI build check
-- Consider server-side rate limiting for the contact endpoint
-
-## Author
-
-**Bastian Wollny**  
-IHK-certified IT specialist for application development, focused on fullstack web development
-
-Portfolio: `bastian-wollny.de`
-
-## Notes
-
-This portfolio was created as part of a web development learning project. The implementation focuses on practical frontend architecture, responsive SCSS, Angular component structure and real deployment requirements.
-
+The production files are written to `dist/portfolio-webseite/browser/`. Its contents are uploaded to the portfolio domain's document root, with `index.html` uploaded after the assets it references. An existing release can be backed up and restored as described in the [deployment guide](docs/deployment.md).
+
+## Quality checklist
+
+I use this checklist before a release and repeat the hosting checks on the deployed domain.
+
+- [ ] Build the project and review compiler warnings, browser console errors and failed network requests.
+- [ ] Follow the header links. Check that each heading clears the fixed header and that the mobile menu opens below its trigger.
+- [ ] Check short and tall viewports in portrait and landscape. Look for horizontal scrolling, clipped text, overlap and text below the 16 px readability target.
+- [ ] Switch between German and English. Check the page language, project descriptions, testimonials and form feedback.
+- [ ] Open a project with the keyboard. Check focus, scrolling inside the dialog, background scroll lock, button visibility, Escape and focus return.
+- [ ] Visit both project demos and source repositories. Check that external web links open in a new tab.
+- [ ] Check blur validation, error-message spacing, browser autofill and the required privacy checkbox.
+- [ ] Send a message through the deployed PHP endpoint and verify feedback and receipt in the destination mailbox.
+- [ ] Read both legal pages on mobile, open their URLs directly and reload them. Verify HTTPS redirection on the host.
