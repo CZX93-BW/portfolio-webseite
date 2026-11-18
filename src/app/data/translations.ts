@@ -20,7 +20,7 @@ export const translations = {
       homepageLabel: 'Go to the homepage',
     },
     hero: {
-      role: 'Full-stack Developer',
+      role: 'Full-Stack Developer',
       title: 'Bastian Wollny',
       workButton: 'Check my work',
       contactButton: 'Contact me',
@@ -224,7 +224,7 @@ export const translations = {
     },
     projects: {
       label: 'Portfolio',
-      title: 'Featured Projects',
+      title: 'Ausgewählte Projekte',
       intro:
         'Hier findest du eine Auswahl meiner Arbeiten. Öffne ein Projekt, um mehr darüber zu erfahren oder die Demo auszuprobieren.',
       closeDialog: 'Projekt-Dialog schließen',
