@@ -68,4 +68,10 @@ export interface Project {
    * External live demo URL.
    */
   liveUrl: string;
+
+  /** Documentation action used when a public live demo is unavailable. */
+  documentationUrl?: string;
+
+  /** Localized caption for a typographic backend cover when no image is supplied. */
+  previewCaption?: LocalizedText;
 }

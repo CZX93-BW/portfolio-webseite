@@ -12,9 +12,17 @@ When the section is initialised, [ProjectService](../src/app/services/project.se
 | `title`, `description` | Each accepts a shared string or an object with `en` and `de`. The current language is selected at render time, with English as a fallback. |
 | `technologies` | An ordered list of names and icon paths is used for the list summary and dialog. |
 | `previewImagePath`, `dialogImagePath` | Separate paths are supported for the two layouts. The same image can also be used in both. |
-| `githubUrl`, `liveUrl` | External actions are rendered from these URLs. An empty URL is displayed as a disabled action. |
+| `githubUrl`, `liveUrl` | External actions are rendered from these URLs. An empty GitHub URL is displayed as a disabled action. |
+| `documentationUrl` | An optional documentation action is used when `liveUrl` is empty. If both are empty, the live action is displayed as disabled. |
+| `previewCaption` | An optional localised caption is used with the project title for a typographic backend cover when the corresponding image path is empty. |
 
 To add a project, I copy an entry in [projects.json](../public/data/projects.json), assign a unique ID and display number, fill in both languages, and place its images under `public/img/`. A public file at `public/img/example.jpg` is referenced as `img/example.jpg`. Record order determines the order of the list and the next-project action.
+
+## Backend projects
+
+I added Coderr and KanMind as entries 03 and 04. Their descriptions identify my backend work and the separately supplied Developer Akademie frontend. Repository documentation is linked while a public demo URL is unavailable. To enable a published demo, I set `liveUrl` after checking the application. The demo action then takes precedence over documentation.
+
+Typographic covers are rendered by [BackendPreview](../src/app/sections/featured-projects/backend-preview/backend-preview.ts). I use project names, Python and Django icons and a localised caption. These covers reserve the same space as project images. A supplied image path takes precedence and can replace a cover later.
 
 ## From preview to dialog
 

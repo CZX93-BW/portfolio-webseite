@@ -4,6 +4,7 @@ import { translations } from '../../data/translations';
 import { LocalizedText, Project } from '../../models/project.model';
 import { LanguageService } from '../../services/language';
 import { ProjectService } from '../../services/project.service';
+import { BackendPreview } from './backend-preview/backend-preview';
 
 /**
  * Featured projects section component.
@@ -14,7 +15,7 @@ import { ProjectService } from '../../services/project.service';
  */
 @Component({
   selector: 'app-featured-projects',
-  imports: [],
+  imports: [BackendPreview],
   templateUrl: './featured-projects.html',
   styleUrl: './featured-projects.scss',
 })

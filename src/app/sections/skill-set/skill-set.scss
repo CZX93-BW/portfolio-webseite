@@ -1,4 +1,5 @@
 @use '../../../styles/abstracts/mixins' as mixins;
+@use './skill-categories';
 
 .skills {
   background: var(--skills-gradient);
@@ -6,7 +7,7 @@
 
 .skills__container {
   display: grid;
-  grid-template-columns: 520px 1fr;
+  grid-template-columns: 520px minmax(0, 1fr);
   gap: 96px;
   width: min(
     calc(100% - (var(--container-padding-desktop) * 2)),
@@ -110,16 +111,17 @@
 
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(4, 104px);
-  column-gap: 48px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 24px;
   row-gap: 40px;
-  padding-top: 48px;
+  padding-top: 0;
 }
 
 .skills__item {
   position: relative;
   display: grid;
-  width: 104px;
+  width: 100%;
+  min-width: 0;
   min-height: 116px;
   justify-items: center;
   align-content: start;
@@ -150,6 +152,8 @@
   line-height: var(--line-height-default);
   letter-spacing: var(--letter-spacing-navigation);
   text-align: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .skills__learning-bubble {
@@ -162,7 +166,7 @@
   gap: 10px;
   padding: 12px 14px;
   border-radius: 14px;
-  color: #4ddff2;
+  color: #123e35;
   background: rgba(245, 248, 250, 0.97);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
   opacity: 0;
@@ -184,17 +188,6 @@
   transform: rotate(45deg);
 }
 
-.skills__learning-bubble p {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: #4ddff2;
-  font-family: var(--font-primary);
-  font-size: 16px;
-  line-height: 1.15;
-  text-align: center;
-}
-
 .skills__learning-icons {
   position: relative;
   z-index: 1;
@@ -207,7 +200,7 @@
   display: grid;
   justify-items: center;
   gap: 4px;
-  color: #4ddff2;
+  color: #123e35;
   font-family: var(--font-accent);
   font-size: 16px;
 }
@@ -226,18 +219,6 @@
 
 @include mixins.below-xl {
   .skills__container {
-    grid-template-columns: 460px 1fr;
-    gap: 56px;
-  }
-
-  .skills__grid {
-    grid-template-columns: repeat(3, 104px);
-    column-gap: 40px;
-  }
-}
-
-@include mixins.below-lg {
-  .skills__container {
     grid-template-columns: minmax(0, 568px);
     justify-content: center;
     gap: 72px;
@@ -248,7 +229,7 @@
   }
 
   .skills__grid {
-    grid-template-columns: repeat(4, 104px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-content: center;
     padding-top: 0;
   }
@@ -308,7 +289,7 @@
   }
 
   .skills__grid {
-    grid-template-columns: repeat(3, 104px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: space-between;
     column-gap: 16px;
     row-gap: 28px;

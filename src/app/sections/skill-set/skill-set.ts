@@ -1,40 +1,10 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal, viewChildren } from '@angular/core';
 
+import { sharedSkills, SkillItem, skillGroups } from '../../data/skills';
 import { translations } from '../../data/translations';
 import { LanguageService } from '../../services/language';
 
-/**
- * Single skill entry rendered in the skill grid.
- */
-interface SkillItem {
-  /**
-   * Visible skill label.
-   */
-  name: string;
-
-  /**
-   * Public asset path to the skill icon.
-   */
-  iconPath: string;
-}
-
-/**
- * Internal grouping for maintaining skills by category.
- *
- * Group titles are used for data organization and do not need to be rendered as
- * visible headings in the current design.
- */
-interface SkillGroup {
-  title: string;
-  skills: SkillItem[];
-}
-
-/**
- * Skill set section component.
- *
- * Displays the technology overview and keeps the skill data grouped internally
- * while exposing a flat list to the template.
- */
+/** Displays grouped skills with keyboard-accessible tabs and stable panel dimensions. */
 @Component({
   selector: 'app-skill-set',
   imports: [],
@@ -43,40 +13,33 @@ interface SkillGroup {
 })
 export class SkillSet {
   private readonly languageService = inject(LanguageService);
+  private readonly tabs = viewChildren<ElementRef<HTMLButtonElement>>('skillTab');
 
-  /**
-   * Skill-section translation block for the active language.
-   */
-  protected readonly text = computed(() => {
-    return translations[this.languageService.currentLanguage()].skills;
-  });
+  protected readonly skillGroups = skillGroups;
+  protected readonly sharedSkills = sharedSkills;
+  protected readonly activeCategory = signal(0);
+  protected readonly text = computed(
+    () => translations[this.languageService.currentLanguage()].skills,
+  );
 
-  /**
-   * Internally grouped skill data.
-   */
-  protected readonly skillGroups: SkillGroup[] = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'HTML', iconPath: 'icons/skillset/html.svg' },
-        { name: 'CSS', iconPath: 'icons/skillset/css.svg' },
-        { name: 'JavaScript', iconPath: 'icons/skillset/javascript.svg' },
-        { name: 'Material Design', iconPath: 'icons/skillset/material_design.svg' },
-        { name: 'TypeScript', iconPath: 'icons/skillset/typescript.svg' },
-        { name: 'Angular', iconPath: 'icons/skillset/angular.svg' },
-        { name: 'Supabase', iconPath: 'icons/skillset/supabase.svg' },
-        { name: 'Git', iconPath: 'icons/skillset/git.svg' },
-        { name: 'REST-API', iconPath: 'icons/skillset/rest_api.svg' },
-        { name: 'Scrum', iconPath: 'icons/skillset/scrum.svg' },
-        { name: 'Growth mindset', iconPath: 'icons/skillset/growthmindset.svg' },
-      ],
-    },
-  ];
+  /** Resolves translated practice labels while retaining product names. */
+  protected skillName(skill: SkillItem): string {
+    return skill.labelKey ? this.text().names[skill.labelKey] : skill.name;
+  }
 
-  /**
-   * Flat skill list consumed by the template.
-   */
-  protected get skills(): SkillItem[] {
-    return this.skillGroups.flatMap((group) => group.skills);
+  /** Selects and focuses tabs with arrow keys, Home and End using automatic activation. */
+  protected navigateTabs(event: KeyboardEvent, index: number): void {
+    const count = this.skillGroups.length;
+    const destinations: Record<string, number> = {
+      ArrowRight: (index + 1) % count,
+      ArrowLeft: (index + count - 1) % count,
+      Home: 0,
+      End: count - 1,
+    };
+    const next = destinations[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    this.activeCategory.set(next);
+    this.tabs()[next]?.nativeElement.focus();
   }
 }

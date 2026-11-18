@@ -42,5 +42,77 @@
     "dialogImagePath": "img/sharky_preview.png",
     "githubUrl": "https://github.com/CZX93-BW/SharkyProject",
     "liveUrl": "https://sharky.bastian-wollny.de"
+  },
+  {
+    "id": "coderr",
+    "number": "03",
+    "title": "Coderr",
+    "description": {
+      "en": "My Django REST backend for a service marketplace with customer and business accounts, tiered offers, orders and reviews. I implemented the data models, API, validation and access rules and verified the workflows with Django tests and Postman. The frontend was provided by Developer Akademie. I am currently expanding the deployment with Docker and Compose.",
+      "de": "Mein Django-REST-Backend für einen Dienstleistungsmarktplatz mit Kunden- und Anbieterprofilen, Angebotspaketen, Bestellungen und Bewertungen. Ich habe Datenmodelle, API, Validierung und Zugriffsregeln umgesetzt und die Abläufe mit Django-Tests und Postman geprüft. Das Frontend wurde von der Developer Akademie bereitgestellt. Aktuell erweitere ich das Deployment mit Docker und Compose."
+    },
+    "technologies": [
+      {
+        "name": "Python",
+        "iconPath": "icons/skillset/python.svg"
+      },
+      {
+        "name": "Django",
+        "iconPath": "icons/skillset/django.svg"
+      },
+      {
+        "name": "DRF",
+        "iconPath": "icons/skillset/drf.svg"
+      },
+      {
+        "name": "SQLite",
+        "iconPath": "icons/skillset/sql.svg"
+      }
+    ],
+    "previewImagePath": "",
+    "dialogImagePath": "",
+    "previewCaption": {
+      "en": "Services, orders and reviews",
+      "de": "Dienstleistungen, Bestellungen und Bewertungen"
+    },
+    "githubUrl": "https://github.com/CZX93-BW/coderr-backend",
+    "liveUrl": "",
+    "documentationUrl": "https://github.com/CZX93-BW/coderr-backend#project-documentation"
+  },
+  {
+    "id": "kanmind",
+    "number": "04",
+    "title": "KanMind",
+    "description": {
+      "en": "My Django REST backend for collaborative Kanban project management. I implemented boards, tasks, assignments and comments, including token authentication and access rules based on ownership and board membership. Input validation and API workflows were checked with Postman. The frontend was provided by Developer Akademie.",
+      "de": "Mein Django-REST-Backend für die gemeinsame Projektverwaltung nach dem Kanban-Prinzip. Ich habe Boards, Aufgaben, Zuweisungen und Kommentare sowie Token-Authentifizierung und Zugriffsregeln anhand von Besitz und Board-Mitgliedschaft umgesetzt. Eingabevalidierung und API-Abläufe wurden mit Postman geprüft. Das Frontend wurde von der Developer Akademie bereitgestellt."
+    },
+    "technologies": [
+      {
+        "name": "Python",
+        "iconPath": "icons/skillset/python.svg"
+      },
+      {
+        "name": "Django",
+        "iconPath": "icons/skillset/django.svg"
+      },
+      {
+        "name": "DRF",
+        "iconPath": "icons/skillset/drf.svg"
+      },
+      {
+        "name": "SQLite",
+        "iconPath": "icons/skillset/sql.svg"
+      }
+    ],
+    "previewImagePath": "",
+    "dialogImagePath": "",
+    "previewCaption": {
+      "en": "Boards, tasks and collaboration",
+      "de": "Boards, Aufgaben und Zusammenarbeit"
+    },
+    "githubUrl": "https://github.com/CZX93-BW/kanmind-backend",
+    "liveUrl": "",
+    "documentationUrl": "https://github.com/CZX93-BW/kanmind-backend#project-documentation"
   }
 ]

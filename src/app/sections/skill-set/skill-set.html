@@ -10,7 +10,9 @@
           <p class="skills__intro">{{ text().intro }}</p>
 
           <div class="skills__contact">
-            <h3>{{ text().questionStart }} <span>{{ text().questionHighlight }}</span></h3>
+            <h3>
+              {{ text().questionStart }} <span>{{ text().questionHighlight }}</span>
+            </h3>
             <p>{{ text().contact }}</p>
           </div>
 
@@ -21,33 +23,81 @@
       </article>
     </div>
 
-    <div class="skills__grid" [attr.aria-label]="text().ariaLabel">
-      @for (skill of skills; track skill.name) {
-        <article
-          class="skills__item"
-          [class.skills__item--growth]="skill.name === 'Growth mindset'"
-        >
-          <img class="skills__icon" [src]="skill.iconPath" alt="" />
-          <p>{{ skill.name === 'Growth mindset' ? text().growthMindset : skill.name }}</p>
+    <div class="skills__catalogue">
+      <div class="skills__tabs" role="tablist" [attr.aria-label]="text().categoriesLabel">
+        @for (group of skillGroups; track group.id; let index = $index) {
+          <button
+            #skillTab
+            class="skills__tab"
+            type="button"
+            role="tab"
+            [id]="'skill-tab-' + group.id"
+            [attr.aria-controls]="'skill-panel-' + group.id"
+            [attr.aria-selected]="activeCategory() === index"
+            [tabIndex]="activeCategory() === index ? 0 : -1"
+            (click)="activeCategory.set(index)"
+            (keydown)="navigateTabs($event, index)"
+          >
+            {{ text().categories[group.id] }}
+          </button>
+        }
+      </div>
 
-          @if (skill.name === 'Growth mindset') {
-            <div class="skills__learning-bubble" aria-hidden="true">
-              <p>{{ text().learningInterest }}</p>
-
-              <div class="skills__learning-icons">
-                <span class="skills__learning-skill skills__learning-skill--react">
-                  <img src="icons/skillset/react.svg" alt="" />
-                  React
-                </span>
-                <span class="skills__learning-skill skills__learning-skill--vue">
-                  <img src="icons/skillset/vuejs.svg" alt="" />
-                  Vue.js
-                </span>
-              </div>
+      <div class="skills__panels">
+        @for (group of skillGroups; track group.id; let index = $index) {
+          <div
+            class="skills__panel"
+            role="tabpanel"
+            [id]="'skill-panel-' + group.id"
+            [attr.aria-labelledby]="'skill-tab-' + group.id"
+            [attr.aria-hidden]="activeCategory() !== index"
+            [attr.inert]="activeCategory() !== index ? '' : null"
+            [tabIndex]="activeCategory() === index ? 0 : -1"
+          >
+            <p class="skills__category-description">{{ text().descriptions[group.id] }}</p>
+            <div class="skills__grid">
+              @for (skill of group.skills; track skill.name) {
+                <article class="skills__item">
+                  <img class="skills__icon" [src]="skill.iconPath" alt="" width="60" height="60" />
+                  <p>{{ skillName(skill) }}</p>
+                  @if (skill.learning) {
+                    <span class="skills__learning-status">{{ text().learningStatus }}</span>
+                  }
+                </article>
+              }
             </div>
-          }
-        </article>
-      }
+          </div>
+        }
+      </div>
+
+      <div class="skills__shared" role="group" [attr.aria-label]="text().sharedLabel">
+        @for (skill of sharedSkills; track skill.name) {
+          <article
+            class="skills__item"
+            [class.skills__item--growth]="skill.name === 'Growth mindset'"
+          >
+            <img class="skills__icon" [src]="skill.iconPath" alt="" width="60" height="60" />
+            <p>{{ skillName(skill) }}</p>
+            @if (skill.name === 'Growth mindset') {
+              <details class="skills__learning-details">
+                <summary>{{ text().learningInterest }}</summary>
+                <div class="skills__learning-bubble">
+                  <div class="skills__learning-icons">
+                    <span class="skills__learning-skill">
+                      <img src="icons/skillset/react.svg" alt="" width="32" height="32" />
+                      React
+                    </span>
+                    <span class="skills__learning-skill">
+                      <img src="icons/skillset/vuejs.svg" alt="" width="32" height="32" />
+                      Vue.js
+                    </span>
+                  </div>
+                </div>
+              </details>
+            }
+          </article>
+        }
+      </div>
     </div>
   </div>
 </section>
