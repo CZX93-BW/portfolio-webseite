@@ -20,7 +20,7 @@ To add a project, I copy an entry in [projects.json](../public/data/projects.jso
 
 ## Backend projects
 
-I added Coderr and KanMind as entries 03 and 04. Their descriptions identify my backend work and the separately supplied Developer Akademie frontend. Repository documentation is linked while a public demo URL is unavailable. To enable a published demo, I set `liveUrl` after checking the application. The demo action then takes precedence over documentation.
+I added Coderr and KanMind as entries 03 and 04. Their descriptions identify my backend work and the separately supplied Developer Akademie frontend. Coderr is deployed with Docker and Compose and is linked through the live-demo action at `https://coderr.bastian-wollny.de/`. I use `public/img/coderr_img.png` for its list preview and dialog. KanMind continues to link to repository documentation while its `liveUrl` is empty. A live-demo URL takes precedence over the documentation action.
 
 Typographic covers are rendered by [BackendPreview](../src/app/sections/featured-projects/backend-preview/backend-preview.ts). I use project names, Python and Django icons and a localised caption. These covers reserve the same space as project images. A supplied image path takes precedence and can replace a cover later.
 

@@ -48,8 +48,8 @@
     "number": "03",
     "title": "Coderr",
     "description": {
-      "en": "My Django REST backend for a service marketplace with customer and business accounts, tiered offers, orders and reviews. I implemented the data models, API, validation and access rules and verified the workflows with Django tests and Postman. The frontend was provided by Developer Akademie. I am currently expanding the deployment with Docker and Compose.",
-      "de": "Mein Django-REST-Backend für einen Dienstleistungsmarktplatz mit Kunden- und Anbieterprofilen, Angebotspaketen, Bestellungen und Bewertungen. Ich habe Datenmodelle, API, Validierung und Zugriffsregeln umgesetzt und die Abläufe mit Django-Tests und Postman geprüft. Das Frontend wurde von der Developer Akademie bereitgestellt. Aktuell erweitere ich das Deployment mit Docker und Compose."
+      "en": "My Django REST backend for a service marketplace with customer and business accounts, tiered offers, orders and reviews. I implemented the data models, API, validation and access rules and verified the workflows with Django tests and Postman. The frontend was provided by Developer Akademie. The application is deployed with Docker and Compose and can be tried in the live demo.",
+      "de": "Mein Django-REST-Backend für einen Dienstleistungsmarktplatz mit Kunden- und Anbieterprofilen, Angebotspaketen, Bestellungen und Bewertungen. Ich habe Datenmodelle, API, Validierung und Zugriffsregeln umgesetzt und die Abläufe mit Django-Tests und Postman geprüft. Das Frontend wurde von der Developer Akademie bereitgestellt. Die Anwendung ist mit Docker und Compose bereitgestellt und kann über die Live-Demo ausprobiert werden."
     },
     "technologies": [
       {
@@ -69,14 +69,14 @@
         "iconPath": "icons/skillset/sql.svg"
       }
     ],
-    "previewImagePath": "",
-    "dialogImagePath": "",
+    "previewImagePath": "img/coderr_img.png",
+    "dialogImagePath": "img/coderr_img.png",
     "previewCaption": {
       "en": "Services, orders and reviews",
       "de": "Dienstleistungen, Bestellungen und Bewertungen"
     },
     "githubUrl": "https://github.com/CZX93-BW/coderr-backend",
-    "liveUrl": "",
+    "liveUrl": "https://coderr.bastian-wollny.de/",
     "documentationUrl": "https://github.com/CZX93-BW/coderr-backend#project-documentation"
   },
   {
